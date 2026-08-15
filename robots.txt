@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://craighenderson69ch-pixel.github.io/henderson-group/sitemap.xml
