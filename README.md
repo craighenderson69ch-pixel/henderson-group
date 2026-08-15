@@ -2,7 +2,7 @@
 
 Production static landing page for Henderson Group — exclusive, done-for-you client acquisition. One client. One mandate.
 
-This repository is the public site. Copy matches the Henderson Group source page (exclusive DFY lead gen, nine verticals, four-step approach, Craig Henderson biography, FAQ, private consultation). Client results and dollar figures are not invented. Verified references are available on private request.
+This repository is the public site. Exclusive done-for-you lead generation, nine industries, four-step approach, Craig and Leona Henderson, FAQ, and a design-brief consultation form. Client results and dollar figures are not invented. Verified references are available on private request.
 
 ## Public URL
 

@@ -1,6 +1,6 @@
 // Country list with flag emoji for the region combobox.
 window.COUNTRIES = [
-  ["🇺🇸","United States"],["🇬🇧","United Kingdom"],["🇦🇺","Australia"],["🇨🇦","Canada"],["🇳🇿","New Zealand"],
+  ["🇧🇷","Brazil"],["🇺🇸","United States"],["🇬🇧","United Kingdom"],["🇦🇺","Australia"],["🇨🇦","Canada"],["🇳🇿","New Zealand"],
   ["🇸🇬","Singapore"],["🇦🇪","United Arab Emirates"],["🇸🇦","Saudi Arabia"],["🇶🇦","Qatar"],["🇰🇼","Kuwait"],
   ["🇭🇰","Hong Kong SAR"],["🇯🇵","Japan"],["🇰🇷","South Korea"],["🇹🇼","Taiwan"],["🇨🇳","China"],
   ["🇮🇳","India"],["🇮🇩","Indonesia"],["🇲🇾","Malaysia"],["🇹🇭","Thailand"],["🇵🇭","Philippines"],
@@ -10,7 +10,7 @@ window.COUNTRIES = [
   ["🇫🇮","Finland"],["🇮🇸","Iceland"],["🇵🇱","Poland"],["🇨🇿","Czech Republic"],["🇸🇰","Slovakia"],
   ["🇭🇺","Hungary"],["🇷🇴","Romania"],["🇧🇬","Bulgaria"],["🇬🇷","Greece"],["🇹🇷","Turkey"],
   ["🇨🇾","Cyprus"],["🇲🇹","Malta"],["🇭🇷","Croatia"],["🇸🇮","Slovenia"],["🇷🇸","Serbia"],
-  ["🇺🇦","Ukraine"],["🇱🇹","Lithuania"],["🇱🇻","Latvia"],["🇪🇪","Estonia"],["🇧🇷","Brazil"],
+  ["🇺🇦","Ukraine"],["🇱🇹","Lithuania"],["🇱🇻","Latvia"],["🇪🇪","Estonia"],
   ["🇦🇷","Argentina"],["🇨🇱","Chile"],["🇨🇴","Colombia"],["🇵🇪","Peru"],["🇺🇾","Uruguay"],
   ["🇲🇽","Mexico"],["🇵🇦","Panama"],["🇨🇷","Costa Rica"],["🇻🇪","Venezuela"],["🇪🇨","Ecuador"],
   ["🇵🇾","Paraguay"],["🇧🇴","Bolivia"],["🇩🇴","Dominican Republic"],["🇧🇸","Bahamas"],["🇧🇧","Barbados"],
