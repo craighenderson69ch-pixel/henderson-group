@@ -987,7 +987,7 @@ p { margin: 0; }
   letter-spacing: 0.28em;
   text-transform: uppercase;
 }
-.result-meta .vertical { color: var(--plat-200); }
+.result-meta .kind { color: var(--plat-200); }
 .result-meta .region { color: var(--plat-400); }
 .results-note {
   margin-top: 32px;
@@ -1337,6 +1337,12 @@ p { margin: 0; }
   color: var(--plat-400);
   margin-bottom: 8px;
 }
+.field-help {
+  font-size: 13px;
+  color: var(--plat-400);
+  line-height: 1.55;
+  margin: 0 0 12px;
+}
 .input, .select, textarea.input {
   width: 100%;
   padding: 14px 16px;
@@ -1346,6 +1352,11 @@ p { margin: 0; }
   font-family: var(--sans);
   font-size: 15px;
   transition: border-color 0.3s, background 0.3s;
+}
+textarea.input {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.55;
 }
 .input:focus, .select:focus, textarea.input:focus {
   outline: none;
@@ -1512,7 +1523,7 @@ p { margin: 0; }
 }
 .review-row:last-child { border-bottom: none; }
 .review-row .k { color: var(--plat-400); letter-spacing: 0.16em; text-transform: uppercase; font-size: 10px; }
-.review-row .v { color: var(--paper); text-align: right; }
+.review-row .v { color: var(--paper); text-align: right; word-break: break-word; max-width: 62%; }
 
 /* success */
 .form-success {

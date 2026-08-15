@@ -1,5 +1,5 @@
 /* Multi-step consultation form
-   Steps: 1) Industry  2) Region  3) Firm details  4) Contact
+   Steps: 1) Kind of business  2) Where  3) Design brief  4) Contact
    Submits to craig@hendersongroup.com.au via FormSubmit, with mailto fallback.
 */
 (function () {
@@ -14,7 +14,8 @@
     data: {
       industry: "",
       country: "",
-      firmSize: "",
+      leadCapacity: "",
+      buyerDescription: "",
       dealBand: "",
       preferredChannel: "",
       preferredTime: "",
@@ -54,9 +55,9 @@
     2: function () { return state.data.country ? null : { country: "Please choose a country or region." }; },
     3: function () {
       const errs = {};
-      if (!state.data.firmSize) errs.firmSize = "Select a firm size band.";
-      if (!state.data.dealBand) errs.dealBand = "Select an estimated deal band.";
-      if (!state.data.preferredChannel) errs.preferredChannel = "Choose a contact channel.";
+      if (!state.data.leadCapacity) errs.leadCapacity = "Select how many qualified leads you can handle.";
+      const brief = (state.data.buyerDescription || "").trim();
+      if (brief.length < 20) errs.buyerDescription = "Please describe the customer you want — a few sentences is enough.";
       return Object.keys(errs).length ? errs : null;
     },
     4: function () {
@@ -74,7 +75,7 @@
 
   function showErrors(errs) {
     $$("[data-err]").forEach(function (el) { el.classList.remove("show"); el.textContent = ""; });
-    $$(".input, .select, .combo-input").forEach(function (el) { el.classList.remove("err"); });
+    $$(".input, .select, .combo-input, textarea.input").forEach(function (el) { el.classList.remove("err"); });
     if (!errs) return;
     Object.entries(errs).forEach(function (entry) {
       const field = entry[0], msg = entry[1];
@@ -198,7 +199,7 @@
   }
 
   function setupInputs() {
-    $$(".input[name]").forEach(function (inp) {
+    $$(".input[name], textarea.input[name]").forEach(function (inp) {
       const name = inp.name;
       if (state.data[name]) inp.value = state.data[name];
       inp.addEventListener("input", function () { state.data[name] = inp.value; save(); });
@@ -213,10 +214,15 @@
 
   function updateReview() {
     const rows = [
-      ["Industry", state.data.industry || "—"],
-      ["Region", state.data.country || "—"],
-      ["Firm size", state.data.firmSize || "—"],
-      ["Est. deal band", state.data.dealBand || "—"],
+      ["Kind of business", state.data.industry || "—"],
+      ["Based in", state.data.country || "—"],
+      ["Qualified-lead capacity", state.data.leadCapacity || "—"],
+      ["Buyer they want", (function () {
+        const t = (state.data.buyerDescription || "").trim();
+        if (!t) return "—";
+        return t.length > 140 ? t.slice(0, 140) + "…" : t;
+      })()],
+      ["Rough client value", state.data.dealBand || "—"],
       ["Preferred channel", state.data.preferredChannel || "—"],
       ["Preferred time", state.data.preferredTime || "—"],
     ];
@@ -234,10 +240,11 @@
       "Firm: " + record.firmName,
       "Email: " + record.email,
       "Phone: " + record.phone,
-      "Industry: " + record.industry,
-      "Region: " + record.country,
-      "Firm size: " + record.firmSize,
-      "Est. client value: " + record.dealBand,
+      "Kind of business: " + record.industry,
+      "Based in: " + record.country,
+      "Qualified-lead capacity: " + record.leadCapacity,
+      "Buyer they want: " + record.buyerDescription,
+      "Rough client value: " + (record.dealBand || "—"),
       "Preferred channel: " + record.preferredChannel,
       "Preferred time: " + (record.preferredTime || "—"),
       "Confidentiality acknowledged: yes",
@@ -296,12 +303,13 @@
       firm: record.firmName,
       industry: record.industry,
       region: record.country,
-      firmSize: record.firmSize,
-      dealBand: record.dealBand,
-      preferredChannel: record.preferredChannel,
+      leadCapacity: record.leadCapacity,
+      buyerDescription: record.buyerDescription,
+      dealBand: record.dealBand || "—",
+      preferredChannel: record.preferredChannel || "—",
       preferredTime: record.preferredTime || "—",
       reference: ref,
-      message: "Private consultation request from the Henderson Group site.",
+      message: "Design-brief enquiry from the Henderson Group site.",
     };
 
     fetch(FORMSUBMIT, {
