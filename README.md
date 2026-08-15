@@ -56,7 +56,7 @@ There is no live calendar, Calendly placeholder, or discovery-call booking widge
 
 - No invented client results or dollar figures
 - No US$12k (or any) guarantee language
-- Leadership uses Craig Henderson’s actual portrait from the high-res landing source (not a generated or stock face)
+- Leadership uses Craig Henderson’s actual portrait and Leona Henderson’s Slack profile photo (not generated or stock faces)
 - No public testimonials attributed to unnamed clients
 
 Operator-scale figures (for example 600+ network operators) are marked as illustrative / Insider Group published network figures, not Henderson client results.
