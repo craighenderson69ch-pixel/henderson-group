@@ -3,3 +3,10 @@ Thumbs.db
 .idea/
 .vscode/
 *.log
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+passwords.txt
+.passwords
