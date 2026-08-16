@@ -31,6 +31,14 @@
 
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $$(sel, root) { return Array.from((root || document).querySelectorAll(sel)); }
+  function escapeHtml(s) {
+    return (window.escapeHtml || function (v) {
+      return String(v == null ? "" : v)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    })(s);
+  }
+  function isBlank(v) { return !String(v || "").trim(); }
 
   function save() {
     try {
@@ -52,7 +60,7 @@
 
   const validators = {
     1: function () { return state.data.industry ? null : { industry: "Please select an industry." }; },
-    2: function () { return state.data.country ? null : { country: "Please choose a country or region." }; },
+    2: function () { return isBlank(state.data.country) ? { country: "Please choose a country or region." } : null; },
     3: function () {
       const errs = {};
       if (!state.data.leadCapacity) errs.leadCapacity = "Select how many qualified leads you can handle.";
@@ -132,16 +140,30 @@
     if (state.step > 1) showStep(state.step - 1);
   }
 
+  function syncIndustryTiles() {
+    $$("#industry-grid .radio-tile").forEach(function (tile) {
+      tile.classList.toggle("selected", tile.dataset.value === state.data.industry);
+    });
+  }
+
   function setupIndustryTiles() {
     $$("#industry-grid .radio-tile").forEach(function (tile) {
       tile.addEventListener("click", function () {
-        $$("#industry-grid .radio-tile").forEach(function (t) { t.classList.remove("selected"); });
-        tile.classList.add("selected");
         state.data.industry = tile.dataset.value;
+        syncIndustryTiles();
         showErrors(null);
         save();
       });
-      if (tile.dataset.value === state.data.industry) tile.classList.add("selected");
+    });
+    syncIndustryTiles();
+  }
+
+  function syncPillGroups() {
+    $$("[data-pillgroup]").forEach(function (group) {
+      const field = group.dataset.pillgroup;
+      $$(".pill", group).forEach(function (pill) {
+        pill.classList.toggle("selected", pill.dataset.value === state.data[field]);
+      });
     });
   }
 
@@ -150,15 +172,14 @@
       const field = group.dataset.pillgroup;
       $$(".pill", group).forEach(function (pill) {
         pill.addEventListener("click", function () {
-          $$(".pill", group).forEach(function (p) { p.classList.remove("selected"); });
-          pill.classList.add("selected");
           state.data[field] = pill.dataset.value;
+          syncPillGroups();
           showErrors(null);
           save();
         });
-        if (pill.dataset.value === state.data[field]) pill.classList.add("selected");
       });
     });
+    syncPillGroups();
   }
 
   function setupCountryCombo() {
@@ -166,6 +187,26 @@
     if (!combo || !window.COUNTRIES) return;
     const input = $(".combo-input", combo);
     const list = $(".combo-list", combo);
+    let hi = -1;
+
+    function options() { return $$(".combo-opt", list); }
+
+    function highlight(i) {
+      const opts = options();
+      if (!opts.length) { hi = -1; return; }
+      hi = (i + opts.length) % opts.length;
+      opts.forEach(function (opt, idx) { opt.classList.toggle("hi", idx === hi); });
+      opts[hi].scrollIntoView({ block: "nearest" });
+    }
+
+    function choose(name) {
+      input.value = name;
+      state.data.country = name;
+      combo.classList.remove("open");
+      hi = -1;
+      showErrors(null);
+      save();
+    }
 
     function render(filter) {
       const f = (filter || "").trim().toLowerCase();
@@ -173,43 +214,83 @@
         .filter(function (row) { return !f || row[1].toLowerCase().indexOf(f) !== -1; })
         .slice(0, 100);
       list.innerHTML = items.map(function (row) {
-        return '<div class="combo-opt" data-name="' + row[1] + '"><span class="flag">' + row[0] + "</span>" + row[1] + "</div>";
+        return '<div class="combo-opt" role="option" data-name="' + escapeHtml(row[1]) + '"><span class="flag">' + row[0] + "</span>" + escapeHtml(row[1]) + "</div>";
       }).join("");
+      hi = -1;
       $$(".combo-opt", list).forEach(function (opt) {
         opt.addEventListener("mousedown", function (e) {
           e.preventDefault();
-          input.value = opt.dataset.name;
-          state.data.country = opt.dataset.name;
-          combo.classList.remove("open");
-          showErrors(null);
-          save();
+          choose(opt.dataset.name);
         });
       });
     }
 
-    input.addEventListener("focus", function () { render(input.value); combo.classList.add("open"); });
-    input.addEventListener("blur", function () { setTimeout(function () { combo.classList.remove("open"); }, 120); });
-    input.addEventListener("input", function () {
-      state.data.country = input.value;
+    input.setAttribute("role", "combobox");
+    input.setAttribute("aria-expanded", "false");
+    input.setAttribute("aria-autocomplete", "list");
+    list.setAttribute("role", "listbox");
+
+    input.addEventListener("focus", function () {
       render(input.value);
       combo.classList.add("open");
+      input.setAttribute("aria-expanded", "true");
+    });
+    input.addEventListener("blur", function () {
+      setTimeout(function () {
+        combo.classList.remove("open");
+        input.setAttribute("aria-expanded", "false");
+      }, 120);
+    });
+    input.addEventListener("input", function () {
+      state.data.country = input.value.trim();
+      render(input.value);
+      combo.classList.add("open");
+      input.setAttribute("aria-expanded", "true");
       save();
     });
+    input.addEventListener("keydown", function (e) {
+      const open = combo.classList.contains("open");
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        if (!open) { render(input.value); combo.classList.add("open"); }
+        highlight(hi < 0 ? 0 : hi + 1);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        if (!open) { render(input.value); combo.classList.add("open"); }
+        highlight(hi < 0 ? 0 : hi - 1);
+      } else if (e.key === "Enter" && open && hi >= 0) {
+        e.preventDefault();
+        e.stopPropagation();
+        choose(options()[hi].dataset.name);
+      } else if (e.key === "Escape") {
+        combo.classList.remove("open");
+        input.setAttribute("aria-expanded", "false");
+      }
+    });
     if (state.data.country) input.value = state.data.country;
+  }
+
+  function syncInputs() {
+    $$(".input[name], textarea.input[name]").forEach(function (inp) {
+      if (state.data[inp.name]) inp.value = state.data[inp.name];
+    });
+    const nda = $("[name='nda']");
+    if (nda) nda.checked = !!state.data.nda;
+    const cInput = $(".combo-input");
+    if (cInput && state.data.country) cInput.value = state.data.country;
   }
 
   function setupInputs() {
     $$(".input[name], textarea.input[name]").forEach(function (inp) {
       const name = inp.name;
-      if (state.data[name]) inp.value = state.data[name];
       inp.addEventListener("input", function () { state.data[name] = inp.value; save(); });
       inp.addEventListener("blur", function () { showErrors(null); });
     });
     const nda = $("[name='nda']");
     if (nda) {
-      nda.checked = !!state.data.nda;
       nda.addEventListener("change", function () { state.data.nda = nda.checked; save(); showErrors(null); });
     }
+    syncInputs();
   }
 
   function updateReview() {
@@ -228,7 +309,7 @@
     ];
     const el = $(".review-list");
     if (el) el.innerHTML = rows.map(function (row) {
-      return '<div class="review-row"><span class="k">' + row[0] + '</span><span class="v">' + row[1] + "</span></div>";
+      return '<div class="review-row"><span class="k">' + escapeHtml(row[0]) + '</span><span class="v">' + escapeHtml(row[1]) + "</span></div>";
     }).join("");
   }
 
@@ -346,11 +427,9 @@
     banner.querySelector("[data-restore-resume]").addEventListener("click", function () {
       Object.assign(state.data, saved.data);
       state.started = saved.started;
-      setupIndustryTiles();
-      setupPillGroups();
-      setupInputs();
-      const cInput = $(".combo-input");
-      if (cInput && state.data.country) cInput.value = state.data.country;
+      syncIndustryTiles();
+      syncPillGroups();
+      syncInputs();
       showStep(Math.min(saved.step || 1, state.total));
       banner.remove();
     });
@@ -368,23 +447,23 @@
 
     const nextBtn = $(".btn-next");
     const backBtn = $(".btn-back");
-    if (nextBtn) nextBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      if (state.step === state.total) updateReview();
-      next();
-    });
+    const form = $("#consult-form") || $(".form-shell");
+    if (form && form.tagName === "FORM") {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (state.step === state.total) updateReview();
+        next();
+      });
+    } else if (nextBtn) {
+      nextBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (state.step === state.total) updateReview();
+        next();
+      });
+    }
     if (backBtn) backBtn.addEventListener("click", function (e) {
       e.preventDefault();
       back();
-    });
-
-    document.addEventListener("keydown", function (e) {
-      const inForm = document.activeElement && document.activeElement.closest(".form-shell");
-      if (!inForm) return;
-      if (e.key === "Enter" && document.activeElement.tagName !== "TEXTAREA") {
-        e.preventDefault();
-        next();
-      }
     });
 
     const obs = new MutationObserver(function () {
