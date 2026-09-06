@@ -65,15 +65,30 @@ Operator-scale figures (for example 600+ network operators) are marked as illust
 
 | Path | Purpose |
 | --- | --- |
-| `index.html` | Landing page |
+| `index.html` | Live homepage (Quieter English) |
+| `variants/index.html` | Gallery so Craig can click between versions |
+| `variants/en-quiet.html` | Quieter English (same as homepage) |
+| `variants/en-bright.html` | Brighter English, stronger CTA |
+| `variants/en-simple.html` | Shortest English: hero, industries, verticals, consult |
+| `variants/pt-br.html` | Full Brazilian Portuguese page for Leona |
 | `privacy.html` | Enquiry privacy |
 | `terms.html` | Site terms |
 | `404.html` | GitHub Pages not-found |
 | `css/styles.css` | Design system |
+| `css/variants.css` | Brighter / simple / gallery styles |
 | `js/form.js` | Consultation wizard + email |
 | `js/animations.js` | Reveal, nav, map |
 | `js/countries.js` | Region combobox |
 | `assets/` | Compressed photography |
+
+Public URLs (GitHub Pages base `/henderson-group/`):
+
+- https://craighenderson69ch-pixel.github.io/henderson-group/
+- https://craighenderson69ch-pixel.github.io/henderson-group/variants/
+- https://craighenderson69ch-pixel.github.io/henderson-group/variants/en-quiet.html
+- https://craighenderson69ch-pixel.github.io/henderson-group/variants/en-bright.html
+- https://craighenderson69ch-pixel.github.io/henderson-group/variants/en-simple.html
+- https://craighenderson69ch-pixel.github.io/henderson-group/variants/pt-br.html
 
 ## Contact
 

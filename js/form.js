@@ -7,6 +7,68 @@
   const SUBMIT_KEY = "henderson_submissions";
   const DEST_EMAIL = "craig@hendersongroup.com.au";
   const FORMSUBMIT = "https://formsubmit.co/ajax/" + DEST_EMAIL;
+  const LANG = (document.documentElement.getAttribute("lang") || "en").toLowerCase();
+  const IS_PT = LANG.indexOf("pt") === 0;
+
+  const I18N = IS_PT ? {
+    industry: "Escolha um segmento.",
+    country: "Escolha o país ou a região.",
+    leadCapacity: "Diga quantos leads qualificados você consegue receber.",
+    buyerDescription: "Descreva o cliente que você quer — algumas frases bastam.",
+    fullName: "Informe seu nome completo.",
+    firmName: "Informe o nome da empresa.",
+    email: "Informe um e-mail comercial válido.",
+    phone: "Informe um telefone válido.",
+    nda: "Confirme o aviso de confidencialidade.",
+    continue: "Continuar →",
+    submit: "Enviar pedido →",
+    sending: "Enviando…",
+    sendingStatus: "Enviando sua consulta para ",
+    relayFail: "Não foi possível confirmar o envio por este navegador. Abrindo um e-mail direto para ",
+    relayFailTail: " para a consulta não se perder.",
+    restore: "Há uma consulta salva neste aparelho. Quer continuar de onde parou?",
+    discard: "Descartar",
+    resume: "Continuar",
+    review: [
+      ["Tipo de negócio", "industry"],
+      ["Sede", "country"],
+      ["Capacidade de leads", "leadCapacity"],
+      ["Cliente desejado", "buyerDescription"],
+      ["Valor aproximado", "dealBand"],
+      ["Canal preferido", "preferredChannel"],
+      ["Melhor horário", "preferredTime"],
+    ],
+    reviewBuyerEmpty: "—",
+  } : {
+    industry: "Please select an industry.",
+    country: "Please choose a country or region.",
+    leadCapacity: "Select how many qualified leads you can handle.",
+    buyerDescription: "Please describe the customer you want — a few sentences is enough.",
+    fullName: "Please enter your full name.",
+    firmName: "Please enter your firm's name.",
+    email: "Enter a valid business email address.",
+    phone: "Enter a valid phone number.",
+    nda: "Please acknowledge the confidentiality terms.",
+    continue: "Continue →",
+    submit: "Submit Request →",
+    sending: "Sending…",
+    sendingStatus: "Sending your enquiry to ",
+    relayFail: "The secure email relay could not be confirmed from this browser. Opening a direct email to ",
+    relayFailTail: " so the enquiry is not lost.",
+    restore: "You have a saved consultation in progress. Continue where you left off?",
+    discard: "Discard",
+    resume: "Resume",
+    review: [
+      ["Kind of business", "industry"],
+      ["Based in", "country"],
+      ["Qualified-lead capacity", "leadCapacity"],
+      ["Buyer they want", "buyerDescription"],
+      ["Rough client value", "dealBand"],
+      ["Preferred channel", "preferredChannel"],
+      ["Preferred time", "preferredTime"],
+    ],
+    reviewBuyerEmpty: "—",
+  };
 
   const state = {
     step: 1,
@@ -51,24 +113,24 @@
   }
 
   const validators = {
-    1: function () { return state.data.industry ? null : { industry: "Please select an industry." }; },
-    2: function () { return state.data.country ? null : { country: "Please choose a country or region." }; },
+    1: function () { return state.data.industry ? null : { industry: I18N.industry }; },
+    2: function () { return state.data.country ? null : { country: I18N.country }; },
     3: function () {
       const errs = {};
-      if (!state.data.leadCapacity) errs.leadCapacity = "Select how many qualified leads you can handle.";
+      if (!state.data.leadCapacity) errs.leadCapacity = I18N.leadCapacity;
       const brief = (state.data.buyerDescription || "").trim();
-      if (brief.length < 20) errs.buyerDescription = "Please describe the customer you want — a few sentences is enough.";
+      if (brief.length < 20) errs.buyerDescription = I18N.buyerDescription;
       return Object.keys(errs).length ? errs : null;
     },
     4: function () {
       const errs = {};
-      if (!state.data.fullName || state.data.fullName.trim().length < 2) errs.fullName = "Please enter your full name.";
-      if (!state.data.firmName || state.data.firmName.trim().length < 2) errs.firmName = "Please enter your firm's name.";
+      if (!state.data.fullName || state.data.fullName.trim().length < 2) errs.fullName = I18N.fullName;
+      if (!state.data.firmName || state.data.firmName.trim().length < 2) errs.firmName = I18N.firmName;
       const email = (state.data.email || "").trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) errs.email = "Enter a valid business email address.";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) errs.email = I18N.email;
       const phone = (state.data.phone || "").trim();
-      if (!/^[+()\-\s\d]{7,}$/.test(phone)) errs.phone = "Enter a valid phone number.";
-      if (!state.data.nda) errs.nda = "Please acknowledge the confidentiality terms.";
+      if (!/^[+()\-\s\d]{7,}$/.test(phone)) errs.phone = I18N.phone;
+      if (!state.data.nda) errs.nda = I18N.nda;
       return Object.keys(errs).length ? errs : null;
     },
   };
@@ -113,7 +175,7 @@
     const back = $(".btn-back");
     if (back) back.disabled = (n === 1);
     const next = $(".btn-next");
-    if (next) next.textContent = (n === state.total) ? "Submit Request →" : "Continue →";
+    if (next) next.textContent = (n === state.total) ? I18N.submit : I18N.continue;
     const shell = $(".form-shell");
     if (shell) shell.scrollIntoView({ behavior: "smooth", block: "nearest" });
     save();
@@ -213,19 +275,14 @@
   }
 
   function updateReview() {
-    const rows = [
-      ["Kind of business", state.data.industry || "—"],
-      ["Based in", state.data.country || "—"],
-      ["Qualified-lead capacity", state.data.leadCapacity || "—"],
-      ["Buyer they want", (function () {
+    const rows = I18N.review.map(function (row) {
+      let val = state.data[row[1]] || I18N.reviewBuyerEmpty;
+      if (row[1] === "buyerDescription") {
         const t = (state.data.buyerDescription || "").trim();
-        if (!t) return "—";
-        return t.length > 140 ? t.slice(0, 140) + "…" : t;
-      })()],
-      ["Rough client value", state.data.dealBand || "—"],
-      ["Preferred channel", state.data.preferredChannel || "—"],
-      ["Preferred time", state.data.preferredTime || "—"],
-    ];
+        val = !t ? I18N.reviewBuyerEmpty : (t.length > 140 ? t.slice(0, 140) + "…" : t);
+      }
+      return [row[0], val];
+    });
     const el = $(".review-list");
     if (el) el.innerHTML = rows.map(function (row) {
       return '<div class="review-row"><span class="k">' + row[0] + '</span><span class="v">' + row[1] + "</span></div>";
@@ -289,8 +346,8 @@
 
     state.sending = true;
     const nextBtn = $(".btn-next");
-    if (nextBtn) { nextBtn.disabled = true; nextBtn.textContent = "Sending…"; }
-    setStatus("Sending your enquiry to " + DEST_EMAIL + "…");
+    if (nextBtn) { nextBtn.disabled = true; nextBtn.textContent = I18N.sending; }
+    setStatus(I18N.sendingStatus + DEST_EMAIL + "…");
 
     const payload = {
       _subject: "Henderson Group consultation — " + record.industry + " — " + record.firmName,
@@ -322,7 +379,7 @@
     }).then(function () {
       showSuccess(ref);
     }).catch(function () {
-      setStatus("The secure email relay could not be confirmed from this browser. Opening a direct email to " + DEST_EMAIL + " so the enquiry is not lost.", true);
+      setStatus(I18N.relayFail + DEST_EMAIL + I18N.relayFailTail, true);
       window.location.href = buildMailto(record, ref);
       showSuccess(ref);
     }).finally(function () {
@@ -336,10 +393,10 @@
     if (!saved || !saved.data || Object.values(saved.data).every(function (v) { return !v; })) return;
     const banner = document.createElement("div");
     banner.className = "restore-banner";
-    banner.innerHTML = "<span>You have a saved consultation in progress. Continue where you left off?</span>"
+    banner.innerHTML = "<span>" + I18N.restore + "</span>"
       + '<div style="display:flex;gap:8px;flex-shrink:0;">'
-      + "<button type=\"button\" data-restore-discard>Discard</button>"
-      + "<button type=\"button\" data-restore-resume style=\"background:var(--success);color:var(--ink-000);border-color:var(--success);\">Resume</button>"
+      + "<button type=\"button\" data-restore-discard>" + I18N.discard + "</button>"
+      + "<button type=\"button\" data-restore-resume style=\"background:var(--success);color:var(--ink-000);border-color:var(--success);\">" + I18N.resume + "</button>"
       + "</div>";
     const shell = $(".form-shell");
     shell.insertBefore(banner, shell.firstChild);
