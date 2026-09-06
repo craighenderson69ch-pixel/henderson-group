@@ -15,4 +15,29 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/variants/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/variants/en-quiet.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/variants/en-bright.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/variants/en-simple.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/variants/pt-br.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
