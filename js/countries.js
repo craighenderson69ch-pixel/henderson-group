@@ -1,5 +1,6 @@
 // Country list with flag emoji for the region combobox.
-window.COUNTRIES = [
+(function (root) {
+root.COUNTRIES = [
   ["🇧🇷","Brazil"],["🇺🇸","United States"],["🇬🇧","United Kingdom"],["🇦🇺","Australia"],["🇨🇦","Canada"],["🇳🇿","New Zealand"],
   ["🇸🇬","Singapore"],["🇦🇪","United Arab Emirates"],["🇸🇦","Saudi Arabia"],["🇶🇦","Qatar"],["🇰🇼","Kuwait"],
   ["🇭🇰","Hong Kong SAR"],["🇯🇵","Japan"],["🇰🇷","South Korea"],["🇹🇼","Taiwan"],["🇨🇳","China"],
@@ -27,5 +28,6 @@ window.COUNTRIES = [
   ["🇸🇲","San Marino"],["🇻🇦","Vatican City"],["🇬🇮","Gibraltar"],["🇬🇬","Guernsey"],["🇯🇪","Jersey"],
   ["🇮🇲","Isle of Man"],["🇫🇴","Faroe Islands"],["🇬🇱","Greenland"],["🇵🇫","French Polynesia"],["🇳🇨","New Caledonia"],
   ["🇫🇯","Fiji"],["🇵🇬","Papua New Guinea"],["🇼🇸","Samoa"],["🇹🇴","Tonga"],["🇻🇺","Vanuatu"],
-  ["🇸🇧","Solomon Islands"],["🇲🇽","Mexico (Northern Region)"],["🌍","Other / Multiple"],
+  ["🇸🇧","Solomon Islands"],["🌍","Other / Multiple"],
 ];
+})(typeof window !== "undefined" ? window : globalThis);

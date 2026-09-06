@@ -66,6 +66,7 @@ Operator-scale figures (for example 600+ network operators) are marked as illust
 | Path | Purpose |
 | --- | --- |
 | `index.html` | Landing page |
+| `brief.html` | One-page emailable / printable brief |
 | `privacy.html` | Enquiry privacy |
 | `terms.html` | Site terms |
 | `404.html` | GitHub Pages not-found |
