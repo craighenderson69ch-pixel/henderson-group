@@ -574,6 +574,41 @@ p { margin: 0; }
   border-color: var(--plat-100);
 }
 
+/* =============== VERTICALS (ClientUp AI · 53) =============== */
+.verticals {
+  background: var(--ink-050);
+}
+.verticals .vert-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.verticals .vert-grid li {
+  border: 1px solid var(--hair);
+  background: var(--ink-200);
+  color: var(--paper-dim);
+  padding: 16px 18px;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+.verticals .vert-grid li:hover {
+  border-color: var(--plat-300);
+  background: var(--ink-300);
+  color: var(--paper);
+}
+.vert-note {
+  margin-top: 28px;
+  color: var(--paper-mute);
+  font-size: 13px;
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
 /* =============== APPROACH (timeline) =============== */
 .approach {
   position: relative;
@@ -1740,7 +1775,8 @@ textarea.input {
   .why-right,
   .results-grid,
   .testi-grid,
-  .radio-grid { grid-template-columns: 1fr 1fr; }
+  .radio-grid,
+  .verticals .vert-grid { grid-template-columns: 1fr 1fr; }
   .timeline-track { display: none; }
   .tstep { padding-top: 0; }
   .tstep::before, .tstep::after { display: none; }
