@@ -31,6 +31,9 @@ body.theme-bright {
 .theme-bright .section {
   padding: clamp(100px, 14vh, 188px) var(--pad-x);
 }
+.theme-bright .section-compact {
+  padding: clamp(56px, 7vh, 88px) var(--pad-x);
+}
 
 .theme-bright .hero {
   min-height: 92vh;
