@@ -18,8 +18,8 @@
     let ticking = false;
     function updateHero() {
       const y = window.scrollY;
-      const rate = Math.min(y * 0.12, 80);
-      heroBg.style.transform = `scale(1.1) translate3d(0, ${rate}px, 0)`;
+      const rate = Math.min(y * 0.08, 48);
+      heroBg.style.transform = `scale(1.08) translate3d(0, ${rate}px, 0)`;
       ticking = false;
     }
     window.addEventListener("scroll", () => {
@@ -43,24 +43,7 @@
   function startCountUp(el) {
     if (!el || !el.dataset.count || el.dataset.counted === "1") return;
     el.dataset.counted = "1";
-    if (prefersReduced) { el.textContent = formatFinal(el); return; }
-    const target = parseFloat(el.dataset.count);
-    if (Number.isNaN(target)) return;
-    const decimals = parseInt(el.dataset.decimals || "0", 10);
-    const prefix = el.dataset.prefix || "";
-    const suffix = el.dataset.suffix || "";
-    const duration = 1400;
-    const start = performance.now();
-    const easeOut = t => 1 - Math.pow(1 - t, 3);
-    function tick(now) {
-      const t = Math.min(1, (now - start) / duration);
-      const val = target * easeOut(t);
-      el.textContent = prefix + val.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + suffix;
-      if (t < 1) requestAnimationFrame(tick);
-      else el.textContent = formatFinal(el);
-    }
-    requestAnimationFrame(tick);
-    setTimeout(function () { el.textContent = formatFinal(el); }, duration + 250);
+    finishCount(el);
   }
   function countersIn(root) {
     const found = [];
