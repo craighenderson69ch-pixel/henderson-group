@@ -112,7 +112,7 @@
     .filter((row) => row.el);
   function markCurrentNav() {
     if (!navTargets.length) return;
-    const line = 88;
+    const line = 120;
     let current = navTargets[0];
     navTargets.forEach((row) => {
       if (row.el.getBoundingClientRect().top <= line) current = row;
