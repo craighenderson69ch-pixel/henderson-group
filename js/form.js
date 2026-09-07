@@ -156,14 +156,35 @@
   }
 
   function updateProgress() {
-    const pct = ((state.step - 1) / state.total) * 100;
+    const pct = (state.step / state.total) * 100;
     const fill = $(".form-progress-fill");
     if (fill) fill.style.width = pct + "%";
+    const bar = $(".form-progress-bar");
+    if (bar) bar.setAttribute("aria-valuenow", String(state.step));
     $$(".form-progress-labels span").forEach(function (el, i) {
       el.classList.remove("active", "done");
       if (i + 1 < state.step) el.classList.add("done");
       else if (i + 1 === state.step) el.classList.add("active");
     });
+  }
+
+  function updateNextState() {
+    const next = $(".btn-next");
+    if (!next) return;
+    if (state.sending) {
+      next.disabled = true;
+      next.classList.remove("is-ghost");
+      next.classList.add("is-sending");
+      next.setAttribute("aria-disabled", "true");
+      return;
+    }
+    next.classList.remove("is-sending");
+    const ghost = (state.step === 1 && !state.data.industry);
+    next.disabled = ghost;
+    next.classList.toggle("is-ghost", ghost);
+    if (ghost) next.setAttribute("aria-disabled", "true");
+    else next.removeAttribute("aria-disabled");
+    next.textContent = (state.step === state.total) ? I18N.submit : I18N.continue;
   }
 
   function showStep(n) {
@@ -174,8 +195,7 @@
     updateProgress();
     const back = $(".btn-back");
     if (back) back.disabled = (n === 1);
-    const next = $(".btn-next");
-    if (next) next.textContent = (n === state.total) ? I18N.submit : I18N.continue;
+    updateNextState();
     const shell = $(".form-shell");
     if (shell) shell.scrollIntoView({ behavior: "smooth", block: "nearest" });
     save();
@@ -196,11 +216,17 @@
 
   function setupIndustryTiles() {
     $$("#industry-grid .radio-tile").forEach(function (tile) {
+      tile.setAttribute("aria-pressed", tile.dataset.value === state.data.industry ? "true" : "false");
       tile.addEventListener("click", function () {
-        $$("#industry-grid .radio-tile").forEach(function (t) { t.classList.remove("selected"); });
+        $$("#industry-grid .radio-tile").forEach(function (t) {
+          t.classList.remove("selected");
+          t.setAttribute("aria-pressed", "false");
+        });
         tile.classList.add("selected");
+        tile.setAttribute("aria-pressed", "true");
         state.data.industry = tile.dataset.value;
         showErrors(null);
+        updateNextState();
         save();
       });
       if (tile.dataset.value === state.data.industry) tile.classList.add("selected");
@@ -346,7 +372,8 @@
 
     state.sending = true;
     const nextBtn = $(".btn-next");
-    if (nextBtn) { nextBtn.disabled = true; nextBtn.textContent = I18N.sending; }
+    if (nextBtn) { nextBtn.textContent = I18N.sending; }
+    updateNextState();
     setStatus(I18N.sendingStatus + DEST_EMAIL + "…");
 
     const payload = {
@@ -384,7 +411,7 @@
       showSuccess(ref);
     }).finally(function () {
       state.sending = false;
-      if (nextBtn) nextBtn.disabled = false;
+      updateNextState();
     });
   }
 
@@ -453,6 +480,7 @@
     });
 
     updateProgress();
+    updateNextState();
     offerRestore();
   }
 

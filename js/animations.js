@@ -27,28 +27,29 @@
     }, { passive: true });
   }
 
-  /* --- Reveal on scroll (IntersectionObserver) --- */
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-        // count-up trigger
-        if (entry.target.dataset.count) startCountUp(entry.target);
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
-
-  document.querySelectorAll(".reveal, [data-count], .tstep").forEach(el => io.observe(el));
-
-  /* --- Number count-up --- */
-  function startCountUp(el) {
-    if (prefersReduced) { el.textContent = formatFinal(el); return; }
+  /* --- Number count-up (must complete; never stay on 0) --- */
+  function formatFinal(el) {
     const target = parseFloat(el.dataset.count);
+    if (Number.isNaN(target)) return el.textContent;
     const decimals = parseInt(el.dataset.decimals || "0", 10);
     const prefix = el.dataset.prefix || "";
     const suffix = el.dataset.suffix || "";
-    const duration = 1600;
+    return prefix + target.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + suffix;
+  }
+  function finishCount(el) {
+    el.textContent = formatFinal(el);
+    el.dataset.counted = "1";
+  }
+  function startCountUp(el) {
+    if (!el || !el.dataset.count || el.dataset.counted === "1") return;
+    el.dataset.counted = "1";
+    if (prefersReduced) { el.textContent = formatFinal(el); return; }
+    const target = parseFloat(el.dataset.count);
+    if (Number.isNaN(target)) return;
+    const decimals = parseInt(el.dataset.decimals || "0", 10);
+    const prefix = el.dataset.prefix || "";
+    const suffix = el.dataset.suffix || "";
+    const duration = 1400;
     const start = performance.now();
     const easeOut = t => 1 - Math.pow(1 - t, 3);
     function tick(now) {
@@ -56,17 +57,50 @@
       const val = target * easeOut(t);
       el.textContent = prefix + val.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + suffix;
       if (t < 1) requestAnimationFrame(tick);
-      else el.textContent = prefix + target.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + suffix;
+      else el.textContent = formatFinal(el);
     }
     requestAnimationFrame(tick);
+    setTimeout(function () { el.textContent = formatFinal(el); }, duration + 250);
   }
-  function formatFinal(el) {
-    const target = parseFloat(el.dataset.count);
-    const decimals = parseInt(el.dataset.decimals || "0", 10);
-    const prefix = el.dataset.prefix || "";
-    const suffix = el.dataset.suffix || "";
-    return prefix + target.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + suffix;
+  function countersIn(root) {
+    const found = [];
+    if (root.dataset && root.dataset.count) found.push(root);
+    if (root.querySelectorAll) {
+      root.querySelectorAll("[data-count]").forEach(function (el) { found.push(el); });
+    }
+    return found;
   }
+  function startCountersIn(root) {
+    countersIn(root).forEach(startCountUp);
+  }
+
+  /* --- Reveal on scroll (IntersectionObserver) --- */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        startCountersIn(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: "80px 0px 80px 0px" });
+
+  document.querySelectorAll(".reveal, [data-count], .tstep").forEach(el => io.observe(el));
+
+  /* Viewport check + late fallback — do not rely on the observer alone. */
+  function flushVisibleCounters() {
+    document.querySelectorAll("[data-count]").forEach(function (el) {
+      const rect = el.getBoundingClientRect();
+      const visible = rect.bottom > 0 && rect.top < (window.innerHeight || 800) + 80;
+      if (visible) startCountUp(el);
+    });
+  }
+  flushVisibleCounters();
+  window.addEventListener("load", flushVisibleCounters, { once: true });
+  window.addEventListener("scroll", flushVisibleCounters, { passive: true });
+  setTimeout(function () {
+    document.querySelectorAll("[data-count]").forEach(finishCount);
+  }, 2400);
 
   /* --- World map pulses (staggered ping) --- */
   const pulses = document.querySelectorAll(".map-pulse");
