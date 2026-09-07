@@ -18,7 +18,7 @@
     let ticking = false;
     function updateHero() {
       const y = window.scrollY;
-      const rate = Math.min(y * 0.35, 240);
+      const rate = Math.min(y * 0.12, 80);
       heroBg.style.transform = `scale(1.1) translate3d(0, ${rate}px, 0)`;
       ticking = false;
     }
