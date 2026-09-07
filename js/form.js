@@ -4,6 +4,7 @@
 */
 (function () {
   const STORAGE_KEY = "henderson_form_progress";
+  const SESSION_FLAG = "henderson_form_session";
   const SUBMIT_KEY = "henderson_submissions";
   const DEST_EMAIL = "craig@hendersongroup.com.au";
   const FORMSUBMIT = "https://formsubmit.co/ajax/" + DEST_EMAIL;
@@ -94,8 +95,15 @@
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $$(sel, root) { return Array.from((root || document).querySelectorAll(sel)); }
 
+  function hasActiveSession() {
+    try { return sessionStorage.getItem(SESSION_FLAG) === "1"; } catch (e) { return false; }
+  }
+  function markSession() {
+    try { sessionStorage.setItem(SESSION_FLAG, "1"); } catch (e) {}
+  }
   function save() {
     try {
+      markSession();
       state.started = state.started || Date.now();
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         step: state.step, data: state.data, started: state.started
@@ -110,6 +118,14 @@
   }
   function clearSaved() {
     try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+  }
+  function silentRestore() {
+    const saved = loadSaved();
+    if (!saved || !saved.data) return;
+    if (Object.values(saved.data).every(function (v) { return !v; })) return;
+    Object.assign(state.data, saved.data);
+    state.started = saved.started;
+    state.step = Math.min(saved.step || 1, state.total);
   }
 
   const validators = {
@@ -182,8 +198,13 @@
     const ghost = (state.step === 1 && !state.data.industry);
     next.disabled = ghost;
     next.classList.toggle("is-ghost", ghost);
-    if (ghost) next.setAttribute("aria-disabled", "true");
-    else next.removeAttribute("aria-disabled");
+    if (ghost) {
+      next.setAttribute("aria-disabled", "true");
+      next.setAttribute("aria-label", "Select an industry to continue");
+    } else {
+      next.removeAttribute("aria-disabled");
+      next.removeAttribute("aria-label");
+    }
     next.textContent = (state.step === state.total) ? I18N.submit : I18N.continue;
   }
 
@@ -415,36 +436,11 @@
     });
   }
 
-  function offerRestore() {
-    const saved = loadSaved();
-    if (!saved || !saved.data || Object.values(saved.data).every(function (v) { return !v; })) return;
-    const banner = document.createElement("div");
-    banner.className = "restore-banner";
-    banner.innerHTML = "<span>" + I18N.restore + "</span>"
-      + '<div style="display:flex;gap:8px;flex-shrink:0;">'
-      + "<button type=\"button\" data-restore-discard>" + I18N.discard + "</button>"
-      + "<button type=\"button\" data-restore-resume style=\"background:var(--success);color:var(--ink-000);border-color:var(--success);\">" + I18N.resume + "</button>"
-      + "</div>";
-    const shell = $(".form-shell");
-    shell.insertBefore(banner, shell.firstChild);
-    banner.querySelector("[data-restore-resume]").addEventListener("click", function () {
-      Object.assign(state.data, saved.data);
-      state.started = saved.started;
-      setupIndustryTiles();
-      setupPillGroups();
-      setupInputs();
-      const cInput = $(".combo-input");
-      if (cInput && state.data.country) cInput.value = state.data.country;
-      showStep(Math.min(saved.step || 1, state.total));
-      banner.remove();
-    });
-    banner.querySelector("[data-restore-discard]").addEventListener("click", function () {
-      clearSaved();
-      banner.remove();
-    });
-  }
-
   function init() {
+    const cold = !hasActiveSession();
+    if (cold) clearSaved();
+    else silentRestore();
+
     setupIndustryTiles();
     setupPillGroups();
     setupCountryCombo();
@@ -479,9 +475,14 @@
       obs.observe(el, { attributes: true, attributeFilter: ["class"] });
     });
 
-    updateProgress();
-    updateNextState();
-    offerRestore();
+    if (!cold && state.step > 1) {
+      const cInput = $(".combo-input");
+      if (cInput && state.data.country) cInput.value = state.data.country;
+      showStep(state.step);
+    } else {
+      updateProgress();
+      updateNextState();
+    }
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
