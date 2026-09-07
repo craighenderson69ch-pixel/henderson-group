@@ -1301,6 +1301,7 @@ p { margin: 0; }
   gap: 80px;
   align-items: start;
 }
+.faq-grid h2 { margin-top: 24px; }
 .faq-intro {
   color: var(--paper-dim);
   font-size: 16px;
