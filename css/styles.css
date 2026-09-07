@@ -2013,7 +2013,7 @@ textarea.input {
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--plat-500);
+  color: var(--plat-400);
 }
 .legal { display: flex; gap: 20px; flex-wrap: wrap; }
 
