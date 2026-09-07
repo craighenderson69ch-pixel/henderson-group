@@ -106,11 +106,11 @@ body.theme-bright {
 }
 
 .theme-simple .industry-grid {
-  gap: 16px;
+  gap: 0 40px;
 }
 
 .theme-simple .industry-card {
-  aspect-ratio: 5 / 3;
+  aspect-ratio: auto;
 }
 
 .theme-simple .industry-card p { opacity: 1; transform: none; }

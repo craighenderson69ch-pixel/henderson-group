@@ -19,7 +19,7 @@
     function updateHero() {
       const y = window.scrollY;
       const rate = Math.min(y * 0.08, 48);
-      heroBg.style.transform = `scale(1.12) translate3d(0, ${rate}px, 0)`;
+      heroBg.style.transform = `scale(1.32) translate3d(0, ${rate}px, 0)`;
       ticking = false;
     }
     window.addEventListener("scroll", () => {
