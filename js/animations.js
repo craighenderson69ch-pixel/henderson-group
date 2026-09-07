@@ -102,6 +102,31 @@
     document.querySelectorAll("[data-count]").forEach(finishCount);
   }, 2400);
 
+  /* --- Active section in the sticky nav --- */
+  const navLinks = Array.from(document.querySelectorAll(".nav-links a[href^='#']"));
+  const navTargets = navLinks
+    .map((a) => {
+      const id = a.getAttribute("href").slice(1);
+      return { a, el: document.getElementById(id) };
+    })
+    .filter((row) => row.el);
+  function markCurrentNav() {
+    if (!navTargets.length) return;
+    const line = 88;
+    let current = navTargets[0];
+    navTargets.forEach((row) => {
+      if (row.el.getBoundingClientRect().top <= line) current = row;
+    });
+    navLinks.forEach((a) => {
+      const on = current && a === current.a;
+      a.classList.toggle("is-current", on);
+      if (on) a.setAttribute("aria-current", "location");
+      else a.removeAttribute("aria-current");
+    });
+  }
+  window.addEventListener("scroll", markCurrentNav, { passive: true });
+  markCurrentNav();
+
   /* --- World map pulses (staggered ping) --- */
   const pulses = document.querySelectorAll(".map-pulse");
   pulses.forEach((p, i) => {
