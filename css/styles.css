@@ -753,7 +753,7 @@ p { margin: 0; }
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: none;
-  color: var(--plat-200);
+  color: var(--plat-100);
   margin-bottom: 14px;
 }
 .trust-strip-markets {
