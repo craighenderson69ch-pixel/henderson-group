@@ -2166,6 +2166,7 @@ textarea.input {
   .radio-grid,
   .infra-stats,
   .leader-facts,
+  .leader-people,
   .field-row,
   .vert-cats,
   .vert-summary,
@@ -2178,6 +2179,39 @@ textarea.input {
   .hero-actions { gap: 20px; }
   .footer-top { flex-direction: column; }
   .restore-banner { flex-direction: column; align-items: flex-start; }
+  .leader-people {
+    gap: 36px;
+    margin-bottom: 40px;
+    max-width: none;
+  }
+  .leader-photo {
+    aspect-ratio: 4 / 5;
+    min-height: 360px;
+    width: 100%;
+  }
+  .leader-caption {
+    bottom: 18px;
+    left: 16px;
+    right: 16px;
+    overflow: visible;
+  }
+  .leader-caption-name {
+    font-size: clamp(20px, 6vw, 26px);
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+    hyphens: manual;
+  }
+  .leader-caption-role {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    line-height: 1.45;
+    white-space: normal;
+  }
+  .leader-card-note {
+    min-height: 0;
+    max-width: none;
+    font-size: 15px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
