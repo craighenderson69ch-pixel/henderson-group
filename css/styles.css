@@ -1765,6 +1765,31 @@ p { margin: 0; }
   line-height: 1.55;
   margin: 0 0 12px;
 }
+.brief-item {
+  padding: 20px 0 4px;
+  border-top: 1px solid var(--hair);
+}
+.brief-item:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+.brief-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.brief-item .field { margin-bottom: 8px; }
+.brief-item .field > label + label,
+.brief-item .field .field-err + label {
+  margin-top: 14px;
+}
+textarea.input.brief-short {
+  min-height: 0;
+  resize: vertical;
+}
 .input, .select, textarea.input {
   width: 100%;
   padding: 14px 16px;
@@ -1785,7 +1810,7 @@ textarea.input {
   border-color: var(--plat-300);
   background: var(--ink-100);
 }
-.input.err, .select.err {
+.input.err, .select.err, textarea.input.err {
   border-color: var(--danger);
 }
 .field-err {
@@ -1824,6 +1849,16 @@ textarea.input {
 }
 .pill:hover { border-color: var(--plat-400); color: var(--paper); }
 .pill.selected {
+  background: var(--plat-100);
+  color: var(--ink-000);
+  border-color: var(--plat-100);
+}
+.pill-row-capacity .pill {
+  padding: 12px 14px;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.pill[aria-pressed="true"] {
   background: var(--plat-100);
   color: var(--ink-000);
   border-color: var(--plat-100);
@@ -2297,6 +2332,19 @@ textarea.input {
   .pillar { border-right: none; padding: 32px 0 0; }
   .pillar:not(:first-child) { padding-left: 0; }
   .form-shell { padding: 24px 20px; }
+  .form-progress-labels {
+    font-size: 11px;
+    gap: 4px;
+  }
+  .form-progress-labels span {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  .pill-row-capacity .pill {
+    flex: 1 1 calc(50% - 8px);
+    text-align: center;
+  }
   .hero-actions { gap: 20px; }
   .footer-top { flex-direction: column; }
   .restore-banner { flex-direction: column; align-items: flex-start; }

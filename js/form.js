@@ -1,5 +1,5 @@
 /* Multi-step consultation form
-   Steps: 1) Kind of business  2) Where  3) Design brief  4) Contact
+   Steps: 1) Kind of business  2) Where  3) Design the mandate  4) Contact
    Submits to craig@hendersongroup.com.au via FormSubmit, with mailto fallback.
 */
 (function () {
@@ -14,8 +14,10 @@
   const I18N = IS_PT ? {
     industry: "Escolha um segmento.",
     country: "Escolha o país ou a região.",
-    leadCapacity: "Diga quantos leads qualificados você consegue receber.",
-    buyerDescription: "Descreva o cliente que você quer — algumas frases bastam.",
+    leadCapacity: "Escolha a faixa de consultas qualificadas que a mesa consegue honrar.",
+    buyerWho: "Diga com quem você quer falar — algumas palavras bastam.",
+    buyerMarket: "Diga o mercado ou a região desses compradores.",
+    qualification: "Marque o que torna uma consulta qualificada.",
     fullName: "Informe seu nome completo.",
     firmName: "Informe o nome da empresa.",
     email: "Informe um e-mail comercial válido.",
@@ -33,18 +35,23 @@
     review: [
       ["Tipo de negócio", "industry"],
       ["Sede", "country"],
-      ["Capacidade de leads", "leadCapacity"],
-      ["Cliente desejado", "buyerDescription"],
-      ["Valor aproximado", "dealBand"],
+      ["Capacidade mensal", "leadCapacity"],
+      ["Comprador", "buyerWho"],
+      ["Mercado do comprador", "buyerMarket"],
+      ["Qualificação", "qualification"],
+      ["Nota de qualificação", "qualificationNote"],
+      ["Nunca enviar", "hardRejects"],
       ["Canal preferido", "preferredChannel"],
       ["Melhor horário", "preferredTime"],
     ],
-    reviewBuyerEmpty: "—",
+    reviewEmpty: "—",
   } : {
     industry: "Please select an industry.",
     country: "Please choose a country or region.",
-    leadCapacity: "Select how many qualified leads you can handle.",
-    buyerDescription: "Please describe the customer you want — a few sentences is enough.",
+    leadCapacity: "Select the monthly volume your desk can honour.",
+    buyerWho: "Say who you want to speak to — a short line is enough.",
+    buyerMarket: "Say where those buyers are — city, region, or country.",
+    qualification: "Select what makes an enquiry qualified.",
     fullName: "Please enter your full name.",
     firmName: "Please enter your firm's name.",
     email: "Enter a valid business email address.",
@@ -61,14 +68,17 @@
     resume: "Resume",
     review: [
       ["Kind of business", "industry"],
-      ["Based in", "country"],
-      ["Qualified-lead capacity", "leadCapacity"],
-      ["Buyer they want", "buyerDescription"],
-      ["Rough client value", "dealBand"],
+      ["Firm based in", "country"],
+      ["Desk capacity", "leadCapacity"],
+      ["Buyer who", "buyerWho"],
+      ["Buyer market", "buyerMarket"],
+      ["Qualified when", "qualification"],
+      ["Qualification note", "qualificationNote"],
+      ["Hard rejects", "hardRejects"],
       ["Preferred channel", "preferredChannel"],
       ["Preferred time", "preferredTime"],
     ],
-    reviewBuyerEmpty: "—",
+    reviewEmpty: "—",
   };
 
   const state = {
@@ -78,8 +88,11 @@
       industry: "",
       country: "",
       leadCapacity: "",
-      buyerDescription: "",
-      dealBand: "",
+      buyerWho: "",
+      buyerMarket: "",
+      qualification: [],
+      qualificationNote: "",
+      hardRejects: "",
       preferredChannel: "",
       preferredTime: "",
       fullName: "",
@@ -94,6 +107,23 @@
 
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $$(sel, root) { return Array.from((root || document).querySelectorAll(sel)); }
+
+  function asList(value) {
+    if (Array.isArray(value)) return value.filter(Boolean);
+    if (typeof value === "string" && value.trim()) return [value.trim()];
+    return [];
+  }
+
+  function clip(text, n) {
+    const t = (text || "").trim();
+    if (!t) return I18N.reviewEmpty;
+    return t.length > n ? t.slice(0, n) + "…" : t;
+  }
+
+  function formatList(value) {
+    const list = asList(value);
+    return list.length ? list.join(" · ") : I18N.reviewEmpty;
+  }
 
   function hasActiveSession() {
     try { return sessionStorage.getItem(SESSION_FLAG) === "1"; } catch (e) { return false; }
@@ -119,11 +149,20 @@
   function clearSaved() {
     try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
   }
+  function normalizeSaved(data) {
+    if (!data || typeof data !== "object") return {};
+    const next = Object.assign({}, data);
+    next.qualification = asList(next.qualification);
+    delete next.dealBand;
+    delete next.buyerDescription;
+    return next;
+  }
   function silentRestore() {
     const saved = loadSaved();
     if (!saved || !saved.data) return;
-    if (Object.values(saved.data).every(function (v) { return !v; })) return;
-    Object.assign(state.data, saved.data);
+    const data = normalizeSaved(saved.data);
+    if (Object.values(data).every(function (v) { return !v || (Array.isArray(v) && !v.length); })) return;
+    Object.assign(state.data, data);
     state.started = saved.started;
     state.step = Math.min(saved.step || 1, state.total);
   }
@@ -134,8 +173,9 @@
     3: function () {
       const errs = {};
       if (!state.data.leadCapacity) errs.leadCapacity = I18N.leadCapacity;
-      const brief = (state.data.buyerDescription || "").trim();
-      if (brief.length < 20) errs.buyerDescription = I18N.buyerDescription;
+      if ((state.data.buyerWho || "").trim().length < 8) errs.buyerWho = I18N.buyerWho;
+      if ((state.data.buyerMarket || "").trim().length < 2) errs.buyerMarket = I18N.buyerMarket;
+      if (!asList(state.data.qualification).length) errs.qualification = I18N.qualification;
       return Object.keys(errs).length ? errs : null;
     },
     4: function () {
@@ -257,15 +297,31 @@
   function setupPillGroups() {
     $$("[data-pillgroup]").forEach(function (group) {
       const field = group.dataset.pillgroup;
+      const multi = group.dataset.multiselect === "true";
       $$(".pill", group).forEach(function (pill) {
+        const selected = multi
+          ? asList(state.data[field]).indexOf(pill.dataset.value) !== -1
+          : pill.dataset.value === state.data[field];
+        pill.classList.toggle("selected", selected);
+        pill.setAttribute("aria-pressed", selected ? "true" : "false");
         pill.addEventListener("click", function () {
-          $$(".pill", group).forEach(function (p) { p.classList.remove("selected"); });
-          pill.classList.add("selected");
-          state.data[field] = pill.dataset.value;
+          if (multi) {
+            pill.classList.toggle("selected");
+            const on = pill.classList.contains("selected");
+            pill.setAttribute("aria-pressed", on ? "true" : "false");
+            state.data[field] = $$(".pill.selected", group).map(function (p) { return p.dataset.value; });
+          } else {
+            $$(".pill", group).forEach(function (p) {
+              p.classList.remove("selected");
+              p.setAttribute("aria-pressed", "false");
+            });
+            pill.classList.add("selected");
+            pill.setAttribute("aria-pressed", "true");
+            state.data[field] = pill.dataset.value;
+          }
           showErrors(null);
           save();
         });
-        if (pill.dataset.value === state.data[field]) pill.classList.add("selected");
       });
     });
   }
@@ -321,19 +377,34 @@
     }
   }
 
+  function reviewValue(key) {
+    if (key === "qualification") return formatList(state.data.qualification);
+    if (key === "buyerWho" || key === "buyerMarket" || key === "qualificationNote" || key === "hardRejects") {
+      return clip(state.data[key], 140);
+    }
+    return state.data[key] || I18N.reviewEmpty;
+  }
+
   function updateReview() {
     const rows = I18N.review.map(function (row) {
-      let val = state.data[row[1]] || I18N.reviewBuyerEmpty;
-      if (row[1] === "buyerDescription") {
-        const t = (state.data.buyerDescription || "").trim();
-        val = !t ? I18N.reviewBuyerEmpty : (t.length > 140 ? t.slice(0, 140) + "…" : t);
-      }
-      return [row[0], val];
+      return [row[0], reviewValue(row[1])];
     });
     const el = $(".review-list");
     if (el) el.innerHTML = rows.map(function (row) {
       return '<div class="review-row"><span class="k">' + row[0] + '</span><span class="v">' + row[1] + "</span></div>";
     }).join("");
+  }
+
+  function briefLines(record) {
+    const quals = formatList(record.qualification);
+    return [
+      "Desk capacity: " + record.leadCapacity,
+      "Buyer who: " + record.buyerWho,
+      "Buyer market: " + record.buyerMarket,
+      "Qualified when: " + quals,
+      "Qualification note: " + (record.qualificationNote || "—"),
+      "Hard rejects: " + (record.hardRejects || "—"),
+    ];
   }
 
   function buildMailto(record, ref) {
@@ -345,15 +416,13 @@
       "Email: " + record.email,
       "Phone: " + record.phone,
       "Kind of business: " + record.industry,
-      "Based in: " + record.country,
-      "Qualified-lead capacity: " + record.leadCapacity,
-      "Buyer they want: " + record.buyerDescription,
-      "Rough client value: " + (record.dealBand || "—"),
-      "Preferred channel: " + record.preferredChannel,
+      "Firm based in: " + record.country,
+    ].concat(briefLines(record)).concat([
+      "Preferred channel: " + (record.preferredChannel || "—"),
       "Preferred time: " + (record.preferredTime || "—"),
       "Confidentiality acknowledged: yes",
       "Submitted: " + record.submittedAt,
-    ];
+    ]);
     return "mailto:" + DEST_EMAIL
       + "?subject=" + encodeURIComponent("Carmichael Henderson consultation — " + record.industry + " — " + record.firmName)
       + "&body=" + encodeURIComponent(lines.join("\n"));
@@ -379,6 +448,7 @@
 
     const ref = "CH-" + Date.now().toString(36).toUpperCase();
     const record = Object.assign({}, state.data, {
+      qualification: asList(state.data.qualification),
       submittedAt: new Date().toISOString(),
       startedAt: state.started ? new Date(state.started).toISOString() : null,
       durationSeconds: state.started ? Math.round((Date.now() - state.started) / 1000) : null,
@@ -409,12 +479,15 @@
       industry: record.industry,
       region: record.country,
       leadCapacity: record.leadCapacity,
-      buyerDescription: record.buyerDescription,
-      dealBand: record.dealBand || "—",
+      buyerWho: record.buyerWho,
+      buyerMarket: record.buyerMarket,
+      qualification: formatList(record.qualification),
+      qualificationNote: record.qualificationNote || "—",
+      hardRejects: record.hardRejects || "—",
       preferredChannel: record.preferredChannel || "—",
       preferredTime: record.preferredTime || "—",
       reference: ref,
-      message: "Design-brief enquiry from the Carmichael Henderson site.",
+      message: "Design-the-mandate enquiry from the Carmichael Henderson site.\n\n" + briefLines(record).join("\n"),
     };
 
     fetch(FORMSUBMIT, {

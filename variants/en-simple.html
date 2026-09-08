@@ -159,9 +159,9 @@
     <div class="consult-grid">
       <div class="consult-copy">
         <div class="eyebrow reveal">Private Consultation</div>
-        <h2 class="serif reveal reveal-delay-1">Tell us the buyer. <em>We design the campaign.</em></h2>
+        <h2 class="serif reveal reveal-delay-1">You describe the buyer. <em>We design the mandate.</em></h2>
         <p class="reveal reveal-delay-2">
-          Tell us the buyer you want and the volume your team can honour. We design the campaign for that mandate, then return with a precise engagement quote — not a generic package.
+          Name the client you want and the monthly volume your desk can honour. We design from that brief, then return with a precise engagement quote — not a generic package.
         </p>
         <ul class="consult-list reveal reveal-delay-3">
           <li>One firm in your line of work, in your market.</li>
@@ -176,7 +176,7 @@
           <div class="form-progress-labels">
             <span class="active"><em>01</em> Business</span>
             <span><em>02</em> Where</span>
-            <span><em>03</em> Brief</span>
+            <span><em>03</em> Mandate</span>
             <span><em>04</em> Contact</span>
           </div>
         </div>
@@ -209,35 +209,71 @@
         </div>
 
         <div class="form-step" data-step="3">
-          <div class="form-step-num">03 · The design brief</div>
-          <h3 class="serif">Who do you want — and how many can you take?</h3>
-          <div class="form-step-hint">This is the design phase. You describe the buyer. We design the campaign around that requirement.</div>
-          <div class="field">
-            <label>How many qualified leads can you handle?</label>
-            <p class="field-help">This is the primary number. We use it to size the campaign. We only send what your team can work. Bands are capacity options you choose — not claimed results.</p>
-            <div class="pill-row" data-pillgroup="leadCapacity">
-              <button type="button" class="pill" data-value="Up to 20 a month">Up to 20</button>
-              <button type="button" class="pill" data-value="20–50 a month">20–50</button>
-              <button type="button" class="pill" data-value="50–100 a month">50–100</button>
-              <button type="button" class="pill" data-value="100–200 a month">100–200</button>
-              <button type="button" class="pill" data-value="200+ a month">200+</button>
+          <div class="form-step-num">03 · Design the mandate</div>
+          <h3 class="serif">Design your client.</h3>
+          <div class="form-step-hint">This is the brief we design from. Name the buyer, the market they sit in, and what makes an enquiry qualified. Volume is the desk capacity you can honour — not a result we claim.</div>
+
+          <div class="brief-item">
+            <div class="brief-kicker">01 · Volume</div>
+            <div class="field">
+              <label>Monthly qualified enquiries the desk can honour</label>
+              <p class="field-help">Capacity your team can work — not claimed results. We size the mandate to this band.</p>
+              <div class="pill-row pill-row-capacity" data-pillgroup="leadCapacity">
+                <button type="button" class="pill" data-value="200–500 a month">200–500 / month</button>
+                <button type="button" class="pill" data-value="500–1,000 a month">500–1,000 / month</button>
+                <button type="button" class="pill" data-value="1,000–2,500 a month">1,000–2,500 / month</button>
+                <button type="button" class="pill" data-value="2,500–5,000 a month">2,500–5,000 / month</button>
+                <button type="button" class="pill" data-value="5,000–10,000 a month">5,000–10,000 / month</button>
+              </div>
+              <div class="field-err" data-err="leadCapacity"></div>
             </div>
-            <div class="field-err" data-err="leadCapacity"></div>
           </div>
-          <div class="field">
-            <label for="buyerDescription">Describe the customer you want</label>
-            <p class="field-help">In your words: who you want to speak to, what they must already have done or be ready to do, where they are, and anything that makes a lead “qualified” for you.</p>
-            <textarea class="input" id="buyerDescription" name="buyerDescription" rows="6" placeholder="For example: owners of established clinics in São Paulo who are already looking to refinance, or families ready to view a home this month in your catchment."></textarea>
-            <div class="field-err" data-err="buyerDescription"></div>
+
+          <div class="brief-item">
+            <div class="brief-kicker">02 · Buyer</div>
+            <div class="field">
+              <label for="buyerWho">Buyer who</label>
+              <p class="field-help">Who you want to speak to — role, situation, or type. Keep it short.</p>
+              <textarea class="input brief-short" id="buyerWho" name="buyerWho" rows="3" placeholder="e.g. principals of established practices already looking to change firm"></textarea>
+              <div class="field-err" data-err="buyerWho"></div>
+            </div>
           </div>
-          <div class="field">
-            <label>Rough value of a new client (optional)</label>
-            <p class="field-help">Context for the quote only — not a company-size question.</p>
-            <div class="pill-row" data-pillgroup="dealBand">
-              <button type="button" class="pill" data-value="Under $10k">Under $10k</button>
-              <button type="button" class="pill" data-value="$10k–$100k">$10k–$100k</button>
-              <button type="button" class="pill" data-value="$100k–$1M">$100k–$1M</button>
-              <button type="button" class="pill" data-value="$1M+">$1M+</button>
+
+          <div class="brief-item">
+            <div class="brief-kicker">03 · Buyer market</div>
+            <div class="field">
+              <label for="buyerMarket">Where those buyers are</label>
+              <p class="field-help">City, region, or country of the demand — not just where the firm sits.</p>
+              <input class="input" id="buyerMarket" name="buyerMarket" type="text" placeholder="e.g. São Paulo · east Sydney · UK-wide" autocomplete="off">
+              <div class="field-err" data-err="buyerMarket"></div>
+            </div>
+          </div>
+
+          <div class="brief-item">
+            <div class="brief-kicker">04 · Qualified when</div>
+            <div class="field">
+              <label>What makes an enquiry qualified</label>
+              <p class="field-help">Select every rule that must be true before we send it. Add a note if you need to spell one out.</p>
+              <div class="pill-row" data-pillgroup="qualification" data-multiselect="true">
+                <button type="button" class="pill" data-value="Already searching">Already searching</button>
+                <button type="button" class="pill" data-value="Ready this month">Ready this month</button>
+                <button type="button" class="pill" data-value="Licensed">Licensed</button>
+                <button type="button" class="pill" data-value="Minimum ticket">Minimum ticket</button>
+                <button type="button" class="pill" data-value="Exclusive to our firm">Exclusive to our firm</button>
+                <button type="button" class="pill" data-value="Other">Other</button>
+              </div>
+              <div class="field-err" data-err="qualification"></div>
+              <label for="qualificationNote">Qualification note (optional)</label>
+              <textarea class="input brief-short" id="qualificationNote" name="qualificationNote" rows="2" placeholder="e.g. already in-market this month, or licensed in the buyer’s state"></textarea>
+            </div>
+          </div>
+
+          <div class="brief-item">
+            <div class="brief-kicker">05 · Never send</div>
+            <div class="field">
+              <label for="hardRejects">Hard rejects (optional)</label>
+              <p class="field-help">What we should never send.</p>
+              <input class="input" id="hardRejects" name="hardRejects" type="text" placeholder="e.g. other firms’ existing clients, out-of-area, not ready this quarter" autocomplete="off">
             </div>
           </div>
         </div>
@@ -363,7 +399,7 @@
 </footer>
 
 <script src="../js/countries.js"></script>
-<script src="../js/form.js"></script>
+<script src="../js/form.js?v=ch-mandate"></script>
 <script src="../js/animations.js"></script>
 </body>
 </html>

@@ -400,12 +400,12 @@
     <div class="consult-grid">
       <div class="consult-copy">
         <div class="eyebrow reveal">Consulta privada</div>
-        <h2 class="serif reveal reveal-delay-1">Este pedido é o começo do <em>desenho.</em></h2>
-        <p class="reveal reveal-delay-2">Diga o comprador que você quer e o volume que a equipe consegue honrar. Desenhamos a campanha para esse mandato e voltamos com um orçamento preciso — não um pacote genérico.</p>
+        <h2 class="serif reveal reveal-delay-1">Você descreve o comprador. <em>Nós desenhamos o mandato.</em></h2>
+        <p class="reveal reveal-delay-2">Diga o cliente que você quer e o volume mensal que a mesa consegue honrar. Desenhamos a partir desse briefing e voltamos com um orçamento preciso — não um pacote genérico.</p>
         <ul class="consult-list reveal reveal-delay-3">
-          <li>Você descreve o cliente. Nós desenhamos a campanha em cima desse briefing.</li>
+          <li>Você nomeia o comprador, o mercado dele e o que qualifica. Esse é o desenho.</li>
           <li>Voltamos com um orçamento preciso para esse mandato.</li>
-          <li>Só enviamos o que a sua equipe consegue trabalhar — você define o volume</li>
+          <li>Volume é a capacidade que a equipe consegue trabalhar — não um resultado prometido.</li>
           <li>Uma empresa no seu ramo, no seu mercado. Confidencial por padrão.</li>
         </ul>
         <p class="consult-privacy reveal">Consultas são tratadas como informação comercial sensível. Não listamos, revendemos nem publicamos os seus dados. Quem responde é o responsável da conta — não uma caixa compartilhada.</p>
@@ -416,7 +416,7 @@
           <div class="form-progress-labels">
             <span class="active"><em>01</em> Negócio</span>
             <span><em>02</em> Onde</span>
-            <span><em>03</em> Briefing</span>
+            <span><em>03</em> Mandato</span>
             <span><em>04</em> Contato</span>
           </div>
         </div>
@@ -449,35 +449,71 @@
         </div>
 
         <div class="form-step" data-step="3">
-          <div class="form-step-num">03 · O briefing</div>
-          <h3 class="serif">Quem você quer atender — e quantos consegue receber?</h3>
-          <div class="form-step-hint">Esta é a fase de desenho. Você descreve o cliente. Nós montamos a campanha em cima disso.</div>
-          <div class="field">
-            <label>Quantos leads qualificados você consegue atender?</label>
-            <p class="field-help">Este é o número principal. Usamos para dimensionar a campanha. Só enviamos o que a sua equipe consegue trabalhar. As faixas são opções de capacidade — não resultados prometidos.</p>
-            <div class="pill-row" data-pillgroup="leadCapacity">
-              <button type="button" class="pill" data-value="Up to 20 a month">Até 20</button>
-              <button type="button" class="pill" data-value="20–50 a month">20–50</button>
-              <button type="button" class="pill" data-value="50–100 a month">50–100</button>
-              <button type="button" class="pill" data-value="100–200 a month">100–200</button>
-              <button type="button" class="pill" data-value="200+ a month">200+</button>
+          <div class="form-step-num">03 · Desenhe o mandato</div>
+          <h3 class="serif">Desenhe o seu cliente.</h3>
+          <div class="form-step-hint">Este é o briefing de onde desenhamos. Nomeie o comprador, o mercado em que ele está e o que torna uma consulta qualificada. O volume é a capacidade que a mesa consegue honrar — não um resultado que reivindicamos.</div>
+
+          <div class="brief-item">
+            <div class="brief-kicker">01 · Volume</div>
+            <div class="field">
+              <label>Consultas qualificadas por mês que a mesa consegue honrar</label>
+              <p class="field-help">Capacidade que a equipe consegue trabalhar — não resultados prometidos. Dimensionamos o mandato nesta faixa.</p>
+              <div class="pill-row pill-row-capacity" data-pillgroup="leadCapacity">
+                <button type="button" class="pill" data-value="200–500 a month">200–500 / mês</button>
+                <button type="button" class="pill" data-value="500–1,000 a month">500–1.000 / mês</button>
+                <button type="button" class="pill" data-value="1,000–2,500 a month">1.000–2.500 / mês</button>
+                <button type="button" class="pill" data-value="2,500–5,000 a month">2.500–5.000 / mês</button>
+                <button type="button" class="pill" data-value="5,000–10,000 a month">5.000–10.000 / mês</button>
+              </div>
+              <div class="field-err" data-err="leadCapacity"></div>
             </div>
-            <div class="field-err" data-err="leadCapacity"></div>
           </div>
-          <div class="field">
-            <label for="buyerDescription">Descreva o cliente que você quer</label>
-            <p class="field-help">Com as suas palavras: com quem você quer falar, o que essa pessoa já precisa ter feito ou estar pronta para fazer, onde ela está, e o que torna um lead “qualificado” para você.</p>
-            <textarea class="input" id="buyerDescription" name="buyerDescription" rows="6" placeholder="Por exemplo: donos de clínicas estabelecidas em São Paulo que já procuram refinanciamento, ou famílias prontas para visitar um imóvel este mês na sua região."></textarea>
-            <div class="field-err" data-err="buyerDescription"></div>
+
+          <div class="brief-item">
+            <div class="brief-kicker">02 · Comprador</div>
+            <div class="field">
+              <label for="buyerWho">Comprador: quem</label>
+              <p class="field-help">Com quem você quer falar — papel, situação ou tipo. Seja breve.</p>
+              <textarea class="input brief-short" id="buyerWho" name="buyerWho" rows="3" placeholder="ex.: sócios de escritórios estabelecidos que já procuram trocar de firma"></textarea>
+              <div class="field-err" data-err="buyerWho"></div>
+            </div>
           </div>
-          <div class="field">
-            <label>Valor aproximado de um cliente novo (opcional)</label>
-            <p class="field-help">Só para contextualizar o orçamento — não é pergunta sobre o tamanho da empresa.</p>
-            <div class="pill-row" data-pillgroup="dealBand">
-              <button type="button" class="pill" data-value="Under $10k">Abaixo de R$50 mil</button>
-              <button type="button" class="pill" data-value="$10k–$100k">R$50 mil–R$500 mil</button>
-              <button type="button" class="pill" data-value="$100k–$1M">R$500 mil–R$5 mi</button>
-              <button type="button" class="pill" data-value="$1M+">R$5 mi+</button>
+
+          <div class="brief-item">
+            <div class="brief-kicker">03 · Mercado do comprador</div>
+            <div class="field">
+              <label for="buyerMarket">Onde esses compradores estão</label>
+              <p class="field-help">Cidade, região ou país da demanda — não só onde fica a sede.</p>
+              <input class="input" id="buyerMarket" name="buyerMarket" type="text" placeholder="ex.: São Paulo · litoral de SC · Brasil inteiro" autocomplete="off">
+              <div class="field-err" data-err="buyerMarket"></div>
+            </div>
+          </div>
+
+          <div class="brief-item">
+            <div class="brief-kicker">04 · Quando está qualificado</div>
+            <div class="field">
+              <label>O que torna uma consulta qualificada</label>
+              <p class="field-help">Marque cada regra que precisa ser verdadeira antes de enviarmos. Acrescente uma nota se precisar explicar.</p>
+              <div class="pill-row" data-pillgroup="qualification" data-multiselect="true">
+                <button type="button" class="pill" data-value="Already searching">Já está procurando</button>
+                <button type="button" class="pill" data-value="Ready this month">Pronto este mês</button>
+                <button type="button" class="pill" data-value="Licensed">Com licença</button>
+                <button type="button" class="pill" data-value="Minimum ticket">Ticket mínimo</button>
+                <button type="button" class="pill" data-value="Exclusive to our firm">Exclusivo do nosso escritório</button>
+                <button type="button" class="pill" data-value="Other">Outro</button>
+              </div>
+              <div class="field-err" data-err="qualification"></div>
+              <label for="qualificationNote">Nota de qualificação (opcional)</label>
+              <textarea class="input brief-short" id="qualificationNote" name="qualificationNote" rows="2" placeholder="ex.: já no mercado este mês, ou licenciado no estado do comprador"></textarea>
+            </div>
+          </div>
+
+          <div class="brief-item">
+            <div class="brief-kicker">05 · Nunca enviar</div>
+            <div class="field">
+              <label for="hardRejects">O que nunca enviar (opcional)</label>
+              <p class="field-help">O que não devemos mandar.</p>
+              <input class="input" id="hardRejects" name="hardRejects" type="text" placeholder="ex.: clientes de outro escritório, fora da área, sem prontidão neste trimestre" autocomplete="off">
             </div>
           </div>
         </div>
@@ -606,7 +642,7 @@
 </footer>
 
 <script src="../js/countries.js"></script>
-<script src="../js/form.js"></script>
+<script src="../js/form.js?v=ch-mandate"></script>
 <script src="../js/animations.js"></script>
 </body>
 </html>
