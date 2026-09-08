@@ -11,7 +11,7 @@
   --text: #fbf7ef;
   --muted: #f4eee2;
   --border: rgba(255, 248, 236, 0.34);
-  --accent: #e8cf90;
+  --accent: #f0d58c;
 
   /* elevated charcoal — evening lounge, not a cave */
   --ink-000: #2a303c;
@@ -321,8 +321,9 @@ p { margin: 0; }
   position: relative;
   z-index: 3;
   max-width: 36rem;
-  padding-left: 28px;
-  border-left: 1px solid var(--hair-strong);
+  padding: 28px 36px 28px 28px;
+  border-left: 2px solid var(--accent);
+  background: linear-gradient(90deg, rgba(42, 48, 60, 0.4) 0%, rgba(42, 48, 60, 0.08) 78%, transparent 100%);
   text-shadow: 0 2px 28px rgba(20, 24, 32, 0.55);
 }
 .hero-brand {
@@ -1596,9 +1597,9 @@ p { margin: 0; }
 }
 .radio-tile {
   padding: 16px 12px;
-  border: 1px solid var(--hair);
-  background: transparent;
-  color: var(--paper-dim);
+  border: 1px solid var(--plat-300);
+  background: rgba(251, 247, 239, 0.04);
+  color: var(--paper);
   font-family: var(--sans);
   font-size: 13px;
   cursor: pointer;
@@ -1608,9 +1609,9 @@ p { margin: 0; }
   position: relative;
 }
 .radio-tile:hover {
-  border-color: var(--plat-300);
+  border-color: var(--accent);
   color: var(--paper);
-  background: rgba(244, 239, 230, 0.04);
+  background: rgba(251, 247, 239, 0.12);
 }
 .radio-tile.selected {
   background: var(--plat-100);
