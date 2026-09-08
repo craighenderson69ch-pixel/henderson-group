@@ -4,42 +4,42 @@
    ========================================================= */
 
 :root {
-  /* semantic — brighter charcoal, cream type, champagne accent */
-  --bg: #262c36;
-  --bg-raised: #323946;
-  --bg-deep: #1e232b;
-  --text: #f8f3ea;
-  --muted: #ece4d4;
-  --border: rgba(248, 243, 234, 0.26);
-  --accent: #e2c98a;
+  /* semantic — lounge charcoal, ivory type, champagne accent */
+  --bg: #343b4a;
+  --bg-raised: #434c5e;
+  --bg-deep: #2a303c;
+  --text: #fbf7ef;
+  --muted: #f4eee2;
+  --border: rgba(255, 248, 236, 0.34);
+  --accent: #e8cf90;
 
-  /* elevated charcoal — soft off-black, not a cave */
-  --ink-000: #1e232b;
-  --ink-050: #262c36;
-  --ink-100: #323946;
-  --ink-200: #3d4554;
-  --ink-300: #505969;
-  --ink-400: #748092;
-  --ink-500: #9aa3b2;
+  /* elevated charcoal — evening lounge, not a cave */
+  --ink-000: #2a303c;
+  --ink-050: #343b4a;
+  --ink-100: #434c5e;
+  --ink-200: #515b70;
+  --ink-300: #667184;
+  --ink-400: #8b94a6;
+  --ink-500: #aeb6c4;
 
   --paper: #fbf7ef;
-  --paper-dim: #ece4d4;
-  --paper-mute: #d2c7b2;
-  --copy: #f8f3ea;
+  --paper-dim: #f4eee2;
+  --paper-mute: #ddd2bc;
+  --copy: #fbf7ef;
 
   /* ivory + champagne */
-  --plat-100: #fff8ec;
-  --plat-200: #f3e8d4;
-  --plat-300: #dccfb6;
-  --plat-400: #c0b294;
-  --plat-500: #a89878;
+  --plat-100: #fffaf0;
+  --plat-200: #f6ecda;
+  --plat-300: #e2d4b8;
+  --plat-400: #c9ba9a;
+  --plat-500: #d2c09a;
 
   --cream: #fbf7ef;
-  --cream-dim: rgba(251, 247, 239, 0.1);
+  --cream-dim: rgba(251, 247, 239, 0.12);
 
   /* utility */
-  --hair: rgba(248, 243, 234, 0.26);
-  --hair-strong: rgba(248, 243, 234, 0.42);
+  --hair: rgba(255, 248, 236, 0.34);
+  --hair-strong: rgba(255, 248, 236, 0.52);
   --success: #9fc9a8;
   --danger: #e08a90;
 
@@ -83,8 +83,8 @@ body::before {
   content: "";
   position: fixed; inset: 0;
   background-image:
-    radial-gradient(circle at 18% 22%, rgba(226, 201, 138, 0.045), transparent 42%),
-    radial-gradient(circle at 82% 78%, rgba(255, 248, 236, 0.03), transparent 48%);
+    radial-gradient(circle at 18% 22%, rgba(232, 207, 144, 0.07), transparent 44%),
+    radial-gradient(circle at 82% 78%, rgba(255, 248, 236, 0.05), transparent 50%);
   pointer-events: none;
   z-index: 1;
 }
@@ -204,7 +204,7 @@ p { margin: 0; }
 .nav.scrolled {
   padding: 8px var(--pad-x);
   min-height: 56px;
-  background: rgba(38, 44, 54, 0.9);
+  background: rgba(52, 59, 74, 0.92);
   backdrop-filter: blur(20px) saturate(180%);
   border-bottom-color: var(--hair-strong);
 }
@@ -279,10 +279,10 @@ p { margin: 0; }
   text-transform: none;
   transition: color 0.35s ease, border-color 0.35s ease, background 0.35s ease;
   cursor: pointer;
-  background: rgba(251, 247, 239, 0.06);
+  background: rgba(251, 247, 239, 0.1);
 }
 .nav-cta:hover {
-  background: rgba(251, 247, 239, 0.14);
+  background: rgba(251, 247, 239, 0.2);
   color: var(--paper);
   border-color: var(--accent);
 }
@@ -305,17 +305,17 @@ p { margin: 0; }
 .hero-bg img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: 8% 88%;
-  transform: scale(1.28);
+  object-position: 18% 72%;
+  transform: scale(1.12);
   will-change: transform;
-  filter: grayscale(0.22) contrast(1.14) brightness(0.78) saturate(0.62);
+  filter: grayscale(0) contrast(1.08) brightness(1.28) saturate(1.05);
 }
 .hero-bg::after {
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, rgba(30,35,43,0.78) 0%, rgba(30,35,43,0.48) 38%, rgba(30,35,43,0.16) 70%, rgba(30,35,43,0.06) 100%),
-    linear-gradient(180deg, rgba(30,35,43,0.28) 0%, rgba(30,35,43,0.06) 30%, rgba(30,35,43,0.34) 74%, rgba(38,44,54,0.86) 100%);
+    linear-gradient(90deg, rgba(42,48,60,0.58) 0%, rgba(42,48,60,0.22) 36%, rgba(42,48,60,0.04) 64%, transparent 100%),
+    linear-gradient(180deg, rgba(52,59,74,0.16) 0%, transparent 32%, rgba(52,59,74,0.16) 76%, rgba(52,59,74,0.7) 100%);
 }
 .hero-content {
   position: relative;
@@ -323,7 +323,7 @@ p { margin: 0; }
   max-width: 36rem;
   padding-left: 28px;
   border-left: 1px solid var(--hair-strong);
-  text-shadow: 0 1px 22px rgba(16, 20, 26, 0.55);
+  text-shadow: 0 2px 28px rgba(20, 24, 32, 0.55);
 }
 .hero-brand {
   font-family: var(--serif);
@@ -387,12 +387,12 @@ p { margin: 0; }
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  background: rgba(251, 247, 239, 0.08);
-  box-shadow: inset 0 0 0 1px rgba(251, 247, 239, 0.12);
+  background: rgba(251, 247, 239, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(251, 247, 239, 0.2);
   transition: color 0.35s ease, border-color 0.35s ease, background 0.35s ease;
 }
 .hero-cta:hover {
-  background: rgba(251, 247, 239, 0.16);
+  background: rgba(251, 247, 239, 0.24);
   color: var(--paper);
   border-color: var(--accent);
 }
@@ -494,7 +494,7 @@ p { margin: 0; }
 }
 .standard-lead h2 em { font-style: italic; color: var(--plat-200); }
 .standard-lead-body {
-  color: var(--paper-dim);
+  color: var(--paper);
   font-size: 17px;
   line-height: 1.75;
 }
@@ -522,7 +522,7 @@ p { margin: 0; }
 }
 .pillar h3 { color: var(--paper); margin-bottom: 20px; }
 .pillar h3 em { font-style: italic; color: var(--plat-200); }
-.pillar p { color: var(--paper-dim); font-size: 15px; line-height: 1.7; }
+.pillar p { color: var(--paper); font-size: 15px; line-height: 1.7; }
 
 /* =============== INDUSTRIES =============== */
 .industries {
@@ -541,7 +541,7 @@ p { margin: 0; }
 .section-head h2 { color: var(--paper); max-width: 15ch; }
 .section-head h2 em { font-style: italic; color: var(--plat-200); }
 .section-head-right {
-  color: var(--paper-dim);
+  color: var(--paper);
   font-size: 17px;
   line-height: 1.75;
   max-width: 55ch;
@@ -585,7 +585,7 @@ p { margin: 0; }
   font-size: clamp(24px, 2.1vw, 32px);
 }
 .industry-card p {
-  color: var(--paper-dim);
+  color: var(--paper);
   font-size: 15px;
   line-height: 1.6;
   max-width: 42ch;
@@ -845,16 +845,16 @@ p { margin: 0; }
 .approach-bg {
   position: absolute; inset: 0;
   z-index: 0;
-  opacity: 0.18;
+  opacity: 0.32;
 }
 .approach-bg img {
   width: 100%; height: 100%; object-fit: cover;
-  filter: grayscale(0.28) contrast(1.06) brightness(1.28) saturate(0.55);
+  filter: grayscale(0.05) contrast(1.08) brightness(1.42) saturate(0.85);
 }
 .approach-bg::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, var(--ink-050) 0%, rgba(38,44,54,0.28) 50%, var(--ink-050) 100%);
+  background: linear-gradient(180deg, var(--ink-050) 0%, rgba(52,59,74,0.35) 50%, var(--ink-050) 100%);
 }
 .approach .container { z-index: 2; }
 
@@ -931,7 +931,7 @@ p { margin: 0; }
 }
 .tstep p {
   text-align: center;
-  color: var(--paper-dim);
+  color: var(--paper);
   font-size: 14px;
   line-height: 1.65;
   max-width: 26ch;
@@ -964,7 +964,7 @@ p { margin: 0; }
 }
 .why-left h2 em { font-style: italic; color: var(--plat-200); }
 .why-left-body {
-  color: var(--paper-dim);
+  color: var(--paper);
   font-size: 16px;
   line-height: 1.75;
 }
@@ -984,7 +984,7 @@ p { margin: 0; }
   margin-bottom: 10px;
 }
 .why-item p {
-  color: var(--paper-dim);
+  color: var(--paper);
   font-size: 14px;
   line-height: 1.7;
 }
@@ -1118,7 +1118,7 @@ p { margin: 0; }
 }
 .leader-card-note {
   margin-top: 16px;
-  color: var(--paper-dim);
+  color: var(--paper);
   font-size: 14px;
   line-height: 1.6;
   max-width: 38ch;
@@ -1195,7 +1195,7 @@ p { margin: 0; }
   margin-bottom: 32px;
 }
 .leader-body p {
-  color: var(--paper-dim);
+  color: var(--paper);
   font-size: 16px;
   line-height: 1.75;
   margin-bottom: 20px;
@@ -1426,7 +1426,7 @@ p { margin: 0; }
 }
 .faq-answer {
   padding: 0 60px 32px 0;
-  color: var(--paper-dim);
+  color: var(--paper);
   font-size: 15px;
   line-height: 1.75;
   animation: faqIn 0.4s ease;
@@ -1439,7 +1439,7 @@ p { margin: 0; }
 /* =============== CONSULTATION (multi-step form) =============== */
 .consult {
   position: relative;
-  background: var(--ink-050);
+  background: var(--ink-100);
   overflow: hidden;
   border-top: 1px solid var(--hair-strong);
 }
@@ -1459,7 +1459,7 @@ p { margin: 0; }
 }
 .consult-copy h2 em { font-style: italic; color: var(--plat-200); }
 .consult-copy p {
-  color: var(--paper-dim);
+  color: var(--paper);
   font-size: 16px;
   line-height: 1.75;
   margin-bottom: 32px;
@@ -1478,7 +1478,7 @@ p { margin: 0; }
   align-items: center;
   gap: 16px;
   font-size: 14px;
-  color: var(--paper-dim);
+  color: var(--paper);
 }
 .consult-list li::before {
   content: "";
@@ -1499,7 +1499,7 @@ p { margin: 0; }
 
 /* Form container */
 .form-shell {
-  background: var(--ink-100);
+  background: var(--ink-200);
   border: 1px solid var(--hair-strong);
   padding: 44px 40px 36px;
   position: relative;
@@ -2111,7 +2111,7 @@ textarea.input {
     position: absolute;
     top: 100%;
     left: 0; right: 0;
-    background: rgba(38, 44, 54, 0.96);
+    background: rgba(52, 59, 74, 0.96);
     backdrop-filter: blur(16px);
     padding: 24px var(--pad-x) 32px;
     gap: 20px;
