@@ -1118,6 +1118,9 @@ p { margin: 0; }
   margin: 0 0 56px;
   max-width: 920px;
 }
+.leader-card {
+  min-width: 0;
+}
 .leader-card-note {
   margin-top: 16px;
   color: var(--paper);
@@ -1128,24 +1131,30 @@ p { margin: 0; }
 }
 .leader-photo {
   position: relative;
+  margin: 0;
+  overflow: visible;
+}
+.leader-photo-frame {
+  position: relative;
   aspect-ratio: 4 / 5;
+  width: 100%;
   background: var(--ink-000);
   overflow: hidden;
   border: 1px solid var(--hair-strong);
 }
-.leader-photo img {
+.leader-photo-frame img {
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: center 18%;
   filter: grayscale(0.08) contrast(1.06) brightness(1.0) saturate(0.88);
 }
-.leader-photo img.leader-photo-square,
-.leader-photo img.leader-photo-leona {
+.leader-photo-frame img.leader-photo-square,
+.leader-photo-frame img.leader-photo-leona {
   object-position: center 16%;
   filter: grayscale(0.18) contrast(1.1) brightness(0.78) saturate(0.7);
 }
-.leader-photo:has(.leader-photo-leona)::before,
-.leader-photo:has(.leader-photo-square)::before {
+.leader-photo-frame:has(.leader-photo-leona)::before,
+.leader-photo-frame:has(.leader-photo-square)::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1154,7 +1163,7 @@ p { margin: 0; }
   pointer-events: none;
   mix-blend-mode: multiply;
 }
-.leader-photo::after {
+.leader-photo-frame::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -2155,6 +2164,46 @@ textarea.input {
   .tstep::before, .tstep::after { display: none; }
 }
 
+@media (max-width: 900px) {
+  .leader-people {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: none;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .leader-card {
+    width: 100%;
+    min-width: 0;
+  }
+  .leader-photo-frame {
+    width: 100%;
+    min-height: 420px;
+  }
+  .leader-caption {
+    position: static;
+    padding: 16px 2px 0;
+    overflow: visible;
+  }
+  .leader-caption-name {
+    font-size: clamp(20px, 5.8vw, 24px);
+    line-height: 1.2;
+    overflow-wrap: break-word;
+  }
+  .leader-caption-role {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    line-height: 1.45;
+    white-space: normal;
+  }
+  .leader-card-note {
+    min-height: 0;
+    max-width: none;
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 720px) {
   .pillars,
   .industry-grid,
@@ -2166,7 +2215,6 @@ textarea.input {
   .radio-grid,
   .infra-stats,
   .leader-facts,
-  .leader-people,
   .field-row,
   .vert-cats,
   .vert-summary,
@@ -2179,39 +2227,6 @@ textarea.input {
   .hero-actions { gap: 20px; }
   .footer-top { flex-direction: column; }
   .restore-banner { flex-direction: column; align-items: flex-start; }
-  .leader-people {
-    gap: 36px;
-    margin-bottom: 40px;
-    max-width: none;
-  }
-  .leader-photo {
-    aspect-ratio: 4 / 5;
-    min-height: 360px;
-    width: 100%;
-  }
-  .leader-caption {
-    bottom: 18px;
-    left: 16px;
-    right: 16px;
-    overflow: visible;
-  }
-  .leader-caption-name {
-    font-size: clamp(20px, 6vw, 26px);
-    line-height: 1.15;
-    overflow-wrap: anywhere;
-    hyphens: manual;
-  }
-  .leader-caption-role {
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    line-height: 1.45;
-    white-space: normal;
-  }
-  .leader-card-note {
-    min-height: 0;
-    max-width: none;
-    font-size: 15px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
