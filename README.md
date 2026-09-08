@@ -1,6 +1,6 @@
-# Henderson Group
+# Carmichael Henderson
 
-Production static landing page for Henderson Group — exclusive, done-for-you client acquisition. One client. One mandate.
+Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd) — exclusive, done-for-you client acquisition. One client. One mandate.
 
 This repository is the public site. Exclusive done-for-you lead generation, nine industries, four-step approach, Craig and Leona Henderson, FAQ, and a design-brief consultation form. Client results and dollar figures are not invented. Verified references are available on private request.
 
@@ -59,7 +59,7 @@ There is no live calendar, Calendly placeholder, or discovery-call booking widge
 - Leadership uses Craig Henderson’s actual portrait and Leona Henderson’s Slack profile photo (not generated or stock faces)
 - No public testimonials attributed to unnamed clients
 
-Operator-scale figures (for example 600+ network operators) are marked as illustrative / Insider Group published network figures, not Henderson client results.
+Operator-scale figures (for example 600+ network operators) are marked as illustrative / Insider Group published network figures, not Carmichael Henderson client results.
 
 ## Site map
 

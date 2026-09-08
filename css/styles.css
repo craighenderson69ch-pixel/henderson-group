@@ -1,5 +1,5 @@
 /* =========================================================
-   HENDERSON GROUP — MARKETING SITE
+   CARMICHAEL HENDERSON — MARKETING SITE
    Midnight + cool platinum. Max contrast, private-bank craft.
    ========================================================= */
 
@@ -214,14 +214,17 @@ p { margin: 0; }
   gap: 12px;
 }
 .brand-mark {
-  width: 30px; height: 30px;
-  border: 1px solid var(--plat-300);
+  width: 40px;
+  height: 27px;
+  flex: 0 0 auto;
   display: grid;
   place-items: center;
-  font-family: var(--serif);
-  font-size: 16px;
-  font-style: italic;
   color: var(--plat-100);
+}
+.brand-mark svg {
+  display: block;
+  width: 40px;
+  height: 27px;
 }
 .brand-name {
   font-family: var(--serif);
@@ -2081,15 +2084,26 @@ textarea.input {
   justify-content: space-between;
   gap: 24px;
   flex-wrap: wrap;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--plat-500);
 }
 .footer-bottom a { color: var(--plat-400); }
 .footer-bottom a:hover { color: var(--paper); }
+.footer-legal {
+  max-width: 42rem;
+  line-height: 1.55;
+}
+.footer-ids {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--plat-300);
+}
 .footer-network {
   display: block;
   margin-top: 10px;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--plat-400);
@@ -2254,6 +2268,16 @@ textarea.input {
 }
 
 @media (max-width: 720px) {
+  .brand-name { font-size: 16px; }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 14px;
+  }
+  .footer-ids {
+    font-size: 14px;
+    color: var(--plat-200);
+  }
   .pillars,
   .industry-grid,
   .timeline-steps,

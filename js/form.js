@@ -3,9 +3,9 @@
    Submits to craig@hendersongroup.com.au via FormSubmit, with mailto fallback.
 */
 (function () {
-  const STORAGE_KEY = "henderson_form_progress";
-  const SESSION_FLAG = "henderson_form_session";
-  const SUBMIT_KEY = "henderson_submissions";
+  const STORAGE_KEY = "ch_form_progress";
+  const SESSION_FLAG = "ch_form_session";
+  const SUBMIT_KEY = "ch_submissions";
   const DEST_EMAIL = "craig@hendersongroup.com.au";
   const FORMSUBMIT = "https://formsubmit.co/ajax/" + DEST_EMAIL;
   const LANG = (document.documentElement.getAttribute("lang") || "en").toLowerCase();
@@ -355,7 +355,7 @@
       "Submitted: " + record.submittedAt,
     ];
     return "mailto:" + DEST_EMAIL
-      + "?subject=" + encodeURIComponent("Henderson Group consultation — " + record.industry + " — " + record.firmName)
+      + "?subject=" + encodeURIComponent("Carmichael Henderson consultation — " + record.industry + " — " + record.firmName)
       + "&body=" + encodeURIComponent(lines.join("\n"));
   }
 
@@ -377,7 +377,7 @@
     const hp = $("[name='hp_website']");
     if (hp && hp.value) { return; }
 
-    const ref = "HG-" + Date.now().toString(36).toUpperCase();
+    const ref = "CH-" + Date.now().toString(36).toUpperCase();
     const record = Object.assign({}, state.data, {
       submittedAt: new Date().toISOString(),
       startedAt: state.started ? new Date(state.started).toISOString() : null,
@@ -398,7 +398,7 @@
     setStatus(I18N.sendingStatus + DEST_EMAIL + "…");
 
     const payload = {
-      _subject: "Henderson Group consultation — " + record.industry + " — " + record.firmName,
+      _subject: "Carmichael Henderson consultation — " + record.industry + " — " + record.firmName,
       _template: "table",
       _captcha: "false",
       _replyto: record.email,
@@ -414,7 +414,7 @@
       preferredChannel: record.preferredChannel || "—",
       preferredTime: record.preferredTime || "—",
       reference: ref,
-      message: "Design-brief enquiry from the Henderson Group site.",
+      message: "Design-brief enquiry from the Carmichael Henderson site.",
     };
 
     fetch(FORMSUBMIT, {
