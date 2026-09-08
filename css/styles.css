@@ -1055,6 +1055,21 @@ p { margin: 0; }
   color: var(--plat-100);
   line-height: 1.55;
 }
+.whisper + .whisper {
+  padding-top: clamp(12px, 2vh, 28px);
+  border-top: none;
+}
+.whisper-body + .whisper-body {
+  margin-top: 16px;
+}
+.whisper-close {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.45;
+  color: var(--plat-100);
+}
 .infra-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
