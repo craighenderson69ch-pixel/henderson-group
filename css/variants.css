@@ -4,23 +4,23 @@
    ========================================================= */
 
 .theme-bright {
-  --ink-000: #1f2430;
-  --ink-050: #272d3a;
-  --ink-100: #313847;
-  --ink-200: #3b4354;
-  --ink-300: #4a5366;
-  --ink-400: #5d677a;
-  --ink-500: #7a8496;
-  --paper: #fbf8f2;
-  --paper-dim: #ebe4d6;
-  --paper-mute: #c4bba9;
-  --plat-100: #fffaf1;
-  --plat-200: #f0e8d8;
-  --plat-300: #d4cbb8;
-  --plat-400: #b0a792;
-  --plat-500: #8a8272;
-  --hair: rgba(255, 250, 241, 0.2);
-  --hair-strong: rgba(255, 250, 241, 0.36);
+  --ink-000: #030304;
+  --ink-050: #0b0d12;
+  --ink-100: #151821;
+  --ink-200: #1c202a;
+  --ink-300: #272c38;
+  --ink-400: #9aa3b2;
+  --ink-500: #c9d2de;
+  --paper: #ffffff;
+  --paper-dim: #e6eaf1;
+  --paper-mute: #c9d2de;
+  --plat-100: #f3f6fa;
+  --plat-200: #dce2eb;
+  --plat-300: #c4cbd6;
+  --plat-400: #a8b1be;
+  --plat-500: #8e97a6;
+  --hair: rgba(220, 226, 236, 0.22);
+  --hair-strong: rgba(220, 226, 236, 0.42);
 }
 
 .theme-bright body,
@@ -40,20 +40,20 @@ body.theme-bright {
 }
 
 .theme-bright .hero-bg img {
-  filter: brightness(1.4) contrast(0.98) saturate(1.1);
+  filter: grayscale(0.08) contrast(1.24) brightness(0.84) saturate(0.68);
 }
 
 .theme-bright .hero-bg::after {
   background:
-    linear-gradient(180deg, rgba(31,36,48,0.06) 0%, rgba(31,36,48,0) 36%, rgba(31,36,48,0.28) 74%, rgba(31,36,48,0.62) 100%),
-    linear-gradient(90deg, rgba(31,36,48,0.16) 0%, transparent 62%);
+    linear-gradient(180deg, rgba(3,3,4,0.18) 0%, rgba(3,3,4,0) 36%, rgba(3,3,4,0.22) 74%, rgba(3,3,4,0.86) 100%),
+    linear-gradient(90deg, rgba(3,3,4,0.42) 0%, transparent 62%);
 }
 
 .theme-bright .industries,
 .theme-bright .why,
 .theme-bright .leadership,
 .theme-bright .faq {
-  background: #2d3340;
+  background: #111318;
 }
 
 .theme-bright .standard,
@@ -61,18 +61,18 @@ body.theme-bright {
 .theme-bright .approach,
 .theme-bright .infra,
 .theme-bright .results {
-  background: #353c4b;
+  background: #07080b;
 }
 
 .theme-bright .consult {
-  background: #2a241c;
+  background: #111318;
 }
 
 .theme-bright .form-shell,
 .theme-bright .ref-panel,
 .theme-bright .vert-cat {
-  background: rgba(255, 250, 241, 0.06);
-  border-color: rgba(255, 250, 241, 0.22);
+  background: rgba(243, 246, 250, 0.04);
+  border-color: rgba(201, 210, 222, 0.42);
 }
 
 .theme-bright .hero-actions {
@@ -98,7 +98,7 @@ body.theme-bright {
 }
 
 .theme-simple .hero-bg img {
-  filter: brightness(1.32) contrast(1.01) saturate(1.06);
+  filter: grayscale(0.1) contrast(1.22) brightness(0.8) saturate(0.64);
 }
 
 .theme-simple .section {
@@ -198,7 +198,7 @@ body.theme-bright {
 
 .gallery-card.recommended {
   border-color: var(--plat-300);
-  background: linear-gradient(180deg, rgba(243, 239, 230, 0.08), var(--ink-100));
+  background: linear-gradient(180deg, rgba(243, 246, 250, 0.06), var(--ink-100));
 }
 
 .gallery-foot {
@@ -229,7 +229,7 @@ body.theme-bright {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 120;
-  background: rgba(52, 59, 74, 0.88);
+  background: rgba(7, 8, 11, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--hair);
 }
