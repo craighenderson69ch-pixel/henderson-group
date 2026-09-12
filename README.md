@@ -1,16 +1,24 @@
 # Carmichael Henderson
 
-Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd) — exclusive, done-for-you client acquisition. One client. One mandate.
+Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd, ABN 54 702 126 627) — exclusive, done-for-you client acquisition. Private consultation to a signed exclusive lead book. One client. One mandate.
 
-This repository is the public site. Exclusive done-for-you lead generation, six signature sectors plus Other, four-step approach, Craig and Leona Henderson, FAQ, and a design-the-mandate consultation form. Client results and dollar figures are not invented. Verified references are available on private request.
+This repository is the public site. Exclusive done-for-you inbound, six signature sectors plus Other, four-step approach, Craig and Leona Henderson, FAQ, and a design-the-mandate consultation form. Client results and dollar figures are not invented. Verified references are available on private request.
 
 ## Public URL
 
-After this branch is merged to `main` and GitHub Pages is switched on, the site is served at:
+The live custom domain is:
 
-**https://craighenderson69ch-pixel.github.io/henderson-group/**
+**https://hendersongroup.com.au/**
 
-Until Pages is enabled, that URL will 404. The one-click path is below.
+GitHub Pages still builds from `main`. The `github.io` origin redirects to the custom domain.
+
+## Verify after merge
+
+1. Wait for **Actions → Deploy GitHub Pages** on `main` to finish.
+2. Open [https://hendersongroup.com.au/](https://hendersongroup.com.au/).
+3. Confirm the hero reads **Exclusive lead books**, the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
+4. Click a signature sector — the consult form should open with that industry selected.
+5. View-source: `rel="canonical"` should be `https://hendersongroup.com.au/`.
 
 ## One-click go-live (GitHub Pages)
 
@@ -22,7 +30,7 @@ The repo is currently private. Free GitHub Pages needs a public repository (or G
 4. Open **Actions → Deploy GitHub Pages → Run workflow** on `main`, or push any commit to `main`. The workflow in `.github/workflows/pages.yml` publishes the site.
 5. Open [https://craighenderson69ch-pixel.github.io/henderson-group/](https://craighenderson69ch-pixel.github.io/henderson-group/).
 
-Custom domain (optional): in Pages settings add `hendersongroup.com.au` (or `www`), then point DNS. Do not add a `CNAME` file until DNS is ready.
+Custom domain is already attached (`CNAME` → `hendersongroup.com.au`). Do not change DNS or mailbox records from this repository.
 
 ## One-click alternative (Netlify)
 
@@ -81,14 +89,13 @@ Operator-scale figures (for example 600+ network operators) are marked as illust
 | `js/countries.js` | Region combobox |
 | `assets/` | Compressed photography |
 
-Public URLs (GitHub Pages base `/henderson-group/`):
+Public URLs:
 
-- https://craighenderson69ch-pixel.github.io/henderson-group/
-- https://craighenderson69ch-pixel.github.io/henderson-group/variants/
-- https://craighenderson69ch-pixel.github.io/henderson-group/variants/en-quiet.html
-- https://craighenderson69ch-pixel.github.io/henderson-group/variants/en-bright.html
-- https://craighenderson69ch-pixel.github.io/henderson-group/variants/en-simple.html
-- https://craighenderson69ch-pixel.github.io/henderson-group/variants/pt-br.html
+- https://hendersongroup.com.au/
+- https://hendersongroup.com.au/privacy.html
+- https://hendersongroup.com.au/terms.html
+- https://hendersongroup.com.au/variants/
+- https://hendersongroup.com.au/variants/pt-br.html
 
 ## Contact
 

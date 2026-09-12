@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/</loc>
+    <loc>https://hendersongroup.com.au/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/privacy.html</loc>
+    <loc>https://hendersongroup.com.au/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/terms.html</loc>
+    <loc>https://hendersongroup.com.au/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/variants/</loc>
+    <loc>https://hendersongroup.com.au/variants/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://hendersongroup.com.au/variants/en-quiet.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://hendersongroup.com.au/variants/en-bright.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://hendersongroup.com.au/variants/en-simple.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://hendersongroup.com.au/variants/pt-br.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/variants/en-quiet.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/variants/en-bright.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/variants/en-simple.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://craighenderson69ch-pixel.github.io/henderson-group/variants/pt-br.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 </urlset>
