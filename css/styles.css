@@ -2396,8 +2396,18 @@ textarea.input {
   .hero-content {
     max-width: 100%;
     padding: 20px 16px 18px 14px;
+    background: linear-gradient(180deg, rgba(3, 3, 4, 0.2) 0%, rgba(3, 3, 4, 0.55) 100%);
   }
   .hero-desc { max-width: 38ch; }
+  .hero-bg img {
+    object-position: 28% 68%;
+    filter: grayscale(0.04) contrast(1.18) brightness(1.02) saturate(0.64);
+  }
+  .hero-bg::after {
+    background:
+      linear-gradient(180deg, rgba(7,8,11,0.42) 0%, rgba(7,8,11,0.22) 38%, rgba(7,8,11,0.48) 70%, rgba(7,8,11,0.96) 100%),
+      linear-gradient(90deg, rgba(3,3,4,0.38) 0%, rgba(3,3,4,0.12) 62%, transparent 100%);
+  }
   .radio-tile, .pill, .nav-cta, .hero-cta, .mobile-consult-bar {
     min-height: 44px;
   }
