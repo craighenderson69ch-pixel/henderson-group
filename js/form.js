@@ -275,23 +275,44 @@
     if (state.step > 1) showStep(state.step - 1);
   }
 
+  function selectIndustry(value) {
+    if (!value) return false;
+    const tile = $$("#industry-grid .radio-tile").find(function (t) { return t.dataset.value === value; });
+    if (!tile) return false;
+    $$("#industry-grid .radio-tile").forEach(function (t) {
+      t.classList.remove("selected");
+      t.setAttribute("aria-pressed", "false");
+    });
+    tile.classList.add("selected");
+    tile.setAttribute("aria-pressed", "true");
+    state.data.industry = tile.dataset.value;
+    showErrors(null);
+    updateNextState();
+    save();
+    return true;
+  }
+
   function setupIndustryTiles() {
     $$("#industry-grid .radio-tile").forEach(function (tile) {
       tile.setAttribute("aria-pressed", tile.dataset.value === state.data.industry ? "true" : "false");
       tile.addEventListener("click", function () {
-        $$("#industry-grid .radio-tile").forEach(function (t) {
-          t.classList.remove("selected");
-          t.setAttribute("aria-pressed", "false");
-        });
-        tile.classList.add("selected");
-        tile.setAttribute("aria-pressed", "true");
-        state.data.industry = tile.dataset.value;
-        showErrors(null);
-        updateNextState();
-        save();
+        selectIndustry(tile.dataset.value);
       });
       if (tile.dataset.value === state.data.industry) tile.classList.add("selected");
     });
+  }
+
+  function setupIndustryCards() {
+    $$(".industry-card[data-industry]").forEach(function (card) {
+      card.addEventListener("click", function () {
+        selectIndustry(card.getAttribute("data-industry"));
+      });
+    });
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const fromQuery = params.get("industry");
+      if (fromQuery) selectIndustry(fromQuery);
+    } catch (e) { /* ignore */ }
   }
 
   function setupPillGroups() {
@@ -515,6 +536,7 @@
     else silentRestore();
 
     setupIndustryTiles();
+    setupIndustryCards();
     setupPillGroups();
     setupCountryCombo();
     setupInputs();

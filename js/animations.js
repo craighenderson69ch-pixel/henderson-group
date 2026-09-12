@@ -19,7 +19,7 @@
     function updateHero() {
       const y = window.scrollY;
       const rate = Math.min(y * 0.08, 48);
-      heroBg.style.transform = `scale(1.62) translate3d(0, ${rate}px, 0)`;
+      heroBg.style.transform = `scale(1.12) translate3d(0, ${rate}px, 0)`;
       ticking = false;
     }
     window.addEventListener("scroll", () => {
@@ -123,13 +123,28 @@
     mobileToggle.addEventListener("click", () => {
       const open = links.classList.toggle("mobile-open");
       mobileToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.classList.toggle("nav-open", open);
     });
     links.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", () => {
         links.classList.remove("mobile-open");
         mobileToggle.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("nav-open");
       });
     });
+  }
+
+  /* --- Mobile consult bar: hide once the form is in view --- */
+  const consult = document.getElementById("consult");
+  const mobileConsult = document.querySelector(".mobile-consult-bar");
+  if (consult && mobileConsult) {
+    document.body.classList.add("has-mobile-consult");
+    const consultIo = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        document.body.classList.toggle("consult-in-view", entry.isIntersecting);
+      });
+    }, { threshold: 0.18, rootMargin: "0px 0px -20% 0px" });
+    consultIo.observe(consult);
   }
 
   /* --- Continent dot-grid (decorative, drawn in JS to keep markup clean) --- */
