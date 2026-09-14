@@ -2,7 +2,7 @@
 
 Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd, ABN 54 702 126 627) — exclusive lead generation. We win demand your sales team can monetise. One firm. One mandate.
 
-This repository is the public site. Exclusive inbound, six signature sectors plus Other, a four-step “How we work” strip, Craig and Leona Henderson, FAQ, and a consultation form that starts with vertical, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
+This repository is the public site. Exclusive inbound lead books, a plain-English definition up front, six signature sectors plus Other, a four-step “How we work” strip, Craig and Leona Henderson with matching bios, a five-question FAQ, and a consultation form that starts with vertical, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
 
 ## Public URL
 
@@ -16,8 +16,8 @@ GitHub Pages still builds from `main`. The `github.io` origin redirects to the c
 
 1. Wait for **Actions → Deploy GitHub Pages** on `main` to finish.
 2. Open [https://hendersongroup.com.au/](https://hendersongroup.com.au/).
-3. Confirm the hero reads **Exclusive lead generation** / **We win you the demand**, the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
-4. Click a signature sector — the consult form should open with that industry selected.
+3. Confirm the hero reads **Exclusive lead generation** / **We win you the demand**, the primary CTA is **Start the brief** and jumps to `#consult`, the first section defines **exclusive lead book**, the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
+4. Confirm FAQ has five questions, Leona Henderson’s bio matches Craig’s structure, and a signature sector still opens the consult form with that industry selected.
 5. View-source: `rel="canonical"` should be `https://hendersongroup.com.au/`.
 
 ## One-click go-live (GitHub Pages)

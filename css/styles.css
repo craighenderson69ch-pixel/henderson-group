@@ -398,19 +398,19 @@ p { margin: 0; }
 .hero-cta {
   display: inline-flex;
   align-items: center;
-  padding: 13px 24px;
+  padding: 14px 26px;
   border: 1px solid var(--paper);
-  color: var(--paper);
+  color: var(--ink-000);
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  background: transparent;
-  box-shadow: inset 0 0 0 1px rgba(243, 246, 250, 0.18);
+  background: var(--paper);
+  box-shadow: 0 0 0 1px rgba(243, 246, 250, 0.18);
   transition: color 0.35s ease, border-color 0.35s ease, background 0.35s ease;
 }
 .hero-cta:hover {
-  background: rgba(243, 246, 250, 0.1);
-  color: var(--paper);
+  background: var(--plat-100);
+  color: var(--ink-000);
   border-color: var(--plat-100);
 }
 
@@ -493,6 +493,24 @@ p { margin: 0; }
 }
 
 /* =============== STANDARD (3 pillars) =============== */
+.define-plate {
+  max-width: 68ch;
+  margin: 0 0 clamp(40px, 6vh, 64px);
+  padding-bottom: clamp(32px, 5vh, 48px);
+  border-bottom: 1px solid var(--hair-strong);
+}
+.define-plate h2 {
+  color: var(--paper);
+  margin: 16px 0 20px;
+}
+.define-plate p {
+  color: var(--paper);
+  font-size: 17px;
+  line-height: 1.75;
+}
+.define-plate p + p { margin-top: 16px; }
+.define-plate strong { font-weight: 500; }
+
 .standard {
   background: var(--ink-050);
   padding-top: clamp(56px, 8vh, 96px);
@@ -1214,12 +1232,14 @@ p { margin: 0; }
 .leader-people {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin: 0 0 56px;
-  max-width: 920px;
+  gap: 48px 56px;
+  margin: 0 0 48px;
+  align-items: start;
 }
 .leader-card {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 .leader-card-note {
   margin-top: 16px;
@@ -1227,7 +1247,15 @@ p { margin: 0; }
   font-size: 14px;
   line-height: 1.6;
   max-width: 38ch;
-  min-height: 4.8em;
+}
+.leader-card-body {
+  margin-top: 22px;
+  flex: 1;
+}
+.leader-card-body p {
+  color: var(--paper);
+  font-size: 16px;
+  line-height: 1.75;
 }
 .leader-photo {
   position: relative;
@@ -1314,10 +1342,13 @@ p { margin: 0; }
 .leader-facts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px 40px;
-  margin-top: 40px;
-  padding-top: 32px;
+  gap: 24px 28px;
+  margin-top: 28px;
+  padding-top: 24px;
   border-top: 1px solid var(--hair);
+}
+.leader-card .leader-facts {
+  margin-top: 28px;
 }
 .leader-fact-label {
   font-size: 10px;
@@ -1332,12 +1363,12 @@ p { margin: 0; }
   color: var(--paper);
 }
 .leader-quote {
-  margin-top: 40px;
+  margin-top: 8px;
   padding-top: 32px;
   border-top: 1px solid var(--hair);
   font-family: var(--serif);
   font-style: italic;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--plat-300);
   letter-spacing: 0.02em;
   display: flex;
@@ -2419,7 +2450,8 @@ textarea.input {
     line-height: 1.45;
     white-space: normal;
   }
-  .leader-card-note {
+  .leader-card-note,
+  .leader-card-body p {
     min-height: 0;
     max-width: none;
     font-size: 15px;
