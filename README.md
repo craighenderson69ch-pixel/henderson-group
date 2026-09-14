@@ -2,7 +2,7 @@
 
 Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd, ABN 54 702 126 627) — exclusive lead generation. We win demand your sales team can monetize. One client. One mandate.
 
-This repository is the public site. Exclusive inbound, six signature sectors plus Other, a five-step “How we work” strip, Craig and Leona Henderson, FAQ, and a consultation form that starts with vertical, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
+This repository is the public site. Exclusive inbound, six signature sectors plus Other, a five-step “How we work” strip, Craig and Leona Henderson, FAQ, and a consultation form that starts with vertical, volume, and the pipeline constraint. The site does not publish results. It describes the program. Verified references are available on private request.
 
 ## Public URL
 
@@ -62,12 +62,11 @@ There is no live calendar, Calendly placeholder, or discovery-call booking widge
 
 ## What this page will not do
 
+- No published results, case studies, or illustrative unit economics
 - No invented client results or dollar figures
 - No US$12k (or any) guarantee language
 - Leadership uses Craig Henderson’s actual portrait and Leona Henderson’s Slack profile photo (not generated or stock faces)
 - No public testimonials attributed to unnamed clients
-
-Operator-scale figures (for example 600+ network operators) are marked as illustrative / Insider Group published network figures, not Carmichael Henderson client results.
 
 ## Site map
 
