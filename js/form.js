@@ -1,5 +1,5 @@
 /* Multi-step consultation form
-   Steps: 1) Kind of business  2) Where  3) Brief (volume, constraint, buyer)  4) Contact
+   Steps: 1) Vertical  2) Volume + constraint (optional detail deferred)  3) Contact
    Submits to craig@hendersongroup.com.au via FormSubmit, with mailto fallback.
 */
 (function () {
@@ -54,6 +54,7 @@
     buyerWho: "Say who you want to speak to — a short line is enough.",
     buyerMarket: "Say where those buyers are — city, region, or country.",
     qualification: "Select what makes an enquiry qualified.",
+    pipelinePain: "Choose where the pipeline hurts — or skip if you prefer.",
     fullName: "Please enter your full name.",
     firmName: "Please enter your firm's name.",
     email: "Enter a valid business email address.",
@@ -87,7 +88,7 @@
 
   const state = {
     step: 1,
-    total: 4,
+    total: Math.max(1, document.querySelectorAll(".form-step").length),
     data: {
       industry: "",
       country: "",
@@ -173,29 +174,33 @@
     state.step = Math.min(saved.step || 1, state.total);
   }
 
+  function contactErrors() {
+    const errs = {};
+    if (!state.data.fullName || state.data.fullName.trim().length < 2) errs.fullName = I18N.fullName;
+    if (!state.data.firmName || state.data.firmName.trim().length < 2) errs.firmName = I18N.firmName;
+    const email = (state.data.email || "").trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) errs.email = I18N.email;
+    const phone = (state.data.phone || "").trim();
+    if (!/^[+()\-\s\d]{7,}$/.test(phone)) errs.phone = I18N.phone;
+    if (!state.data.nda) errs.nda = I18N.nda;
+    return Object.keys(errs).length ? errs : null;
+  }
+
   const validators = {
     1: function () { return state.data.industry ? null : { industry: I18N.industry }; },
-    2: function () { return state.data.country ? null : { country: I18N.country }; },
-    3: function () {
-      const errs = {};
-      if (!state.data.leadCapacity) errs.leadCapacity = I18N.leadCapacity;
-      if ((state.data.buyerWho || "").trim().length < 8) errs.buyerWho = I18N.buyerWho;
-      if ((state.data.buyerMarket || "").trim().length < 2) errs.buyerMarket = I18N.buyerMarket;
-      if (!asList(state.data.qualification).length) errs.qualification = I18N.qualification;
-      return Object.keys(errs).length ? errs : null;
-    },
-    4: function () {
-      const errs = {};
-      if (!state.data.fullName || state.data.fullName.trim().length < 2) errs.fullName = I18N.fullName;
-      if (!state.data.firmName || state.data.firmName.trim().length < 2) errs.firmName = I18N.firmName;
-      const email = (state.data.email || "").trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) errs.email = I18N.email;
-      const phone = (state.data.phone || "").trim();
-      if (!/^[+()\-\s\d]{7,}$/.test(phone)) errs.phone = I18N.phone;
-      if (!state.data.nda) errs.nda = I18N.nda;
-      return Object.keys(errs).length ? errs : null;
-    },
   };
+  if (state.total === 3) {
+    validators[2] = function () {
+      return state.data.leadCapacity ? null : { leadCapacity: I18N.leadCapacity };
+    };
+    validators[3] = contactErrors;
+  } else {
+    validators[2] = function () { return state.data.country ? null : { country: I18N.country }; };
+    validators[3] = function () {
+      return state.data.leadCapacity ? null : { leadCapacity: I18N.leadCapacity };
+    };
+    validators[4] = contactErrors;
+  }
 
   function showErrors(errs) {
     $$("[data-err]").forEach(function (el) { el.classList.remove("show"); el.textContent = ""; });
@@ -573,8 +578,8 @@
     });
 
     const obs = new MutationObserver(function () {
-      const s4 = $(".form-step[data-step='4']");
-      if (s4 && s4.classList.contains("active")) updateReview();
+      const last = $('.form-step[data-step="' + state.total + '"]');
+      if (last && last.classList.contains("active")) updateReview();
     });
     $$(".form-step").forEach(function (el) {
       obs.observe(el, { attributes: true, attributeFilter: ["class"] });

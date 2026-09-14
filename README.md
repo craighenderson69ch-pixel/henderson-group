@@ -1,8 +1,8 @@
 # Carmichael Henderson
 
-Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd, ABN 54 702 126 627) — exclusive lead generation. We win demand your sales team can monetize. One client. One mandate.
+Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd, ABN 54 702 126 627) — exclusive lead generation. We win demand your sales team can monetise. One firm. One mandate.
 
-This repository is the public site. Exclusive inbound, six signature sectors plus Other, a five-step “How we work” strip, Craig and Leona Henderson, FAQ, and a consultation form that starts with vertical, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
+This repository is the public site. Exclusive inbound, six signature sectors plus Other, a four-step “How we work” strip, Craig and Leona Henderson, FAQ, and a consultation form that starts with vertical, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
 
 ## Public URL
 
@@ -54,7 +54,7 @@ No build step. Static HTML, CSS, and JavaScript only.
 
 Enquiries go to **craig@hendersongroup.com.au**.
 
-1. The four-step wizard (Business → Where → Mandate → Contact) posts through [FormSubmit](https://formsubmit.co/) to that mailbox. Step 03 is the brief: desk capacity (200–10,000 / month), optional constraint and current CPL, buyer who, buyer market, qualification rules, optional hard rejects.
+1. The three-step wizard (Vertical → Brief → Contact) posts through [FormSubmit](https://formsubmit.co/) to that mailbox. The brief asks for desk capacity (200–10,000 / month) and the pipeline constraint. Buyer detail, country, current CPL, qualification rules, and hard rejects sit behind an optional “Further detail” disclosure.
 2. The **first** live submission sends Craig a one-time confirmation email from FormSubmit. Click it once so later enquiries arrive automatically.
 3. If the relay cannot be confirmed, the browser opens a `mailto:` draft to the same address so the request is not lost.
 
@@ -67,7 +67,7 @@ There is no live calendar, Calendly placeholder, or discovery-call booking widge
 - Leadership uses Craig Henderson’s actual portrait and Leona Henderson’s Slack profile photo (not generated or stock faces)
 - No public testimonials attributed to unnamed clients
 
-Operator-scale figures (for example 600+ network operators) are marked as illustrative / Insider Group published network figures, not Carmichael Henderson client results.
+The public site does not publish client results, percentage unit-economics, or network-scale operator counts. Verified references are available on private request, under NDA.
 
 ## Site map
 

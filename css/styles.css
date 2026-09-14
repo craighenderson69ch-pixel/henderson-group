@@ -524,7 +524,7 @@ p { margin: 0; }
   border-top: 1px solid var(--hair-strong);
 }
 .pillar {
-  padding: 48px 40px 0 0;
+  padding: 40px 40px 0 0;
   border-right: 1px solid var(--hair);
   position: relative;
 }
@@ -781,21 +781,21 @@ p { margin: 0; }
 .markets-label, .trust-strip-label {
   text-align: center;
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--plat-200);
+  margin: 10px 0 0;
 }
 .trust-strip-entity {
   max-width: var(--max);
-  margin: 0 auto 12px;
+  margin: 0 auto;
   text-align: center;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--plat-200);
+  color: var(--paper);
 }
 .trust-strip-markets {
   max-width: var(--max);
@@ -984,6 +984,9 @@ p { margin: 0; }
   margin-top: 48px;
   padding-top: 32px;
   border-top: 1px solid var(--hair);
+}
+.why-strip-3 {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* =============== WHY (editorial 2 col) =============== */
@@ -1667,18 +1670,35 @@ p { margin: 0; }
   align-items: center;
   gap: 8px;
 }
-.form-progress-labels span em {
-  font-style: normal;
-  font-family: var(--mono);
-  font-size: 10px;
-  color: inherit;
-  min-width: 1.6em;
-}
 .form-progress-labels span.active { color: var(--paper); }
 .form-progress-labels span.done { color: var(--plat-300); }
-.form-progress-labels span.active em,
-.form-progress-labels span.done em {
+
+.form-more {
+  margin: 8px 0 20px;
+  border-top: 1px solid var(--hair);
+  padding-top: 16px;
+}
+.form-more > summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
   color: var(--plat-100);
+  letter-spacing: 0.01em;
+}
+.form-more > summary::-webkit-details-marker { display: none; }
+.form-more > summary span {
+  color: var(--plat-400);
+  font-weight: 400;
+}
+.form-more > summary::after {
+  content: "+";
+  margin-left: 10px;
+  color: var(--plat-300);
+}
+.form-more[open] > summary::after { content: "−"; }
+.form-more-body {
+  padding-top: 18px;
 }
 
 .form-step { display: none; animation: stepIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
@@ -2342,6 +2362,7 @@ textarea.input {
   .timeline-steps-5,
   .why-right,
   .why-strip,
+  .why-strip-3,
   .results-grid,
   .testi-grid,
   .radio-grid,
@@ -2435,6 +2456,7 @@ textarea.input {
   .timeline-steps-5,
   .why-right,
   .why-strip,
+  .why-strip-3,
   .results-grid,
   .testi-grid,
   .radio-grid,
