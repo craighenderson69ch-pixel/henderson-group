@@ -233,15 +233,7 @@ p { margin: 0; }
   letter-spacing: 0.01em;
 }
 .brand-name em { font-style: italic; color: var(--plat-300); font-weight: 400; }
-.brand-sub {
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  color: var(--plat-300);
-  text-transform: uppercase;
-  margin-top: 2px;
-  font-weight: 500;
-}
-.nav.scrolled .brand-sub { display: none; }
+.brand-sub { display: none; }
 
 .nav-links {
   display: flex;
