@@ -2,7 +2,7 @@
 
 Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd, ABN 54 702 126 627) — exclusive lead generation. We win demand your sales team can monetise. One firm. One mandate.
 
-This repository is the public site. Exclusive inbound lead books, a plain-English definition up front, six signature sectors plus Other, a four-step “How we work” strip, Craig and Leona Henderson with matching bios, a five-question FAQ, and a consultation form that starts with vertical, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
+This repository is the public site. Exclusive inbound lead books, a plain-English definition up front, six signature industries plus Other, a four-step “How we work” strip, Craig and Leona Henderson with matching bios, a five-question FAQ, and a consultation form that starts with sector, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
 
 ## Public URL
 
@@ -54,7 +54,7 @@ No build step. Static HTML, CSS, and JavaScript only.
 
 Enquiries go to **craig@hendersongroup.com.au**.
 
-1. The three-step wizard (Vertical → Brief → Contact) posts through [FormSubmit](https://formsubmit.co/) to that mailbox. The brief asks for desk capacity (200–10,000 / month) and the pipeline constraint. Buyer detail, country, current CPL, qualification rules, and hard rejects sit behind an optional “Further detail” disclosure.
+1. The three-step wizard (Sector → Brief → Contact) posts through [FormSubmit](https://formsubmit.co/) to that mailbox. The brief asks for desk capacity (200–10,000 / month) and the pipeline constraint. Buyer detail, country, current CPL, qualification rules, and hard rejects sit behind an optional “Further detail” disclosure.
 2. The **first** live submission sends Craig a one-time confirmation email from FormSubmit. Click it once so later enquiries arrive automatically.
 3. If the relay cannot be confirmed, the browser opens a `mailto:` draft to the same address so the request is not lost.
 
@@ -77,7 +77,7 @@ The public site does not publish client results, percentage unit-economics, or n
 | `variants/index.html` | Gallery so Craig can click between versions |
 | `variants/en-quiet.html` | Quieter English (same as homepage) |
 | `variants/en-bright.html` | Brighter English, stronger CTA |
-| `variants/en-simple.html` | Shortest English: hero, industries, verticals, consult |
+| `variants/en-simple.html` | Shortest English: hero, industries, consult |
 | `variants/pt-br.html` | Full Brazilian Portuguese page for Leona |
 | `privacy.html` | Enquiry privacy |
 | `terms.html` | Site terms |
