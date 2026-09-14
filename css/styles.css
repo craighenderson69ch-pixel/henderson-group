@@ -60,7 +60,7 @@
   /* glass / depth — Hybrid D punch */
   --glass: rgba(7, 8, 11, 0.56);
   --glass-strong: rgba(7, 8, 11, 0.74);
-  --glass-border: rgba(220, 226, 236, 0.16);
+  --glass-border: rgba(220, 226, 236, 0.24);
   --glass-highlight: rgba(243, 246, 250, 0.09);
   --glass-shadow: 0 22px 54px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(243, 246, 250, 0.08);
 }
@@ -328,7 +328,7 @@ p { margin: 0; }
   object-position: 18% 72%;
   transform: scale(1.12);
   will-change: transform;
-  filter: grayscale(0.08) contrast(1.2) brightness(0.88) saturate(0.52);
+  filter: grayscale(0.02) contrast(1.18) brightness(0.96) saturate(0.72);
 }
 .hero-mesh,
 .hero-leaks,
@@ -340,23 +340,23 @@ p { margin: 0; }
 }
 .hero-mesh {
   background:
-    radial-gradient(ellipse 58% 48% at 16% 26%, rgba(168, 198, 224, 0.28), transparent 60%),
-    radial-gradient(ellipse 42% 36% at 78% 18%, rgba(220, 228, 238, 0.16), transparent 54%),
-    radial-gradient(ellipse 52% 42% at 64% 72%, rgba(72, 118, 158, 0.2), transparent 62%),
-    radial-gradient(ellipse 34% 28% at 28% 82%, rgba(170, 150, 128, 0.1), transparent 52%);
+    radial-gradient(ellipse 58% 48% at 16% 26%, rgba(168, 198, 224, 0.42), transparent 60%),
+    radial-gradient(ellipse 42% 36% at 78% 18%, rgba(220, 228, 238, 0.28), transparent 54%),
+    radial-gradient(ellipse 52% 42% at 64% 72%, rgba(72, 118, 158, 0.32), transparent 62%),
+    radial-gradient(ellipse 34% 28% at 28% 82%, rgba(186, 156, 120, 0.16), transparent 52%);
   mix-blend-mode: screen;
-  opacity: 0.95;
+  opacity: 1;
   animation: hero-mesh-drift 32s ease-in-out infinite alternate;
 }
 .hero-leaks {
   background:
-    radial-gradient(ellipse 30% 24% at 90% 10%, rgba(236, 240, 246, 0.2), transparent 70%),
-    radial-gradient(ellipse 24% 20% at 8% 68%, rgba(130, 168, 198, 0.16), transparent 68%);
+    radial-gradient(ellipse 34% 28% at 90% 10%, rgba(236, 240, 246, 0.32), transparent 70%),
+    radial-gradient(ellipse 28% 22% at 8% 68%, rgba(130, 168, 198, 0.24), transparent 68%);
   mix-blend-mode: soft-light;
 }
 .hero-grain {
   z-index: 2;
-  opacity: 0.2;
+  opacity: 0.28;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
 }
@@ -369,21 +369,21 @@ p { margin: 0; }
   position: absolute; inset: 0;
   z-index: 3;
   background:
-    radial-gradient(ellipse 62% 52% at 54% 38%, rgba(3,3,4,0.46), transparent 72%),
-    linear-gradient(90deg, rgba(3,3,4,0.88) 0%, rgba(3,3,4,0.56) 26%, rgba(3,3,4,0.2) 50%, transparent 74%),
-    linear-gradient(180deg, rgba(7,8,11,0.42) 0%, transparent 26%, rgba(7,8,11,0.22) 64%, rgba(7,8,11,0.96) 100%);
+    radial-gradient(ellipse 62% 52% at 54% 38%, rgba(3,3,4,0.28), transparent 72%),
+    linear-gradient(90deg, rgba(3,3,4,0.72) 0%, rgba(3,3,4,0.38) 28%, rgba(3,3,4,0.08) 52%, transparent 76%),
+    linear-gradient(180deg, rgba(7,8,11,0.28) 0%, transparent 28%, rgba(7,8,11,0.14) 64%, rgba(7,8,11,0.88) 100%);
 }
 .hero-content {
   position: relative;
   z-index: 4;
   max-width: 36rem;
   padding: 36px 40px 32px 32px;
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(220, 226, 236, 0.28);
   border-left: 2px solid var(--accent);
-  background: rgba(3, 3, 4, 0.46);
-  backdrop-filter: blur(22px) saturate(150%);
-  -webkit-backdrop-filter: blur(22px) saturate(150%);
-  box-shadow: var(--glass-shadow);
+  background: rgba(7, 8, 11, 0.38);
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(243, 246, 250, 0.14);
   text-shadow: 0 1px 18px rgba(0, 0, 0, 0.7);
 }
 .hero-brand {
@@ -685,8 +685,10 @@ p { margin: 0; }
 }
 .industry-approach {
   margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid var(--hair);
+  padding: 14px 14px 12px;
+  border: 1px solid var(--hair);
+  border-left: 2px solid var(--accent);
+  background: rgba(243, 246, 250, 0.05);
   color: var(--plat-100) !important;
   font-size: 14px !important;
   line-height: 1.65 !important;
@@ -2732,7 +2734,7 @@ textarea.input {
 }
 .atmosphere-sydney .atmosphere-screen::after {
   background:
-    linear-gradient(180deg, rgba(7, 8, 11, 0.78) 0%, rgba(7, 8, 11, 0.62) 42%, rgba(7, 8, 11, 0.86) 100%);
+    linear-gradient(180deg, rgba(7, 8, 11, 0.58) 0%, rgba(7, 8, 11, 0.42) 42%, rgba(7, 8, 11, 0.72) 100%);
 }
 
 /* London stone / grey prestige — sits over approach-bg */
@@ -2744,7 +2746,7 @@ textarea.input {
 }
 .atmosphere-london .atmosphere-screen::after {
   background:
-    linear-gradient(180deg, rgba(10, 11, 14, 0.7) 0%, rgba(10, 11, 14, 0.52) 46%, rgba(10, 11, 14, 0.84) 100%);
+    linear-gradient(180deg, rgba(10, 11, 14, 0.52) 0%, rgba(10, 11, 14, 0.36) 46%, rgba(10, 11, 14, 0.7) 100%);
 }
 
 /* Dubai glass / warm night skyline */
@@ -2757,7 +2759,7 @@ textarea.input {
 }
 .atmosphere-dubai .atmosphere-screen::after {
   background:
-    linear-gradient(180deg, rgba(10, 8, 12, 0.76) 0%, rgba(10, 8, 12, 0.58) 44%, rgba(10, 8, 12, 0.86) 100%);
+    linear-gradient(180deg, rgba(10, 8, 12, 0.56) 0%, rgba(10, 8, 12, 0.4) 44%, rgba(10, 8, 12, 0.72) 100%);
 }
 
 /* Brisbane–Cairns coastal cool — industries rest band */
@@ -2769,7 +2771,7 @@ textarea.input {
 }
 .atmosphere-coastal .atmosphere-screen::after {
   background:
-    linear-gradient(180deg, rgba(7, 10, 14, 0.76) 0%, rgba(7, 10, 14, 0.6) 44%, rgba(7, 10, 14, 0.86) 100%);
+    linear-gradient(180deg, rgba(7, 10, 14, 0.56) 0%, rgba(7, 10, 14, 0.4) 44%, rgba(7, 10, 14, 0.72) 100%);
 }
 
 /* London stone cousin — FAQ */
@@ -2780,7 +2782,7 @@ textarea.input {
 }
 .atmosphere-stone .atmosphere-screen::after {
   background:
-    linear-gradient(180deg, rgba(10, 11, 14, 0.74) 0%, rgba(10, 11, 14, 0.58) 46%, rgba(10, 11, 14, 0.86) 100%);
+    linear-gradient(180deg, rgba(10, 11, 14, 0.54) 0%, rgba(10, 11, 14, 0.4) 46%, rgba(10, 11, 14, 0.72) 100%);
 }
 
 /* NYC steel / cool urban */
@@ -2792,7 +2794,7 @@ textarea.input {
 }
 .atmosphere-nyc .atmosphere-screen::after {
   background:
-    linear-gradient(180deg, rgba(7, 8, 12, 0.78) 0%, rgba(7, 8, 12, 0.6) 46%, rgba(7, 8, 12, 0.88) 100%);
+    linear-gradient(180deg, rgba(7, 8, 12, 0.58) 0%, rgba(7, 8, 12, 0.42) 46%, rgba(7, 8, 12, 0.74) 100%);
 }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
