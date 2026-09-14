@@ -231,6 +231,7 @@ p { margin: 0; }
   font-size: 18px;
   color: var(--paper);
   letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 .brand-name em { font-style: italic; color: var(--plat-300); font-weight: 400; }
 .brand-sub { display: none; }
@@ -2452,7 +2453,7 @@ textarea.input {
   }
   .nav-cta .cta-long { display: none; }
   .nav-cta .cta-short { display: inline; }
-  .brand-name { font-size: 16px; }
+  .brand-name { font-size: 15px; }
   .hero-content {
     max-width: 100%;
     padding: 28px 18px 24px 16px;
