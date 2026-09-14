@@ -29,8 +29,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=ch-punch">
-<link rel="stylesheet" href="css/variants.css?v=ch-punch">
+<link rel="stylesheet" href="css/styles.css?v=ch-99">
+<link rel="stylesheet" href="css/variants.css?v=ch-99">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -82,6 +82,7 @@
     <img src="assets/hero-skyline.jpg" alt="" fetchpriority="high" width="2200" height="1228">
     <div class="hero-mesh" aria-hidden="true"></div>
     <div class="hero-leaks" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
   </div>
   <div class="hero-content">
     <h1 class="hero-headline serif">
@@ -142,7 +143,8 @@
   </div>
 </section>
 
-<section class="section industries" id="industries">
+<section class="section industries atmosphere atmosphere-coastal" id="industries">
+  <div class="atmosphere-screen" aria-hidden="true"></div>
   <div class="container">
     <div class="section-head">
       <div class="section-head-left">
@@ -156,36 +158,42 @@
         <div class="industry-body">
           <h4 class="serif">Financial Services</h4>
           <p>Advisory, wealth, and institutional acquisition — built for long relationship half-lives.</p>
+          <p class="industry-approach"><span class="industry-approach-label">How desks usually buy</span>Desks that already buy at scale judge cost per sale. Trust and industry knowledge first. We under-promise month one and keep the relationship.</p>
         </div>
       </a>
       <a class="industry-card reveal reveal-delay-1" href="#consult" data-industry="Legal">
         <div class="industry-body">
           <h4 class="serif">Legal</h4>
           <p>High-trust counsel and specialised practice growth. Clients who arrive already qualified.</p>
+          <p class="industry-approach"><span class="industry-approach-label">How desks usually buy</span>One firm, one market, one mandate. We sell capacity the intake desk can honour — never a pooled book. Quality shows in the first files.</p>
         </div>
       </a>
       <a class="industry-card reveal reveal-delay-2" href="#consult" data-industry="Real Estate">
         <div class="industry-body">
           <h4 class="serif">Real Estate</h4>
           <p>Luxury and commercial client development. High-intent enquiries with mandate depth.</p>
+          <p class="industry-approach"><span class="industry-approach-label">How desks usually buy</span>A paid test first, at a volume the desk can honour. Then a standing order. No retainer speech to an unproven buyer.</p>
         </div>
       </a>
       <a class="industry-card reveal reveal-delay-1" href="#consult" data-industry="Healthcare">
         <div class="industry-body">
           <h4 class="serif">Healthcare</h4>
           <p>Private practice and specialty referral acquisition. Compliant and considered.</p>
+          <p class="industry-approach"><span class="industry-approach-label">How desks usually buy</span>Pilot, then a purchase-order re-up. Cases, not packages. We watch rejects with the intake desk.</p>
         </div>
       </a>
       <a class="industry-card reveal reveal-delay-1" href="#consult" data-industry="Professional Services">
         <div class="industry-body">
           <h4 class="serif">Professional Services</h4>
           <p>Consulting, accounting, and firm-level growth. Long sales cycles, higher-signal conversations.</p>
+          <p class="industry-approach"><span class="industry-approach-label">How desks usually buy</span>Buyers already buy at scale. Same-sitting paper, conservative month one, then the relationship.</p>
         </div>
       </a>
       <a class="industry-card reveal reveal-delay-2" href="#consult" data-industry="Luxury & Lifestyle">
         <div class="industry-body">
           <h4 class="serif">Luxury &amp; Lifestyle</h4>
           <p>Brands where discretion defines the market. Quiet distribution, aligned by taste and tier.</p>
+          <p class="industry-approach"><span class="industry-approach-label">How desks usually buy</span>A small paid test, then a standing book if the desk holds. Discretion first — never a volume dump.</p>
         </div>
       </a>
     </div>
@@ -250,6 +258,10 @@
         <h4>Clear reporting</h4>
         <p>Spend, pipeline, and what closed — shared with the account lead.</p>
       </div>
+    </div>
+    <div class="op-standard reveal">
+      <div class="eyebrow">Operating standard</div>
+      <p>Carmichael Henderson operates inside the Insider.group operator ecosystem and applies that training discipline to exclusive inbound mandates. That is membership and method — not an endorsement of this firm or any client.</p>
     </div>
   </div>
 </section>
@@ -329,7 +341,8 @@
   </div>
 </section>
 
-<section class="section faq" id="faq">
+<section class="section faq atmosphere atmosphere-stone" id="faq">
+  <div class="atmosphere-screen" aria-hidden="true"></div>
   <div class="container">
     <div class="faq-grid">
       <div>
@@ -357,7 +370,7 @@
         </details>
         <details class="faq-item">
           <summary class="serif">What does the engagement look like commercially?</summary>
-          <div class="faq-answer">You name the vertical, the volume you can honour, and where the pipeline hurts. We design the exclusive lead book for that mandate, then return with a precise quote — not a generic package.</div>
+          <div class="faq-answer">You name the industry, the volume you can honour, and where the pipeline hurts. We design the exclusive lead book for that mandate, then return with a precise quote — not a generic package.</div>
         </details>
       </div>
     </div>
@@ -371,9 +384,9 @@
       <div class="consult-copy">
         <div class="eyebrow reveal">Private Consultation</div>
         <h2 class="serif reveal reveal-delay-1">Start the brief. <em>We write the book.</em></h2>
-        <p class="reveal reveal-delay-2">Vertical, volume, and where the pipeline hurts. That is enough to begin. We return with a precise quote for a signed exclusive lead book — not a generic package.</p>
+        <p class="reveal reveal-delay-2">Industry, volume, and where the pipeline hurts. That is enough to begin. We return with a precise quote for a signed exclusive lead book — not a generic package.</p>
         <ul class="consult-list reveal reveal-delay-3">
-          <li>Vertical, volume, and the constraint — then how to reach you.</li>
+          <li>Industry, volume, and the constraint — then how to reach you.</li>
           <li>We return with a quote for that exclusive lead book.</li>
           <li>Volume is capacity your team can work — not claimed results.</li>
           <li>One firm in your line of work, in your market. Confidential by default.</li>
@@ -399,7 +412,7 @@
         <div class="form-progress">
           <div class="form-progress-bar" role="progressbar" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" aria-label="Consultation step"><div class="form-progress-fill" style="width: 33%"></div></div>
           <div class="form-progress-labels">
-            <span class="active">Vertical</span>
+            <span class="active">Industry</span>
             <span>Brief</span>
             <span>Contact</span>
           </div>
@@ -568,7 +581,7 @@
           <div class="next-steps">
             <h4>What happens next</h4>
             <ol>
-              <li>We read the vertical, the volume, and the constraint.</li>
+              <li>We read the industry, the volume, and the constraint.</li>
               <li>We design the exclusive campaign around that mandate.</li>
               <li>You get a personal reply with a precise quote for the lead book.</li>
             </ol>
@@ -612,6 +625,7 @@
     <div class="footer-legal">
       <div>© 2026 Carmichael Henderson Pty Ltd. All rights reserved.</div>
       <p class="footer-ids">ABN 54 702 126 627 · ACN 702 126 627</p>
+      <p class="footer-network">Operating standard · Insider.group operator ecosystem.</p>
     </div>
     <div class="legal">
       <a href="mailto:craig@hendersongroup.com.au">craig@hendersongroup.com.au</a>

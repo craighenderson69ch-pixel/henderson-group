@@ -1,5 +1,5 @@
 /* Multi-step consultation form
-   Steps: 1) Vertical  2) Volume + constraint (optional detail deferred)  3) Contact
+   Steps: 1) Industry  2) Volume + constraint (optional detail deferred)  3) Contact
    Submits to craig@hendersongroup.com.au via FormSubmit, with mailto fallback.
 */
 (function () {
