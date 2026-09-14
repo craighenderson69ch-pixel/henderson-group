@@ -1,5 +1,5 @@
 /* Multi-step consultation form
-   Steps: 1) Kind of business  2) Where  3) Design the mandate  4) Contact
+   Steps: 1) Kind of business  2) Where  3) Brief (volume, constraint, buyer)  4) Contact
    Submits to craig@hendersongroup.com.au via FormSubmit, with mailto fallback.
 */
 (function () {
@@ -36,6 +36,8 @@
       ["Tipo de negócio", "industry"],
       ["Sede", "country"],
       ["Capacidade mensal", "leadCapacity"],
+      ["Gargalo", "pipelinePain"],
+      ["CPL atual", "currentCpl"],
       ["Comprador", "buyerWho"],
       ["Mercado do comprador", "buyerMarket"],
       ["Qualificação", "qualification"],
@@ -70,6 +72,8 @@
       ["Kind of business", "industry"],
       ["Firm based in", "country"],
       ["Desk capacity", "leadCapacity"],
+      ["Constraint", "pipelinePain"],
+      ["Current CPL", "currentCpl"],
       ["Buyer who", "buyerWho"],
       ["Buyer market", "buyerMarket"],
       ["Qualified when", "qualification"],
@@ -88,6 +92,8 @@
       industry: "",
       country: "",
       leadCapacity: "",
+      pipelinePain: "",
+      currentCpl: "",
       buyerWho: "",
       buyerMarket: "",
       qualification: [],
@@ -420,6 +426,8 @@
     const quals = formatList(record.qualification);
     return [
       "Desk capacity: " + record.leadCapacity,
+      "Constraint: " + (record.pipelinePain || "—"),
+      "Current CPL: " + (record.currentCpl || "—"),
       "Buyer who: " + record.buyerWho,
       "Buyer market: " + record.buyerMarket,
       "Qualified when: " + quals,
@@ -500,6 +508,8 @@
       industry: record.industry,
       region: record.country,
       leadCapacity: record.leadCapacity,
+      pipelinePain: record.pipelinePain || "—",
+      currentCpl: record.currentCpl || "—",
       buyerWho: record.buyerWho,
       buyerMarket: record.buyerMarket,
       qualification: formatList(record.qualification),

@@ -362,8 +362,8 @@ p { margin: 0; }
 .hero-headline {
   color: var(--paper);
   margin-bottom: 28px;
-  max-width: 12ch;
-  font-size: clamp(48px, 7.2vw, 96px);
+  max-width: 11ch;
+  font-size: clamp(44px, 6.6vw, 88px);
   line-height: 1.06;
 }
 .hero-headline .accent {
@@ -915,6 +915,14 @@ p { margin: 0; }
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   position: relative;
+}
+.timeline-steps-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px 18px;
+}
+.timeline-steps-5 .tstep p {
+  max-width: 20ch;
+  font-size: 13px;
 }
 .tstep {
   position: relative;
@@ -2331,6 +2339,7 @@ textarea.input {
   .pillars,
   .industry-grid,
   .timeline-steps,
+  .timeline-steps-5,
   .why-right,
   .why-strip,
   .results-grid,
@@ -2423,6 +2432,7 @@ textarea.input {
   .pillars,
   .industry-grid,
   .timeline-steps,
+  .timeline-steps-5,
   .why-right,
   .why-strip,
   .results-grid,

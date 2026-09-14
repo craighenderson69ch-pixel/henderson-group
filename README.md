@@ -1,8 +1,8 @@
 # Carmichael Henderson
 
-Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd, ABN 54 702 126 627) — exclusive, done-for-you client acquisition. Private consultation to a signed exclusive lead book. One client. One mandate.
+Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd, ABN 54 702 126 627) — exclusive lead generation. We win demand your sales team can monetize. One client. One mandate.
 
-This repository is the public site. Exclusive done-for-you inbound, six signature sectors plus Other, four-step approach, Craig and Leona Henderson, FAQ, and a design-the-mandate consultation form. Client results and dollar figures are not invented. Verified references are available on private request.
+This repository is the public site. Exclusive inbound, six signature sectors plus Other, a five-step “How we work” strip, Craig and Leona Henderson, FAQ, and a consultation form that starts with vertical, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
 
 ## Public URL
 
@@ -16,7 +16,7 @@ GitHub Pages still builds from `main`. The `github.io` origin redirects to the c
 
 1. Wait for **Actions → Deploy GitHub Pages** on `main` to finish.
 2. Open [https://hendersongroup.com.au/](https://hendersongroup.com.au/).
-3. Confirm the hero reads **Exclusive lead books**, the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
+3. Confirm the hero reads **Exclusive lead generation** / **We win you the demand**, the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
 4. Click a signature sector — the consult form should open with that industry selected.
 5. View-source: `rel="canonical"` should be `https://hendersongroup.com.au/`.
 
@@ -54,7 +54,7 @@ No build step. Static HTML, CSS, and JavaScript only.
 
 Enquiries go to **craig@hendersongroup.com.au**.
 
-1. The four-step wizard (Business → Where → Mandate → Contact) posts through [FormSubmit](https://formsubmit.co/) to that mailbox. Step 03 is the design brief: desk capacity (200–10,000 / month), buyer who, buyer market, qualification rules, optional hard rejects.
+1. The four-step wizard (Business → Where → Mandate → Contact) posts through [FormSubmit](https://formsubmit.co/) to that mailbox. Step 03 is the brief: desk capacity (200–10,000 / month), optional constraint and current CPL, buyer who, buyer market, qualification rules, optional hard rejects.
 2. The **first** live submission sends Craig a one-time confirmation email from FormSubmit. Click it once so later enquiries arrive automatically.
 3. If the relay cannot be confirmed, the browser opens a `mailto:` draft to the same address so the request is not lost.
 
