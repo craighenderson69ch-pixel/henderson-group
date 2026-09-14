@@ -797,6 +797,17 @@ p { margin: 0; }
   text-transform: uppercase;
   color: var(--paper);
 }
+.trust-strip-abn {
+  max-width: var(--max);
+  margin: 8px auto 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--plat-100);
+  white-space: nowrap;
+}
 .trust-strip-markets {
   max-width: var(--max);
   margin: 0 auto;
@@ -2449,6 +2460,17 @@ textarea.input {
   .footer-ids {
     font-size: 14px;
     color: var(--plat-200);
+  }
+  .trust-strip {
+    padding: 22px 20px;
+  }
+  .trust-strip-entity {
+    letter-spacing: 0.06em;
+    font-size: 12px;
+  }
+  .trust-strip-abn {
+    font-size: 13px;
+    letter-spacing: 0.08em;
   }
   .pillars,
   .industry-grid,

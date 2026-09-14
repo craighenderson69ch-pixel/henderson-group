@@ -418,8 +418,12 @@
   }
 
   function updateReview() {
+    const required = { industry: true, leadCapacity: true };
     const rows = I18N.review.map(function (row) {
-      return [row[0], reviewValue(row[1])];
+      return [row[0], reviewValue(row[1]), row[1]];
+    }).filter(function (row) {
+      if (required[row[2]]) return true;
+      return row[1] && row[1] !== I18N.reviewEmpty;
     });
     const el = $(".review-list");
     if (el) el.innerHTML = rows.map(function (row) {
