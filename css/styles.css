@@ -349,7 +349,7 @@ p { margin: 0; }
   object-position: 18% 72%;
   transform: scale(1.12);
   will-change: transform;
-  filter: grayscale(0.02) contrast(1.08) brightness(1.18) saturate(0.78);
+  filter: grayscale(0) contrast(1.06) brightness(1.72) saturate(0.92);
 }
 .hero-mesh,
 .hero-leaks {
@@ -360,19 +360,21 @@ p { margin: 0; }
 }
 .hero-mesh {
   background:
-    radial-gradient(ellipse 58% 48% at 16% 26%, rgba(168, 198, 224, 0.2), transparent 60%),
-    radial-gradient(ellipse 42% 36% at 78% 18%, rgba(220, 228, 238, 0.12), transparent 54%),
-    radial-gradient(ellipse 52% 42% at 64% 72%, rgba(72, 118, 158, 0.16), transparent 62%),
-    radial-gradient(ellipse 34% 28% at 28% 82%, rgba(170, 150, 128, 0.07), transparent 52%);
+    linear-gradient(180deg, rgba(198, 208, 222, 0.28) 0%, transparent 38%),
+    radial-gradient(ellipse 58% 48% at 16% 26%, rgba(186, 206, 226, 0.32), transparent 60%),
+    radial-gradient(ellipse 48% 40% at 78% 22%, rgba(232, 224, 204, 0.22), transparent 56%),
+    radial-gradient(ellipse 52% 42% at 64% 72%, rgba(88, 128, 168, 0.2), transparent 62%),
+    radial-gradient(ellipse 34% 28% at 28% 82%, rgba(186, 166, 140, 0.12), transparent 52%);
   mix-blend-mode: screen;
-  opacity: 0.82;
+  opacity: 0.95;
   animation: hero-mesh-drift 32s ease-in-out infinite alternate;
 }
 .hero-leaks {
   background:
-    radial-gradient(ellipse 30% 24% at 90% 10%, rgba(236, 240, 246, 0.16), transparent 70%),
-    radial-gradient(ellipse 24% 20% at 8% 68%, rgba(130, 168, 198, 0.12), transparent 68%);
-  mix-blend-mode: soft-light;
+    linear-gradient(180deg, rgba(210, 218, 230, 0.2) 0%, transparent 36%),
+    radial-gradient(ellipse 36% 28% at 88% 12%, rgba(236, 240, 246, 0.28), transparent 70%),
+    radial-gradient(ellipse 28% 22% at 10% 64%, rgba(150, 178, 204, 0.18), transparent 68%);
+  mix-blend-mode: screen;
 }
 @keyframes hero-mesh-drift {
   from { transform: scale(1) translate3d(0, 0, 0); }
@@ -383,9 +385,8 @@ p { margin: 0; }
   position: absolute; inset: 0;
   z-index: 2;
   background:
-    radial-gradient(ellipse 62% 52% at 54% 38%, rgba(3,3,4,0.18), transparent 72%),
-    linear-gradient(90deg, rgba(3,3,4,0.58) 0%, rgba(3,3,4,0.28) 26%, rgba(3,3,4,0.06) 50%, transparent 74%),
-    linear-gradient(180deg, rgba(7,8,11,0.18) 0%, transparent 28%, rgba(7,8,11,0.08) 62%, rgba(7,8,11,0.86) 100%);
+    linear-gradient(90deg, rgba(3,3,4,0.32) 0%, rgba(3,3,4,0.1) 28%, transparent 58%),
+    linear-gradient(180deg, rgba(7,8,11,0.06) 0%, transparent 32%, rgba(7,8,11,0.08) 68%, rgba(7,8,11,0.72) 100%);
 }
 .hero-content {
   position: relative;
@@ -2655,12 +2656,12 @@ textarea.input {
   .hero-desc { max-width: 38ch; }
   .hero-bg img {
     object-position: 28% 68%;
-    filter: grayscale(0.02) contrast(1.06) brightness(1.22) saturate(0.8);
+    filter: grayscale(0) contrast(1.04) brightness(1.78) saturate(0.95);
   }
   .hero-bg::after {
     background:
-      linear-gradient(180deg, rgba(7,8,11,0.22) 0%, rgba(7,8,11,0.08) 38%, rgba(7,8,11,0.22) 70%, rgba(7,8,11,0.88) 100%),
-      linear-gradient(90deg, rgba(3,3,4,0.22) 0%, rgba(3,3,4,0.06) 62%, transparent 100%);
+      linear-gradient(180deg, rgba(7,8,11,0.08) 0%, transparent 36%, rgba(7,8,11,0.1) 72%, rgba(7,8,11,0.7) 100%),
+      linear-gradient(90deg, rgba(3,3,4,0.16) 0%, transparent 58%);
   }
   .radio-tile, .pill, .nav-cta, .hero-cta, .mobile-consult-bar {
     min-height: 44px;
