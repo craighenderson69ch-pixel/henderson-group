@@ -1,6 +1,6 @@
 # Carmichael Henderson
 
-Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd, ABN 54 702 126 627) — exclusive lead generation. We win demand your sales team can monetise. One firm. One mandate.
+Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd, ABN 54 702 126 627) — a done-for-you exclusive lead-generation firm. We win qualified customer enquiries for one client firm in one market. Your sales team closes. We are judged on cost per sale. Never pooled. Never resold.
 
 This repository is the public site. Exclusive inbound lead books, a plain-English definition up front, six signature sectors plus Other, a four-step “How we work” strip, Craig and Leona Henderson with matching bios, a five-question FAQ, and a consultation form that starts with vertical, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
 
@@ -16,7 +16,7 @@ GitHub Pages still builds from `main`. The `github.io` origin redirects to the c
 
 1. Wait for **Actions → Deploy GitHub Pages** on `main` to finish.
 2. Open [https://hendersongroup.com.au/](https://hendersongroup.com.au/).
-3. Confirm the hero reads **Exclusive lead generation** / **We win you the demand**, the primary CTA is **Start the brief** and jumps to `#consult`, the first section defines **exclusive lead book**, the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
+3. Confirm the hero reads **A done-for-you exclusive lead-generation firm** / **We win you the enquiries** / **One firm only**, the primary CTA is **Start the brief** and jumps to `#consult`, the first section names the firm then defines **exclusive lead book**, the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
 4. Confirm FAQ has five questions, Leona Henderson’s bio matches Craig’s structure, and a signature sector still opens the consult form with that industry selected.
 5. View-source: `rel="canonical"` should be `https://hendersongroup.com.au/`.
 

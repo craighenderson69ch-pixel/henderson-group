@@ -410,10 +410,21 @@ p { margin: 0; }
 }
 .hero-brand em { font-style: italic; color: var(--plat-200); font-weight: 400; }
 .hero-tag { display: none; }
+.hero-identity {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  color: var(--plat-100);
+  margin: 0 0 18px;
+  max-width: 36ch;
+}
 .hero-headline {
   color: var(--paper);
   margin-bottom: 28px;
-  max-width: 11ch;
+  max-width: 14ch;
   font-size: clamp(44px, 6.6vw, 88px);
   line-height: 1.06;
 }
@@ -899,6 +910,17 @@ p { margin: 0; }
   text-transform: uppercase;
   color: var(--plat-100);
   white-space: nowrap;
+}
+.trust-strip-identity {
+  max-width: 62ch;
+  margin: 12px auto 0;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.55;
+  text-transform: none;
+  color: var(--plat-100);
 }
 .trust-strip-markets {
   max-width: var(--max);
@@ -2653,6 +2675,7 @@ textarea.input {
       0 1px 1px rgba(0, 0, 0, 0.95),
       0 2px 14px rgba(0, 0, 0, 0.75);
   }
+  .hero-identity { max-width: 32ch; font-size: 12px; margin-bottom: 14px; }
   .hero-desc { max-width: 38ch; }
   .hero-bg img {
     object-position: 28% 68%;
@@ -2685,6 +2708,10 @@ textarea.input {
   .trust-strip-abn {
     font-size: 13px;
     letter-spacing: 0.08em;
+  }
+  .trust-strip-identity {
+    font-size: 14px;
+    max-width: 40ch;
   }
   .pillars,
   .industry-grid,
