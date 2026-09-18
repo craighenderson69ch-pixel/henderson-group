@@ -91,12 +91,14 @@ The public site does not publish client results, percentage unit-economics, or n
 
 ## Visual system (Hybrid D)
 
-Hero and major bands use CSS mesh / aurora atmospheres — not stock city photography. Mapping on the live homepage:
+Hero and major bands use the Grok private-bank moodboard. Mapping on the live homepage:
 
-- `#standard` (mandate) — Sydney harbour dusk / coastal cool
-- `#approach` (how we work) — London stone over the existing screened `approach-bg.jpg`
-- `#leadership` — Dubai glass / warm night
-- `#consult` — NYC steel / cool urban
+- Hero — blue-hour glass plaza (`hero-plaza.jpg`)
+- `#standard` — honey-stone courtyard
+- `#approach` — dark-academia study
+- `#leadership` — penthouse dusk
+- `#consult` — private-bank lobby
+- Trust strip — small watch/emerald precision motif (not a jewellery pitch)
 
 Screens are decorative only. Heavy dark overlays keep type at AA+. Film grain is a cheap CSS SVG, not a video loop. Respects `prefers-reduced-motion`.
 
