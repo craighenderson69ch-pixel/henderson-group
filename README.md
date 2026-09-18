@@ -2,7 +2,7 @@
 
 Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd, ABN 54 702 126 627) — a done-for-you exclusive lead-generation firm. We win qualified customer enquiries for one client firm in one market. Your sales team closes. We are judged on cost per sale. Never pooled. Never resold.
 
-This repository is the public site. Exclusive inbound lead books, a plain-English definition up front, six signature sectors plus Other, a four-step “How we work” strip, Craig and Leona Henderson with matching bios, a five-question FAQ, and a consultation form that starts with vertical, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
+This repository is the public site. Exclusive inbound lead books, a plain-English definition up front, six signature sectors plus Other, a four-step “How we work” strip, Craig and Leona Henderson with matching bios, a FAQ that opens with what the firm does, and a consultation form that starts with sector, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
 
 ## Public URL
 
@@ -17,7 +17,7 @@ GitHub Pages still builds from `main`. The `github.io` origin redirects to the c
 1. Wait for **Actions → Deploy GitHub Pages** on `main` to finish.
 2. Open [https://hendersongroup.com.au/](https://hendersongroup.com.au/).
 3. Confirm the hero reads **A done-for-you exclusive lead-generation firm** / **We win you the enquiries** / **One firm only**, the primary CTA is **Start the brief** and jumps to `#consult`, the first section names the firm then defines **exclusive lead book**, the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
-4. Confirm FAQ has five questions, Leona Henderson’s bio matches Craig’s structure, and a signature sector still opens the consult form with that industry selected.
+4. Confirm FAQ opens with **What does Carmichael Henderson do?**, Leona Henderson’s bio matches Craig’s structure, and a signature sector still opens the consult form with that industry selected.
 5. View-source: `rel="canonical"` should be `https://hendersongroup.com.au/`.
 
 ## One-click go-live (GitHub Pages)
@@ -91,12 +91,14 @@ The public site does not publish client results, percentage unit-economics, or n
 
 ## Visual system (Hybrid D)
 
-Hero and major bands use CSS mesh / aurora atmospheres — not stock city photography. Mapping on the live homepage:
+Hero and major bands use the Grok private-bank moodboard. Mapping on the live homepage:
 
-- `#standard` (mandate) — Sydney harbour dusk / coastal cool
-- `#approach` (how we work) — London stone over the existing screened `approach-bg.jpg`
-- `#leadership` — Dubai glass / warm night
-- `#consult` — NYC steel / cool urban
+- Hero — blue-hour glass plaza (`hero-plaza.jpg`)
+- `#standard` — honey-stone courtyard
+- `#approach` — dark-academia study
+- `#leadership` — penthouse dusk
+- `#consult` — private-bank lobby
+- Trust strip — small watch/emerald precision motif (not a jewellery pitch)
 
 Screens are decorative only. Heavy dark overlays keep type at AA+. Film grain is a cheap CSS SVG, not a video loop. Respects `prefers-reduced-motion`.
 
