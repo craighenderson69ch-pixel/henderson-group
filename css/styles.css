@@ -2726,7 +2726,8 @@ textarea.input {
     object-position: 32% 40%;
     filter: grayscale(0.06) contrast(1.06) brightness(0.68) saturate(0.84);
   }
-  .hero-still-alt img { object-position: 70% 38%; }
+  .hero-still-alt img,
+  .hero-video-alt { object-position: 70% 38%; }
   .hero-bg::after {
     background:
       linear-gradient(180deg, rgba(7,8,11,0.22) 0%, transparent 36%, rgba(7,8,11,0.28) 72%, rgba(7,8,11,0.82) 100%),
