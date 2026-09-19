@@ -12,14 +12,31 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  /* --- Hero parallax --- */
-  const heroBg = document.querySelector(".hero-bg img");
-  if (heroBg && !prefersReduced) {
+  /* --- Hero video (optional loop) + parallax --- */
+  const heroRoot = document.querySelector(".hero-bg");
+  const heroVideo = document.querySelector(".hero-video");
+  const heroMedia = document.querySelectorAll(".hero-bg img, .hero-bg video");
+  if (heroVideo && heroRoot && !prefersReduced) {
+    function armHeroVideo() {
+      const play = heroVideo.play();
+      if (play && typeof play.then === "function") {
+        play.then(function () { heroRoot.classList.add("has-video"); }).catch(function () {});
+      }
+    }
+    heroVideo.addEventListener("canplay", armHeroVideo);
+    heroVideo.addEventListener("error", function () {
+      heroRoot.classList.remove("has-video");
+    }, true);
+    try { heroVideo.load(); } catch (e) {}
+  }
+  if (heroMedia.length && !prefersReduced) {
     let ticking = false;
     function updateHero() {
       const y = window.scrollY;
       const rate = Math.min(y * 0.08, 48);
-      heroBg.style.transform = `scale(1.12) translate3d(0, ${rate}px, 0)`;
+      heroMedia.forEach(function (el) {
+        el.style.transform = "scale(1.12) translate3d(0, " + rate + "px, 0)";
+      });
       ticking = false;
     }
     window.addEventListener("scroll", () => {

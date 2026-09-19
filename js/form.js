@@ -14,7 +14,7 @@
   const I18N = IS_PT ? {
     industry: "Escolha um segmento.",
     country: "Escolha o país ou a região.",
-    leadCapacity: "Escolha a faixa de consultas qualificadas que a mesa consegue honrar.",
+    leadCapacity: "Escolha o volume mensal que a sua equipe consegue atender.",
     buyerWho: "Diga com quem você quer falar — algumas palavras bastam.",
     buyerMarket: "Diga o mercado ou a região desses compradores.",
     qualification: "Marque o que torna uma consulta qualificada.",
@@ -35,7 +35,7 @@
     review: [
       ["Tipo de negócio", "industry"],
       ["Sede", "country"],
-      ["Capacidade mensal", "leadCapacity"],
+      ["Volume mensal", "leadCapacity"],
       ["Gargalo", "pipelinePain"],
       ["CPL atual", "currentCpl"],
       ["Comprador", "buyerWho"],
@@ -50,7 +50,7 @@
   } : {
     industry: "Please select an industry.",
     country: "Please choose a country or region.",
-    leadCapacity: "Select the monthly volume your desk can honour.",
+    leadCapacity: "Select the monthly volume your team can handle.",
     buyerWho: "Say who you want to speak to — a short line is enough.",
     buyerMarket: "Say where those buyers are — city, region, or country.",
     qualification: "Select what makes an enquiry qualified.",
@@ -72,7 +72,7 @@
     review: [
       ["Kind of business", "industry"],
       ["Firm based in", "country"],
-      ["Desk capacity", "leadCapacity"],
+      ["Monthly volume", "leadCapacity"],
       ["Constraint", "pipelinePain"],
       ["Current CPL", "currentCpl"],
       ["Buyer who", "buyerWho"],
@@ -527,7 +527,7 @@
       preferredChannel: record.preferredChannel || "—",
       preferredTime: record.preferredTime || "—",
       reference: ref,
-      message: "Design-the-mandate enquiry from the Carmichael Henderson site.\n\n" + briefLines(record).join("\n"),
+      message: "Consultation enquiry from the Carmichael Henderson site.\n\n" + briefLines(record).join("\n"),
     };
 
     fetch(FORMSUBMIT, {

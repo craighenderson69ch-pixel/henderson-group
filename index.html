@@ -29,8 +29,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=ch-grok1">
-<link rel="stylesheet" href="css/variants.css?v=ch-grok1">
+<link rel="stylesheet" href="css/styles.css?v=ch-grok2">
+<link rel="stylesheet" href="css/variants.css?v=ch-grok2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -42,7 +42,7 @@
   "email": "craig@hendersongroup.com.au",
   "taxID": "54 702 126 627",
   "description": "A done-for-you exclusive lead-generation firm. We win qualified customer enquiries for one client firm in one market. Your sales team closes. Judged on cost per sale — never pooled, never resold.",
-  "slogan": "Exclusive. Precise. Worldwide.",
+  "slogan": "One firm. One market. Worldwide.",
   "founder": { "@type": "Person", "name": "Craig Henderson", "jobTitle": "Founder & CEO" },
   "employee": { "@type": "Person", "name": "Leona Henderson", "jobTitle": "Brazil Principal" },
   "address": { "@type": "PostalAddress", "addressCountry": "AU" }
@@ -79,7 +79,17 @@
 <main id="main">
 <section class="hero" id="top">
   <div class="hero-bg">
-    <img src="assets/hero-plaza.jpg" alt="" fetchpriority="high" width="2000" height="1500">
+    <picture class="hero-still hero-still-primary">
+      <source srcset="assets/hero-office.webp" type="image/webp">
+      <img src="assets/hero-office.jpg" alt="" fetchpriority="high" width="2000" height="1125">
+    </picture>
+    <picture class="hero-still hero-still-alt" aria-hidden="true">
+      <source srcset="assets/hero-villa.webp" type="image/webp">
+      <img src="assets/hero-villa.jpg" alt="" loading="lazy" decoding="async" width="2000" height="1125">
+    </picture>
+    <video class="hero-video" muted loop playsinline preload="none" poster="assets/hero-office.jpg" aria-hidden="true">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
+    </video>
     <div class="hero-mesh" aria-hidden="true"></div>
     <div class="hero-leaks" aria-hidden="true"></div>
   </div>
@@ -94,41 +104,51 @@
       Qualified customer enquiries for one client firm, in one market. Your sales team closes. We are judged on <strong>cost per sale</strong> — never pooled, never resold.
     </p>
     <div class="hero-actions">
-      <a class="hero-cta" href="#consult">Start the brief</a>
-      <div class="hero-meta">Exclusive. Precise.</div>
+      <a class="hero-cta" href="#consult">Request a consultation</a>
+      <div class="hero-meta">One firm. One market.</div>
     </div>
   </div>
 </section>
 
 <section class="trust-strip" aria-label="Firm identity">
-  <div class="trust-jewel" aria-hidden="true"><img src="assets/mood-jewel.jpg" alt="" width="900" height="675"></div>
+  <div class="trust-jewel" aria-hidden="true">
+    <picture>
+      <source srcset="assets/mood-jewel.webp" type="image/webp">
+      <img src="assets/mood-jewel.jpg" alt="" width="900" height="675">
+    </picture>
+  </div>
   <p class="trust-strip-entity">Carmichael Henderson Pty Ltd</p>
   <p class="trust-strip-abn">ABN 54 702 126 627</p>
   <p class="trust-strip-identity">Carmichael Henderson is a done-for-you exclusive lead-generation firm. One client firm. One market. Confidential by default.</p>
 </section>
 
 <section class="section standard atmosphere atmosphere-courtyard" id="standard">
-  <div class="atmosphere-photo" aria-hidden="true"><img src="assets/mood-courtyard.jpg" alt="" loading="lazy" decoding="async" width="1800" height="1350"></div>
+  <div class="atmosphere-photo" aria-hidden="true">
+    <picture>
+      <source srcset="assets/mood-courtyard.webp" type="image/webp">
+      <img src="assets/mood-courtyard.jpg" alt="" loading="lazy" decoding="async" width="1800" height="1350">
+    </picture>
+  </div>
   <div class="atmosphere-screen" aria-hidden="true"></div>
   <div class="container">
-    <div class="define-plate reveal" id="lead-book">
+    <div class="define-plate reveal" id="who-we-are">
       <div class="eyebrow">Who we are</div>
       <h2 class="serif">A done-for-you exclusive lead-generation firm.</h2>
       <p>We win qualified customer enquiries for one client firm in one market. Your sales team closes. We are judged on <strong>cost per sale</strong> — never pooled, never resold.</p>
-      <p><strong>What you buy</strong> is simpler than the jargon. We find people already looking for a firm like yours and send those enquiries to your sales team — and only your team. That reserved stream is the exclusive lead book: not a shared list, not a brokered name-file, not inventory anyone else can buy.</p>
+      <p><strong>What you buy</strong> is simple. We find people already looking for a firm like yours and send those enquiries to your sales team — only your team. Not a shared list. Not a name anyone else can buy.</p>
     </div>
     <div class="pillars">
       <article class="pillar reveal">
-        <h3 class="serif">Exclusive <em>allocation</em></h3>
-        <p>The book is reserved for one firm in your line of work, in your city or country. No shared inventory. No auctioned enquiries.</p>
+        <h3 class="serif">One firm <em>per market</em></h3>
+        <p>Enquiries go to one firm in your line of work, in your city or country. No shared lists. No selling the same name twice.</p>
       </article>
       <article class="pillar reveal reveal-delay-1">
         <h3 class="serif">No <em>resale</em></h3>
         <p>Leads go to your team and only your team. No secondary markets, no downstream partners, no data that outlives the engagement.</p>
       </article>
       <article class="pillar reveal reveal-delay-2">
-        <h3 class="serif">Bespoke by <em>mandate</em></h3>
-        <p>The offer, the audience, the geography, the timing — built for the firm we are writing the book for.</p>
+        <h3 class="serif">Built for <em>your firm</em></h3>
+        <p>The offer, the audience, the geography, the timing — built for the firm we are running the campaign for.</p>
       </article>
     </div>
   </div>
@@ -138,9 +158,9 @@
   <div class="container">
     <div class="whisper-inner reveal">
       <div class="eyebrow">The bottleneck</div>
-      <p class="whisper-spine serif">We fix the constraint in your growth pipeline.</p>
+      <p class="whisper-spine serif">We fix the stall in your growth pipeline.</p>
       <p class="whisper-body">Growth usually stalls at one point — not enough qualified demand, or demand that costs too much to close.</p>
-      <p class="whisper-body">We win you the consumer leads. Your sales team turns them into revenue. We judge the work on cost per sale. Cheap cost-per-lead is not the brief.</p>
+      <p class="whisper-body">We win you the customer enquiries. Your sales team turns them into sales. We judge the work on cost per sale. Cheap cost-per-lead is not the goal.</p>
     </div>
   </div>
 </section>
@@ -152,28 +172,28 @@
         <div class="eyebrow reveal">Industries we serve</div>
         <h2 class="serif reveal reveal-delay-1">Sectors we <em>take on.</em></h2>
       </div>
-      <p class="section-head-right reveal reveal-delay-2">We work with firms whose growth cannot be trusted to volume. Six sectors we take publicly — plus Other in the brief.</p>
+      <p class="section-head-right reveal reveal-delay-2">One client firm per market. Six sectors we name — plus Other in the brief.</p>
     </div>
     <div class="industry-grid">
       <a class="industry-card reveal" href="#consult" data-industry="Financial Services">
         <div class="industry-body">
           <h4 class="serif">Financial Services</h4>
           <p>We win qualified client enquiries for one advisory or wealth firm in your market.</p>
-          <p class="industry-approach">Reserved inbound for one firm. Never pooled with a competitor.</p>
+          <p class="industry-approach">One firm only. Never shared with a competitor.</p>
         </div>
       </a>
       <a class="industry-card reveal reveal-delay-1" href="#consult" data-industry="Legal">
         <div class="industry-body">
           <h4 class="serif">Legal</h4>
           <p>We win qualified client enquiries for one law practice in your market.</p>
-          <p class="industry-approach">One practice per market — never a farmed list.</p>
+          <p class="industry-approach">One practice per market — never a bought list.</p>
         </div>
       </a>
       <a class="industry-card reveal reveal-delay-2" href="#consult" data-industry="Real Estate">
         <div class="industry-body">
           <h4 class="serif">Real Estate</h4>
-          <p>We win high-intent buyer and seller enquiries for one desk in your market.</p>
-          <p class="industry-approach">One desk — not shared inventory.</p>
+          <p>We win high-intent buyer and seller enquiries for one agency in your market.</p>
+          <p class="industry-approach">One agency only — not a shared list.</p>
         </div>
       </a>
       <a class="industry-card reveal reveal-delay-1" href="#consult" data-industry="Healthcare">
@@ -187,58 +207,63 @@
         <div class="industry-body">
           <h4 class="serif">Professional Services</h4>
           <p>We win qualified enquiries for one consulting or accounting firm in your market.</p>
-          <p class="industry-approach">Long cycle, reserved to your firm — not a volume dump.</p>
+          <p class="industry-approach">Sent only to your firm — not a flood of cheap names.</p>
         </div>
       </a>
       <a class="industry-card reveal reveal-delay-2" href="#consult" data-industry="Luxury & Lifestyle">
         <div class="industry-body">
           <h4 class="serif">Luxury &amp; Lifestyle</h4>
           <p>We win discreet, high-intent enquiries for one brand in your market.</p>
-          <p class="industry-approach">Quiet allocation for one brand — never pooled.</p>
+          <p class="industry-approach">One brand only. Never pooled.</p>
         </div>
       </a>
     </div>
   </div>
 </section>
 
-<section class="section section-compact whisper whisper-legal band-light" id="legal-mandates" aria-label="Legal mandates">
+<section class="section section-compact whisper whisper-legal band-light" id="legal-mandates" aria-label="Legal campaigns">
   <div class="container">
     <div class="whisper-inner reveal">
       <div class="eyebrow">Legal</div>
-      <p class="whisper-spine serif">Legal mandates, built inside the rules.</p>
-      <p class="whisper-body">For personal injury practices, the exclusive lead book is built so the firm never buys names. The injured person initiates contact. The campaign sits on the firm’s own brand. Source URL and consent are kept so the principal can certify the file was not farmed.</p>
+      <p class="whisper-spine serif">Legal campaigns, built inside the rules.</p>
+      <p class="whisper-body">For personal injury practices, the exclusive campaign is built so the firm never buys names. The injured person initiates contact. The campaign sits on the firm’s own brand. Source URL and consent are kept so the principal can certify the file was not farmed.</p>
       <p class="whisper-body">We build around Australia’s anti-claims-farming regime — including Queensland’s CTP and workers’ compensation rules — so practices stay off the solicitation, list-trading and paid-referral pathways that attract penalty units, fee clawback and practising-certificate risk.</p>
-      <p class="whisper-close">One client. One mandate. Never pooled. Never resold.</p>
+      <p class="whisper-close">One client. One firm. Never pooled. Never resold.</p>
       <p class="whisper-caveat">Sales and marketing posture — not legal advice.</p>
     </div>
   </div>
 </section>
 
-<section class="section section-compact approach atmosphere atmosphere-study band-light" id="approach">
-  <div class="approach-bg"><img src="assets/mood-study.jpg" alt="" loading="lazy" decoding="async" width="1800" height="1350"></div>
+<section class="section section-compact approach atmosphere atmosphere-plaza band-light" id="approach">
+  <div class="approach-bg">
+    <picture>
+      <source srcset="assets/hero-plaza.webp" type="image/webp">
+      <img src="assets/hero-plaza.jpg" alt="" loading="lazy" decoding="async" width="2000" height="1500">
+    </picture>
+  </div>
   <div class="atmosphere-screen" aria-hidden="true"></div>
   <div class="container">
     <div class="section-head">
       <div class="section-head-left">
         <div class="eyebrow reveal">How we work</div>
-        <h2 class="serif reveal reveal-delay-1">Diagnose the stall. Write the book.</h2>
+        <h2 class="serif reveal reveal-delay-1">Find the bottleneck. Send the enquiries.</h2>
       </div>
-      <p class="section-head-right reveal reveal-delay-2">Four steps. One named account lead. No template campaigns, no rotating support desk.</p>
+      <p class="section-head-right reveal reveal-delay-2">Four steps. One named contact. No template campaigns, no rotating support desk.</p>
     </div>
     <div class="timeline">
       <div class="timeline-track"></div>
       <div class="timeline-steps">
         <div class="tstep">
           <h4>Diagnose</h4>
-          <p>Find the stall in the pipeline, and what a closed sale is worth.</p>
+          <p>Find the bottleneck in the pipeline, and what a closed sale is worth.</p>
         </div>
         <div class="tstep">
           <h4>Qualify</h4>
-          <p>Who you want, and the volume the desk can honour.</p>
+          <p>Who you want, and the volume your team can handle.</p>
         </div>
         <div class="tstep">
           <h4>Deliver</h4>
-          <p>Exclusive inbound, reserved to your firm, at the volume you set.</p>
+          <p>Qualified enquiries, sent only to your firm, at the volume you set.</p>
         </div>
         <div class="tstep">
           <h4>Measure</h4>
@@ -248,16 +273,16 @@
     </div>
     <div class="why-strip why-strip-3">
       <div class="why-item reveal">
-        <h4>Named account lead</h4>
+        <h4>Named contact</h4>
         <p>You speak with one person — not a rotating queue.</p>
       </div>
       <div class="why-item reveal reveal-delay-1">
         <h4>Industry fluency</h4>
-        <p>We speak your buyer’s language, cycle, and compliance posture.</p>
+        <p>We speak your buyer’s language, cycle, and the rules you work under.</p>
       </div>
       <div class="why-item reveal reveal-delay-2">
         <h4>Clear reporting</h4>
-        <p>Spend, pipeline, and what closed — shared with the account lead.</p>
+        <p>Spend, pipeline, and what closed — shared with your named contact.</p>
       </div>
     </div>
     <article class="wins-plate reveal" aria-labelledby="wins-heading">
@@ -267,25 +292,30 @@
       <div class="wins-notes">
         <div>
           <h4>Diagnosed</h4>
-          <p>The stall is named first: inbound the desk cannot monetise, or volume it cannot honour. We write what a closed sale is worth before any book is reserved.</p>
+          <p>The bottleneck is named first: enquiries the team cannot turn into sales, or volume it cannot handle. We write what a closed sale is worth before we start.</p>
         </div>
         <div>
-          <h4>Reserved</h4>
-          <p>The book is signed to one firm, in one market. Inbound only. Campaigns sit on the firm’s own brand. A competitor in that market is not written a second book.</p>
+          <h4>Exclusive</h4>
+          <p>The campaign is for one firm, in one market. Enquiries go only to you. Campaigns sit on the firm’s own brand. We will not run the same campaign for a competitor in that market.</p>
         </div>
         <div>
           <h4>Measured</h4>
-          <p>The named account lead sees what closed. The book is judged on cost per sale — not cheap cost-per-lead. Figures stay private.</p>
+          <p>Your named contact sees what closed. The work is judged on cost per sale — not cheap cost-per-lead. Figures stay private.</p>
         </div>
       </div>
       <p class="wins-caveat">These are public-safe approach notes of method. No named clients. No dollar volumes. Named references, if relevant, stay in the private consultation, under NDA.</p>
     </article>
-    <p class="approach-footnote reveal">We hold the desk to the Insider.group operating standard — ecosystem training for how exclusive books are run. It is not an endorsement of any person, and it is not a public claim about results.</p>
+    <p class="approach-footnote reveal">We hold the team to the Insider.group operating standard — ecosystem training for how exclusive campaigns are run. It is not an endorsement of any person, and it is not a public claim about results.</p>
   </div>
 </section>
 
 <section class="section leadership atmosphere atmosphere-penthouse" id="leadership">
-  <div class="atmosphere-photo" aria-hidden="true"><img src="assets/mood-penthouse.jpg" alt="" loading="lazy" decoding="async" width="1800" height="1350"></div>
+  <div class="atmosphere-photo" aria-hidden="true">
+    <picture>
+      <source srcset="assets/mood-penthouse.webp" type="image/webp">
+      <img src="assets/mood-penthouse.jpg" alt="" loading="lazy" decoding="async" width="1800" height="1350">
+    </picture>
+  </div>
   <div class="atmosphere-screen" aria-hidden="true"></div>
   <div class="container">
     <div class="eyebrow reveal">Leadership</div>
@@ -334,10 +364,10 @@
           </figcaption>
         </figure>
         <div class="leader-card-body">
-          <p>Leona Henderson is the Brazil principal — the local counterpart who writes exclusive inbound lead books for one firm, in one Brazilian market. Campaigns sit on the client’s own brand. She works in Portuguese with the desk that will honour the book. Enquiries are never pooled and never resold.</p>
+          <p>Leona Henderson is the Brazil principal. She builds exclusive campaigns for one firm in one Brazilian market. She works in Portuguese with the sales team that takes the enquiries. Never pooled. Never resold.</p>
           <div class="leader-facts">
             <div>
-              <div class="leader-fact-label">Seat</div>
+              <div class="leader-fact-label">Location</div>
               <div class="leader-fact-val">Brazil</div>
             </div>
             <div>
@@ -345,8 +375,8 @@
               <div class="leader-fact-val">Portuguese</div>
             </div>
             <div>
-              <div class="leader-fact-label">Mandate</div>
-              <div class="leader-fact-val">Exclusive inbound, one firm per market</div>
+              <div class="leader-fact-label">Focus</div>
+              <div class="leader-fact-val">Exclusive campaigns, one firm per market</div>
             </div>
             <div>
               <div class="leader-fact-label">Current</div>
@@ -356,7 +386,7 @@
         </div>
       </article>
     </div>
-    <div class="leader-quote reveal">Exclusive. Precise. Worldwide.</div>
+    <div class="leader-quote reveal">One firm. One market. Worldwide.</div>
   </div>
 </section>
 
@@ -376,15 +406,15 @@
         </details>
         <details class="faq-item">
           <summary class="serif">Do you work with more than one firm in the same market?</summary>
-          <div class="faq-answer">Not in the same market. Every exclusive lead book is reserved to one firm in your line of work, in your city or country. If we take on your work, your direct competitors in that market cannot engage us for the duration of the contract.</div>
+          <div class="faq-answer">Not in the same market. Every exclusive campaign is for one firm in your line of work, in your city or country. If we take on your work, your direct competitors in that market cannot engage us for the duration of the contract — so there is no conflict with a competitor.</div>
         </details>
         <details class="faq-item">
           <summary class="serif">How is this different from a lead-broker network?</summary>
-          <div class="faq-answer">Broker networks resell the same enquiry to multiple firms. We write the book for you and only for you. There is no marketplace, no downstream partner, no aggregated database — the enquiry originates for your firm and is delivered directly to your CRM.</div>
+          <div class="faq-answer">Broker networks resell the same enquiry to multiple firms. We build the campaign for you and only for you. There is no marketplace, no downstream partner, no aggregated database — the enquiry originates for your firm and is delivered directly to your CRM.</div>
         </details>
         <details class="faq-item">
           <summary class="serif">Why not just buy cheaper leads?</summary>
-          <div class="faq-answer">Cheap cost-per-lead often means enquiries that do not close. We generate demand your desk can monetise and judge the work on cost per sale — not the cheapest click.</div>
+          <div class="faq-answer">Cheap cost-per-lead often means enquiries that do not close. We generate demand your team can turn into sales and judge the work on cost per sale — not the cheapest click.</div>
         </details>
         <details class="faq-item">
           <summary class="serif">Do you publish results or case studies?</summary>
@@ -392,35 +422,35 @@
         </details>
         <details class="faq-item">
           <summary class="serif">What does the engagement look like commercially?</summary>
-          <div class="faq-answer">You name the sector, the volume you can honour, and where the pipeline hurts. We design the exclusive lead book for that mandate, then return with a precise quote — not a generic package.</div>
+          <div class="faq-answer">You name the sector, the volume you can handle, and where the pipeline hurts. We design the exclusive campaign for that brief, then return with a precise quote — not a generic package.</div>
         </details>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section consult atmosphere atmosphere-lobby band-light" id="consult">
-  <div class="atmosphere-photo" aria-hidden="true"><img src="assets/mood-lobby.jpg" alt="" loading="lazy" decoding="async" width="1800" height="1350"></div>
+<section class="section consult atmosphere atmosphere-villa band-light" id="consult">
+  <div class="atmosphere-photo" aria-hidden="true"><img src="assets/hero-villa.jpg" alt="" loading="lazy" decoding="async" width="2000" height="1125"></div>
   <div class="atmosphere-screen" aria-hidden="true"></div>
   <div class="container">
     <div class="consult-grid">
       <div class="consult-copy">
         <div class="eyebrow reveal">Private Consultation</div>
-        <h2 class="serif reveal reveal-delay-1">Start the brief. <em>We write the book.</em></h2>
-        <p class="reveal reveal-delay-2">Sector, volume, and where the pipeline hurts. That is enough to begin. We return with a precise quote for a signed exclusive lead book — not a generic package.</p>
+        <h2 class="serif reveal reveal-delay-1">Tell us the brief. <em>We’ll design the campaign.</em></h2>
+        <p class="reveal reveal-delay-2">Sector, volume, and where the pipeline hurts. That is enough to begin. We return with a precise quote for an exclusive campaign — not a generic package.</p>
         <ul class="consult-list reveal reveal-delay-3">
           <li>Sector, volume, and the constraint — then how to reach you.</li>
-          <li>We return with a quote for that exclusive lead book.</li>
+          <li>We return with a quote for that exclusive campaign.</li>
           <li>Volume is capacity your team can work — not claimed results.</li>
           <li>One firm in your line of work, in your market. Confidential by default.</li>
         </ul>
         <div class="consult-outcomes reveal">
           <div class="consult-outcome">
-            <h4>Signed exclusive book</h4>
-            <p>Inbound only. Reserved to your firm in your market.</p>
+            <h4>Exclusive campaign</h4>
+            <p>Enquiries go only to your firm, in your market.</p>
           </div>
           <div class="consult-outcome">
-            <h4>Named account lead</h4>
+            <h4>Named contact</h4>
             <p>One person from strategy through the first delivery.</p>
           </div>
           <div class="consult-outcome">
@@ -428,7 +458,7 @@
             <p>No marketplace, no pooled inventory, no downstream partners.</p>
           </div>
         </div>
-        <p class="consult-privacy reveal">Enquiries are treated as commercially sensitive. We do not list, resell, or publish your details. A named account lead replies — not a shared inbox.</p>
+        <p class="consult-privacy reveal">Enquiries are treated as commercially sensitive. We do not list, resell, or publish your details. A named contact replies — not a shared inbox.</p>
         <p class="ref-path reveal">To request a reference in your industry and market, say so in this brief. We share it personally, under NDA.</p>
       </div>
       <div class="form-shell reveal reveal-delay-2">
@@ -443,7 +473,7 @@
 
         <div class="form-step active" data-step="1">
           <h3 class="serif">What kind of business are you in?</h3>
-          <div class="form-step-hint">Choose one. We match you with the person who writes exclusive lead books for firms like yours.</div>
+          <div class="form-step-hint">Choose one. We match you with the person who builds exclusive campaigns for firms like yours.</div>
           <div class="radio-grid" id="industry-grid">
             <button type="button" class="radio-tile" data-value="Financial Services">Financial Services</button>
             <button type="button" class="radio-tile" data-value="Legal">Legal</button>
@@ -458,10 +488,10 @@
 
         <div class="form-step" data-step="2">
           <h3 class="serif">Volume and the constraint.</h3>
-          <div class="form-step-hint">What the desk can honour, and where the pipeline hurts. Further detail is optional.</div>
+          <div class="form-step-hint">What your team can handle, and where the pipeline hurts. Further detail is optional.</div>
 
           <div class="field">
-            <label>Monthly qualified enquiries the desk can honour</label>
+            <label>Monthly volume your team can handle</label>
             <p class="field-help">Capacity your team can work — not claimed results.</p>
             <div class="pill-row pill-row-capacity" data-pillgroup="leadCapacity">
               <button type="button" class="pill" data-value="200–500 a month">200–500 / month</button>
@@ -496,7 +526,7 @@
               </div>
               <div class="field">
                 <label>Current cost per lead</label>
-                <p class="field-help">A band is enough. We still judge the book on cost per sale.</p>
+                <p class="field-help">A band is enough. We still judge the work on cost per sale.</p>
                 <div class="pill-row pill-row-capacity" data-pillgroup="currentCpl">
                   <button type="button" class="pill" data-value="We do not track CPL">We do not track</button>
                   <button type="button" class="pill" data-value="Under $50">Under $50</button>
@@ -536,7 +566,7 @@
 
         <div class="form-step" data-step="3">
           <h3 class="serif">How should we reach you?</h3>
-          <div class="form-step-hint">A named account lead replies within one business day. Your details are never shared.</div>
+          <div class="form-step-hint">A named contact replies within one business day. Your details are never shared.</div>
           <div class="field-row">
             <div class="field">
               <label for="fullName">Full name</label>
@@ -605,8 +635,8 @@
             <h4>What happens next</h4>
             <ol>
               <li>We read the sector, the volume, and the constraint.</li>
-              <li>We design the exclusive campaign around that mandate.</li>
-              <li>You get a personal reply with a precise quote for the lead book.</li>
+              <li>We design the exclusive campaign around that brief.</li>
+              <li>You get a personal reply with a precise quote for the campaign.</li>
             </ol>
           </div>
           <p class="success-contact">Direct line: <a href="mailto:craig@hendersongroup.com.au">craig@hendersongroup.com.au</a></p>
@@ -658,7 +688,7 @@
 </footer>
 
 <script src="js/countries.js"></script>
-<script src="js/form.js?v=ch-light1"></script>
-<script src="js/animations.js"></script>
+<script src="js/form.js?v=ch-grok2"></script>
+<script src="js/animations.js?v=ch-grok2"></script>
 </body>
 </html>

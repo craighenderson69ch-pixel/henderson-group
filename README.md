@@ -2,7 +2,7 @@
 
 Production static landing page for Carmichael Henderson (Carmichael Henderson Pty Ltd, ABN 54 702 126 627) — a done-for-you exclusive lead-generation firm. We win qualified customer enquiries for one client firm in one market. Your sales team closes. We are judged on cost per sale. Never pooled. Never resold.
 
-This repository is the public site. Exclusive inbound lead books, a plain-English definition up front, six signature sectors plus Other, a four-step “How we work” strip, Craig and Leona Henderson with matching bios, a FAQ that opens with what the firm does, and a consultation form that starts with sector, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
+This repository is the public site. A plain-English definition up front (done-for-you exclusive lead generation; one client firm in one market; qualified enquiries to their sales team; judged on cost per sale; never pooled, never resold), six signature sectors plus Other, a four-step “How we work” strip, Craig and Leona Henderson with matching bios, a FAQ that opens with what the firm does, and a consultation form that starts with sector, volume, and the pipeline constraint. Client results and dollar figures are not invented. Verified references are available on private request.
 
 ## Public URL
 
@@ -16,7 +16,7 @@ GitHub Pages still builds from `main`. The `github.io` origin redirects to the c
 
 1. Wait for **Actions → Deploy GitHub Pages** on `main` to finish.
 2. Open [https://hendersongroup.com.au/](https://hendersongroup.com.au/).
-3. Confirm the hero reads **A done-for-you exclusive lead-generation firm** / **We win you the enquiries** / **One firm only**, the primary CTA is **Start the brief** and jumps to `#consult`, the first section names the firm then defines **exclusive lead book**, the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
+3. Confirm the hero reads **A done-for-you exclusive lead-generation firm** / **We win you the enquiries** / **One firm only**, the primary CTA is **Request a consultation** and jumps to `#consult`, the first section names the firm then says what you buy (qualified enquiries to your sales team, one firm, never pooled), the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
 4. Confirm FAQ opens with **What does Carmichael Henderson do?**, Leona Henderson’s bio matches Craig’s structure, and a signature sector still opens the consult form with that industry selected.
 5. View-source: `rel="canonical"` should be `https://hendersongroup.com.au/`.
 
@@ -54,7 +54,7 @@ No build step. Static HTML, CSS, and JavaScript only.
 
 Enquiries go to **craig@hendersongroup.com.au**.
 
-1. The three-step wizard (Vertical → Brief → Contact) posts through [FormSubmit](https://formsubmit.co/) to that mailbox. The brief asks for desk capacity (200–10,000 / month) and the pipeline constraint. Buyer detail, country, current CPL, qualification rules, and hard rejects sit behind an optional “Further detail” disclosure.
+1. The three-step wizard (Sector → Brief → Contact) posts through [FormSubmit](https://formsubmit.co/) to that mailbox. The brief asks for the monthly volume your team can handle (200–10,000 / month) and the pipeline constraint. Buyer detail, country, current CPL, qualification rules, and hard rejects sit behind an optional “Further detail” disclosure.
 2. The **first** live submission sends Craig a one-time confirmation email from FormSubmit. Click it once so later enquiries arrive automatically.
 3. If the relay cannot be confirmed, the browser opens a `mailto:` draft to the same address so the request is not lost.
 
@@ -77,7 +77,7 @@ The public site does not publish client results, percentage unit-economics, or n
 | `variants/index.html` | Gallery so Craig can click between versions |
 | `variants/en-quiet.html` | Quieter English (same as homepage) |
 | `variants/en-bright.html` | Brighter English, stronger CTA |
-| `variants/en-simple.html` | Shortest English: hero, industries, verticals, consult |
+| `variants/en-simple.html` | Shortest English: hero, industries, consult |
 | `variants/pt-br.html` | Full Brazilian Portuguese page for Leona |
 | `privacy.html` | Enquiry privacy |
 | `terms.html` | Site terms |
@@ -91,16 +91,16 @@ The public site does not publish client results, percentage unit-economics, or n
 
 ## Visual system (Hybrid D)
 
-Hero and major bands use the Grok private-bank moodboard. Mapping on the live homepage:
+Hero and major bands use the Grok private-bank moodboard (second pack). Mapping on the live homepage:
 
-- Hero — blue-hour glass plaza (`hero-plaza.jpg`)
+- Hero — executive office (`hero-office.jpg` / `.webp`), with a quiet crossfade to the cliff villa; optional muted loop at `assets/hero-loop.mp4` (poster = office)
 - `#standard` — honey-stone courtyard
-- `#approach` — dark-academia study
+- `#approach` — blue-hour glass plaza
 - `#leadership` — penthouse dusk
-- `#consult` — private-bank lobby
+- `#consult` — cliff villa
 - Trust strip — small watch/emerald precision motif (not a jewellery pitch)
 
-Screens are decorative only. Heavy dark overlays keep type at AA+. Film grain is a cheap CSS SVG, not a video loop. Respects `prefers-reduced-motion`.
+Screens are decorative only. Heavy dark overlays keep type at AA+. Hero video is `preload="none"` and only takes over after a successful play. Respects `prefers-reduced-motion` (still only). Cache-bust query: `?v=ch-grok2`.
 
 Public URLs:
 
