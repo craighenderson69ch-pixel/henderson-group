@@ -12,14 +12,39 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  /* --- Hero parallax --- */
-  const heroBg = document.querySelector(".hero-bg img");
-  if (heroBg && !prefersReduced) {
+  /* --- Hero video (optional loop) + parallax --- */
+  const heroRoot = document.querySelector(".hero-bg");
+  const heroVideos = document.querySelectorAll(".hero-video");
+  const heroPrimary = document.querySelector(".hero-video-primary") || heroVideos[0];
+  const heroMedia = document.querySelectorAll(".hero-bg img, .hero-bg video");
+  if (heroPrimary && heroRoot && !prefersReduced) {
+    function armHeroVideo() {
+      heroVideos.forEach(function (vid) {
+        vid.muted = true;
+        const play = vid.play();
+        if (play && typeof play.then === "function") play.catch(function () {});
+      });
+      const play = heroPrimary.play();
+      if (play && typeof play.then === "function") {
+        play.then(function () { heroRoot.classList.add("has-video"); }).catch(function () {});
+      }
+    }
+    heroPrimary.addEventListener("canplay", armHeroVideo);
+    heroPrimary.addEventListener("error", function () {
+      heroRoot.classList.remove("has-video");
+    }, true);
+    heroVideos.forEach(function (vid) {
+      try { vid.load(); } catch (e) {}
+    });
+  }
+  if (heroMedia.length && !prefersReduced) {
     let ticking = false;
     function updateHero() {
       const y = window.scrollY;
       const rate = Math.min(y * 0.08, 48);
-      heroBg.style.transform = `scale(1.12) translate3d(0, ${rate}px, 0)`;
+      heroMedia.forEach(function (el) {
+        el.style.transform = "scale(1.12) translate3d(0, " + rate + "px, 0)";
+      });
       ticking = false;
     }
     window.addEventListener("scroll", () => {

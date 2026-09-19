@@ -346,22 +346,54 @@ p { margin: 0; }
   position: absolute; inset: 0;
   z-index: 0;
 }
-.hero-bg img {
-  position: relative;
+.hero-still,
+.hero-video {
+  position: absolute;
+  inset: 0;
   z-index: 0;
+}
+.hero-bg img,
+.hero-video {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: 50% 38%;
+  object-position: 28% 42%;
   transform: scale(1.06);
   will-change: transform;
   filter: grayscale(0.08) contrast(1.08) brightness(0.78) saturate(0.86);
+}
+.hero-still-primary { z-index: 0; }
+.hero-still-alt {
+  z-index: 0;
+  opacity: 0;
+  animation: hero-still-crossfade 28s ease-in-out infinite;
+}
+.hero-still-alt img { object-position: 62% 40%; }
+.hero-video {
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-video-alt { object-position: 62% 40%; }
+.hero-bg.has-video .hero-video-primary { opacity: 1; }
+.hero-bg.has-video .hero-video-alt {
+  animation: hero-still-crossfade 28s ease-in-out infinite;
+}
+.hero-bg.has-video .hero-still-primary,
+.hero-bg.has-video .hero-still-alt {
+  animation: none;
+  opacity: 0;
+}
+@keyframes hero-still-crossfade {
+  0%, 40% { opacity: 0; }
+  48%, 88% { opacity: 1; }
+  100% { opacity: 0; }
 }
 .hero-mesh,
 .hero-leaks {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 .hero-mesh {
   background:
@@ -1007,6 +1039,13 @@ p { margin: 0; }
   position: absolute; inset: 0;
   z-index: 0;
   opacity: 0.28;
+}
+.approach-bg picture,
+.atmosphere-photo picture,
+.hero-still {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .approach-bg img {
   width: 100%; height: 100%; object-fit: cover;
@@ -2682,10 +2721,13 @@ textarea.input {
   }
   .hero-identity { max-width: 32ch; font-size: 12px; margin-bottom: 14px; }
   .hero-desc { max-width: 38ch; }
-  .hero-bg img {
-    object-position: 50% 36%;
+  .hero-bg img,
+  .hero-video {
+    object-position: 32% 40%;
     filter: grayscale(0.06) contrast(1.06) brightness(0.68) saturate(0.84);
   }
+  .hero-still-alt img,
+  .hero-video-alt { object-position: 70% 38%; }
   .hero-bg::after {
     background:
       linear-gradient(180deg, rgba(7,8,11,0.22) 0%, transparent 36%, rgba(7,8,11,0.28) 72%, rgba(7,8,11,0.82) 100%),
@@ -2775,7 +2817,10 @@ textarea.input {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .marquee-track, .map-pulse, .scroll-cue::after,
-  .hero-mesh, .atmosphere-screen::before { animation: none; }
+  .hero-mesh, .atmosphere-screen::before,
+  .hero-still-alt { animation: none; }
+  .hero-still-alt { opacity: 0; }
+  .hero-video { display: none !important; }
 }
 
 /* =========================================================
@@ -3413,10 +3458,14 @@ textarea.input {
   object-position: 50% 42%;
   filter: grayscale(0.08) contrast(1.04) brightness(0.7) saturate(0.7);
 }
-.atmosphere-study .atmosphere-photo img,
+.atmosphere-plaza .approach-bg img,
 .approach-bg img {
-  object-position: 50% 55%;
-  filter: grayscale(0.1) contrast(1.1) brightness(0.42) saturate(0.7);
+  object-position: 50% 28%;
+  filter: grayscale(0.08) contrast(1.08) brightness(0.48) saturate(0.72);
+}
+.atmosphere-villa .atmosphere-photo img {
+  object-position: 58% 42%;
+  filter: grayscale(0.04) contrast(1.08) brightness(0.52) saturate(0.82);
 }
 .atmosphere-penthouse .atmosphere-photo img {
   object-position: 50% 40%;
