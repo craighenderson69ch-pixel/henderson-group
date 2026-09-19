@@ -93,14 +93,14 @@ The public site does not publish client results, percentage unit-economics, or n
 
 Hero and major bands use the Grok private-bank moodboard (second pack). Mapping on the live homepage:
 
-- Hero — executive office (`hero-office.jpg` / `.webp` + live `hero-loop.mp4`), with a quiet crossfade to the cliff villa still and `hero-villa-loop.mp4`
+- Hero — monochrome night skyline (`hero-skyline.jpg` / `.webp`), cropped on small screens to the lit tower, not the empty left void
 - `#standard` — honey-stone courtyard
 - `#approach` — blue-hour glass plaza
 - `#leadership` — penthouse dusk
 - `#consult` — cliff villa
 - Trust strip — small watch/emerald precision motif (not a jewellery pitch)
 
-Screens are decorative only. Heavy dark overlays keep type at AA+. Hero video is muted, autoplay, loop, `playsinline`; it only takes over after a successful play (poster = matching still). Respects `prefers-reduced-motion` (still only). Cache-bust query: `?v=ch-grok3`.
+Screens are decorative only. Heavy dark overlays keep type at AA+. The opening hero is a still. Respects `prefers-reduced-motion`. Cache-bust query: `?v=ch-grok3`.
 
 Public URLs:
 
