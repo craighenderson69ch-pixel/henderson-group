@@ -159,17 +159,24 @@
     });
   }
 
-  /* --- Mobile consult bar: hide once the form is in view --- */
+  /* --- Mobile consult bar: only near the CTA, never over form fields --- */
   const consult = document.getElementById("consult");
   const mobileConsult = document.querySelector(".mobile-consult-bar");
   if (consult && mobileConsult) {
     document.body.classList.add("has-mobile-consult");
-    const consultIo = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        document.body.classList.toggle("consult-in-view", entry.isIntersecting);
-      });
-    }, { threshold: 0.18, rootMargin: "0px 0px -20% 0px" });
-    consultIo.observe(consult);
+    const formShell = consult.querySelector(".form-shell") || consult;
+    function syncConsultBar() {
+      const vh = window.innerHeight || 800;
+      const c = consult.getBoundingClientRect();
+      const form = formShell.getBoundingClientRect();
+      const near = c.top < vh * 1.2 && c.bottom > 96;
+      const covering = form.top < vh * 0.58;
+      document.body.classList.toggle("consult-near", near && !covering);
+      document.body.classList.toggle("consult-in-view", covering);
+    }
+    window.addEventListener("scroll", syncConsultBar, { passive: true });
+    window.addEventListener("resize", syncConsultBar);
+    syncConsultBar();
   }
 
   /* --- Continent dot-grid (decorative, drawn in JS to keep markup clean) --- */

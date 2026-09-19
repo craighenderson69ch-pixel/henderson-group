@@ -26,8 +26,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="../css/styles.css?v=ch-imagine1">
-<link rel="stylesheet" href="../css/variants.css?v=ch-imagine1">
+<link rel="stylesheet" href="../css/styles.css?v=ch-grok3">
+<link rel="stylesheet" href="../css/variants.css?v=ch-grok3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -66,9 +66,12 @@
     <a href="#leadership">Liderança</a>
     <a href="#consult">Consulta</a>
   </nav>
-  <a class="nav-cta" href="#consult">Pedir consulta</a>
-  <button class="nav-mobile-toggle" type="button" aria-label="Menu" aria-expanded="false">Menu</button>
+  <div class="nav-end">
+    <a class="nav-cta" href="#consult"><span class="cta-long">Consulta particular</span><span class="cta-short">Consulta</span></a>
+    <button class="nav-mobile-toggle" type="button" aria-label="Menu" aria-expanded="false">Menu</button>
+  </div>
 </header>
+<a class="mobile-consult-bar" href="#consult">Consulta particular</a>
 
 <main id="main">
 <section class="hero" id="top">
@@ -82,14 +85,14 @@
   </div>
   <div class="hero-frame" aria-hidden="true"></div>
   <div class="hero-content">
-    <p class="hero-identity">Uma firma de captação exclusiva de clientes — feita por nós</p>
+    <p class="hero-identity">Captação exclusiva de clientes, feita por nós</p>
     <h1 class="hero-headline serif">
       Trazemos os<br>
       pedidos.<br>
       <span class="accent">Uma empresa só.</span>
     </h1>
     <p class="hero-desc">
-      Pedidos de clientes qualificados para uma empresa, em um mercado. A sua equipe de vendas fecha. Somos avaliados pelo <strong>custo por venda</strong> — nunca compartilhado, nunca revendido.
+      Pedidos de clientes qualificados, enviados à sua equipe de vendas. Uma empresa, um mercado — nunca compartilhado, nunca revendido.
     </p>
     <div class="hero-actions">
       <a class="hero-cta" href="#consult">Pedir consulta</a>
@@ -107,7 +110,7 @@
   </div>
   <p class="trust-strip-entity">Carmichael Henderson Pty Ltd</p>
   <p class="trust-strip-abn">ABN 54 702 126 627</p>
-  <p class="trust-strip-identity">A Carmichael Henderson é uma firma de captação exclusiva de clientes — feita por nós. Uma empresa. Um mercado. Confidencial por padrão.</p>
+  <p class="trust-strip-identity">Uma empresa. Um mercado. Confidencial por padrão.</p>
 </section>
 
 <section class="section standard atmosphere atmosphere-courtyard" id="standard">
@@ -120,10 +123,10 @@
   <div class="atmosphere-screen" aria-hidden="true"></div>
   <div class="container">
     <div class="define-plate reveal" id="who-we-are">
-      <div class="eyebrow">Quem somos</div>
-      <h2 class="serif">Uma firma de captação exclusiva de clientes — feita por nós.</h2>
-      <p>Trazemos pedidos de clientes qualificados para uma empresa, em um mercado. A sua equipe de vendas fecha. Somos avaliados pelo <strong>custo por venda</strong> — nunca compartilhado, nunca revendido.</p>
-      <p><strong>O que você compra</strong> é simples. Encontramos pessoas que já procuram uma empresa como a sua e enviamos esses pedidos para a sua equipe de vendas — só para ela. Não é lista compartilhada. Não é um nome que outro escritório pode comprar.</p>
+      <div class="eyebrow">O que você compra</div>
+      <h2 class="serif">Pedidos qualificados. A sua equipe fecha.</h2>
+      <p>Encontramos pessoas que já procuram uma empresa como a sua e enviamos esses pedidos para a sua equipe de vendas — só para ela.</p>
+      <p>Uma empresa por mercado. Nunca compartilhado. Nunca revendido. Somos avaliados pelo <strong>custo por venda</strong>.</p>
     </div>
     <div class="pillars">
       <article class="pillar reveal">
@@ -145,10 +148,9 @@
 <section class="section section-compact whisper band-light" id="pipeline" aria-label="Gargalo de crescimento">
   <div class="container">
     <div class="whisper-inner reveal">
-      <div class="eyebrow">O gargalo</div>
-      <p class="whisper-spine serif">Corrigimos a trava no seu funil de crescimento.</p>
-      <p class="whisper-body">O crescimento quase sempre trava em um ponto — falta demanda qualificada, ou a demanda custa demais para fechar.</p>
-      <p class="whisper-body">Trazemos os pedidos de clientes. A sua equipe de vendas transforma esses pedidos em vendas. Avaliamos o trabalho pelo custo por venda. Custo por lead barato não é o objetivo.</p>
+      <div class="eyebrow">A restrição</div>
+      <p class="whisper-spine serif">Quando o crescimento trava, quase sempre é a demanda — pouca, ou cara demais para fechar.</p>
+      <p class="whisper-body">Trazemos pedidos qualificados. A sua equipe de vendas transforma esses pedidos em vendas. Avaliamos o trabalho pelo custo por venda, não pelo custo por lead barato.</p>
     </div>
   </div>
 </section>
@@ -312,7 +314,10 @@
       <article class="leader-card reveal reveal-delay-1">
         <figure class="leader-photo">
           <div class="leader-photo-frame">
-            <img class="leader-photo-leona" src="../assets/leona-henderson.png" alt="Leona Henderson, Brazil Principal da Carmichael Henderson" width="1205" height="1205" loading="lazy">
+            <picture>
+              <source srcset="../assets/leona-henderson.webp" type="image/webp">
+              <img class="leader-photo-leona" src="../assets/leona-henderson.jpg" alt="Leona Henderson, Brazil Principal da Carmichael Henderson" width="900" height="900" loading="lazy">
+            </picture>
           </div>
           <figcaption class="leader-caption">
             <div class="leader-caption-name">Leona Henderson</div>
@@ -653,7 +658,7 @@
 </footer>
 
 <script src="../js/countries.js"></script>
-<script src="../js/form.js?v=ch-imagine1"></script>
-<script src="../js/animations.js?v=ch-imagine1"></script>
+<script src="../js/form.js?v=ch-grok3"></script>
+<script src="../js/animations.js?v=ch-grok3"></script>
 </body>
 </html>
