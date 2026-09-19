@@ -100,7 +100,7 @@ Hero and major bands use the Grok private-bank moodboard (second pack). Mapping 
 - `#consult` — cliff villa
 - Trust strip — small watch/emerald precision motif (not a jewellery pitch)
 
-Screens are decorative only. Heavy dark overlays keep type at AA+. Hero video is muted, autoplay, loop, `playsinline`; it only takes over after a successful play (poster = matching still). Respects `prefers-reduced-motion` (still only). Cache-bust query: `?v=ch-grok2`.
+Screens are decorative only. Heavy dark overlays keep type at AA+. Hero video is muted, autoplay, loop, `playsinline`; it only takes over after a successful play (poster = matching still). Respects `prefers-reduced-motion` (still only). Cache-bust query: `?v=ch-grok3`.
 
 Public URLs:
 
