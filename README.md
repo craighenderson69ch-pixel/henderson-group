@@ -16,7 +16,7 @@ GitHub Pages still builds from `main`. The `github.io` origin redirects to the c
 
 1. Wait for **Actions → Deploy GitHub Pages** on `main` to finish.
 2. Open [https://hendersongroup.com.au/](https://hendersongroup.com.au/).
-3. Confirm the hero reads **A done-for-you exclusive lead-generation firm** / **We win you the enquiries** / **One firm only**, the primary CTA is **Request a consultation** and jumps to `#consult`, the first section names the firm then says what you buy (qualified enquiries to your sales team, one firm, never pooled), the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
+3. Confirm the hero reads **Done-for-you exclusive lead generation** / **We win you the enquiries** / **One firm only**, the primary CTA is **Request a consultation** and jumps to `#consult`, the first section says what you buy (qualified enquiries to your sales team, one firm, never pooled), the trust strip shows **ABN 54 702 126 627**, the phone Menu button is fully visible, and the sticky consultation bar appears only near `#consult` (not over the form).
 4. Confirm FAQ opens with **What does Carmichael Henderson do?**, Leona Henderson’s bio matches Craig’s structure, and a signature sector still opens the consult form with that industry selected.
 5. View-source: `rel="canonical"` should be `https://hendersongroup.com.au/`.
 
