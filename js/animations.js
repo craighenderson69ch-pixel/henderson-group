@@ -14,20 +14,28 @@
 
   /* --- Hero video (optional loop) + parallax --- */
   const heroRoot = document.querySelector(".hero-bg");
-  const heroVideo = document.querySelector(".hero-video");
+  const heroVideos = document.querySelectorAll(".hero-video");
+  const heroPrimary = document.querySelector(".hero-video-primary") || heroVideos[0];
   const heroMedia = document.querySelectorAll(".hero-bg img, .hero-bg video");
-  if (heroVideo && heroRoot && !prefersReduced) {
+  if (heroPrimary && heroRoot && !prefersReduced) {
     function armHeroVideo() {
-      const play = heroVideo.play();
+      heroVideos.forEach(function (vid) {
+        vid.muted = true;
+        const play = vid.play();
+        if (play && typeof play.then === "function") play.catch(function () {});
+      });
+      const play = heroPrimary.play();
       if (play && typeof play.then === "function") {
         play.then(function () { heroRoot.classList.add("has-video"); }).catch(function () {});
       }
     }
-    heroVideo.addEventListener("canplay", armHeroVideo);
-    heroVideo.addEventListener("error", function () {
+    heroPrimary.addEventListener("canplay", armHeroVideo);
+    heroPrimary.addEventListener("error", function () {
       heroRoot.classList.remove("has-video");
     }, true);
-    try { heroVideo.load(); } catch (e) {}
+    heroVideos.forEach(function (vid) {
+      try { vid.load(); } catch (e) {}
+    });
   }
   if (heroMedia.length && !prefersReduced) {
     let ticking = false;
