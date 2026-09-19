@@ -16,7 +16,7 @@ GitHub Pages still builds from `main`. The `github.io` origin redirects to the c
 
 1. Wait for **Actions → Deploy GitHub Pages** on `main` to finish.
 2. Open [https://hendersongroup.com.au/](https://hendersongroup.com.au/).
-3. Confirm the hero reads **A done-for-you exclusive lead-generation firm** / **We win you the enquiries** / **One firm only**, the primary CTA is **Request a consultation** and jumps to `#consult`, the first section names the firm then says what you buy (qualified enquiries to your sales team, one firm, never pooled), the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
+3. Confirm the hero reads **A done-for-you exclusive lead-generation firm** / **We win you the enquiries** / **One mandate.**, the primary CTA is **Start the brief** and jumps to `#consult`, the first section names the firm then says what you buy (qualified enquiries to your sales team, one firm, never pooled), the trust strip shows **ABN 54 702 126 627**, and **Private consultation** stays visible on a phone-width viewport.
 4. Confirm FAQ opens with **What does Carmichael Henderson do?**, Leona Henderson’s bio matches Craig’s structure, and a signature sector still opens the consult form with that industry selected.
 5. View-source: `rel="canonical"` should be `https://hendersongroup.com.au/`.
 
@@ -93,14 +93,14 @@ The public site does not publish client results, percentage unit-economics, or n
 
 Hero and major bands use the Grok private-bank moodboard (second pack). Mapping on the live homepage:
 
-- Hero — executive office (`hero-office.jpg` / `.webp` + live `hero-loop.mp4` / `hero-office-loop.mp4`), with a quiet crossfade to the cliff villa still and `hero-villa-loop.mp4`
+- Hero — monochrome night skyline (`hero-skyline.jpg` / `.webp`), thin frames, gold italic **One mandate.**, solid **Start the brief** CTA
 - `#standard` — honey-stone courtyard
 - `#approach` — blue-hour glass plaza
 - `#leadership` — penthouse dusk
 - `#consult` — cliff villa
 - Trust strip — small watch/emerald precision motif (not a jewellery pitch)
 
-Screens are decorative only. Heavy dark overlays keep type at AA+. Hero video is muted, autoplay, loop, `playsinline`; it only takes over after a successful play (poster = matching still). Respects `prefers-reduced-motion` (still only). Cache-bust query: `?v=ch-grok2`.
+Screens are decorative only. Heavy dark overlays keep type at AA+. The opening hero is a still (no office/villa loop). Respects `prefers-reduced-motion`. Cache-bust query: `?v=ch-imagine1`.
 
 Public URLs:
 
