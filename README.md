@@ -93,7 +93,7 @@ The public site does not publish client results, percentage unit-economics, or n
 
 Hero and major bands use the Grok private-bank moodboard (second pack). Mapping on the live homepage:
 
-- Hero — executive office (`hero-office.jpg` / `.webp` + live `hero-loop.mp4` / `hero-office-loop.mp4`), with a quiet crossfade to the cliff villa still and `hero-villa-loop.mp4`
+- Hero — executive office (`hero-office.jpg` / `.webp` + live `hero-loop.mp4`), with a quiet crossfade to the cliff villa still and `hero-villa-loop.mp4`
 - `#standard` — honey-stone courtyard
 - `#approach` — blue-hour glass plaza
 - `#leadership` — penthouse dusk
