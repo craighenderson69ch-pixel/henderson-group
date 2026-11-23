@@ -74,6 +74,7 @@ The public site does not publish client results, percentage unit-economics, or n
 | Path | Purpose |
 | --- | --- |
 | `index.html` | Live homepage (Quieter English) |
+| `finance/` | Consumer loans comparison page (RateMatch partnership). Does not change the homepage. |
 | `variants/index.html` | Gallery so Craig can click between versions |
 | `variants/en-quiet.html` | Quieter English (same as homepage) |
 | `variants/en-bright.html` | Brighter English, stronger CTA |
@@ -105,6 +106,7 @@ Screens are decorative only. Heavy dark overlays keep type at AA+. The opening h
 Public URLs:
 
 - https://hendersongroup.com.au/
+- https://hendersongroup.com.au/finance/
 - https://hendersongroup.com.au/privacy.html
 - https://hendersongroup.com.au/terms.html
 - https://hendersongroup.com.au/variants/
